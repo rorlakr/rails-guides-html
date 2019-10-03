@@ -23,9 +23,6 @@
   <meta property="og:type" content="website" />
 </head>
 <body class="guide">
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
   <div id="topNav">
     <div class="wrapper">
       <strong class="more-info-label">More at <a href="https://rubyonrails.org/">rubyonrails.org:</a> </strong>
@@ -496,7 +493,7 @@ end
 </pre>
 </div>
 <p>This migration will create a <code>user_id</code> column and appropriate index.
-For more <code>add_reference</code> options, visit the <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html#method-i-add_reference">API documentation</a>.</p><p>There is also a generator which will produce join tables if <code>JoinTable</code> is part of the name:</p><div class="code_container">
+For more <code>add_reference</code> options, visit the <a href="https://api.rubyonrails.org/6/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html#method-i-add_reference">API documentation</a>.</p><p>There is also a generator which will produce join tables if <code>JoinTable</code> is part of the name:</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails g migration CreateJoinTableCustomerProduct customer product
 
@@ -713,12 +710,12 @@ Product.connection.execute("UPDATE products SET price = 'free' WHERE 1=1")
 </div>
 <p>For more details and examples of individual methods, check the API documentation.
 In particular the documentation for
-<a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html"><code>ActiveRecord::ConnectionAdapters::SchemaStatements</code></a>
+<a href="https://api.rubyonrails.org/6/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html"><code>ActiveRecord::ConnectionAdapters::SchemaStatements</code></a>
 (which provides the methods available in the <code>change</code>, <code>up</code> and <code>down</code> methods),
-<a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/TableDefinition.html"><code>ActiveRecord::ConnectionAdapters::TableDefinition</code></a>
+<a href="https://api.rubyonrails.org/6/classes/ActiveRecord/ConnectionAdapters/TableDefinition.html"><code>ActiveRecord::ConnectionAdapters::TableDefinition</code></a>
 (which provides the methods available on the object yielded by <code>create_table</code>)
 and
-<a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/Table.html"><code>ActiveRecord::ConnectionAdapters::Table</code></a>
+<a href="https://api.rubyonrails.org/6/classes/ActiveRecord/ConnectionAdapters/Table.html"><code>ActiveRecord::ConnectionAdapters::Table</code></a>
 (which provides the methods available on the object yielded by <code>change_table</code>).</p><h4 id="using-the-change-method"><a class="anchorlink" href="#using-the-change-method">3.8 Using the <code>change</code> Method</a></h4><p>The <code>change</code> method is the primary way of writing migrations. It works for the
 majority of cases, where Active Record knows how to reverse the migration
 automatically. Currently, the <code>change</code> method supports only these migration

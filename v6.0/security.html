@@ -23,9 +23,6 @@
   <meta property="og:type" content="website" />
 </head>
 <body class="guide">
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
   <div id="topNav">
     <div class="wrapper">
       <strong class="more-info-label">More at <a href="https://rubyonrails.org/">rubyonrails.org:</a> </strong>
@@ -348,12 +345,12 @@ session cookies using a stored timestamp.</p></li>
 <li><p>Rails encrypts cookies by default. The client cannot read or edit the contents of the cookie, without breaking encryption. If you take appropriate care of your secrets, you can consider your cookies to be generally secured.</p></li>
 </ul>
 <p>The <code>CookieStore</code> uses the
-<a href="https://edgeapi.rubyonrails.org/classes/ActionDispatch/Cookies/ChainedCookieJars.html#method-i-encrypted">encrypted</a>
+<a href="https://api.rubyonrails.org/6/classes/ActionDispatch/Cookies/ChainedCookieJars.html#method-i-encrypted">encrypted</a>
 cookie jar to provide a secure, encrypted location to store session
 data. Cookie-based sessions thus provide both integrity as well as
 confidentiality to their contents. The encryption key, as well as the
 verification key used for
-<a href="https://edgeapi.rubyonrails.org/classes/ActionDispatch/Cookies/ChainedCookieJars.html#method-i-signed">signed</a>
+<a href="https://api.rubyonrails.org/6/classes/ActionDispatch/Cookies/ChainedCookieJars.html#method-i-signed">signed</a>
 cookies, is derived from the <code>secret_key_base</code> configuration value.</p><div class="info"><p>Secrets must be long and random. Use <code>rails secret</code> to get new unique secrets.</p></div><div class="info"><p>Learn more about <a href="security.html#custom-credentials">managing credentials later in this guide</a></p></div><p>It is also important to use different salt values for encrypted and
 signed cookies. Using the same value for different salt configuration
 values may lead to the same derived key being used for different
@@ -391,9 +388,9 @@ have their cookies rewritten, remove the rotation.</p><p>While you can setup as 
 rotations going at any one time.</p><p>For more details on key rotation with encrypted and signed messages as
 well as the various options the <code>rotate</code> method accepts, please refer to
 the
-<a href="https://edgeapi.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html">MessageEncryptor API</a>
+<a href="https://api.rubyonrails.org/6/classes/ActiveSupport/MessageEncryptor.html">MessageEncryptor API</a>
 and
-<a href="https://edgeapi.rubyonrails.org/classes/ActiveSupport/MessageVerifier.html">MessageVerifier API</a>
+<a href="https://api.rubyonrails.org/6/classes/ActiveSupport/MessageVerifier.html">MessageVerifier API</a>
 documentation.</p><h4 id="replay-attacks-for-cookiestore-sessions"><a class="anchorlink" href="#replay-attacks-for-cookiestore-sessions">2.5 Replay Attacks for CookieStore Sessions</a></h4><div class="info"><p><em>Another sort of attack you have to be aware of when using <code>CookieStore</code> is the replay attack.</em></p></div><p>It works like this:</p>
 <ul>
 <li>A user receives credits, the amount is stored in a session (which is a bad idea anyway, but we'll do this for demonstration purposes).</li>
@@ -1067,7 +1064,7 @@ as part of <code>html_options</code>. Example:</p><div class="code_container">
 
 </pre>
 </div>
-<p>Use <a href="https://edgeapi.rubyonrails.org/classes/ActionView/Helpers/CspHelper.html#method-i-csp_meta_tag"><code>csp_meta_tag</code></a>
+<p>Use <a href="https://api.rubyonrails.org/6/classes/ActionView/Helpers/CspHelper.html#method-i-csp_meta_tag"><code>csp_meta_tag</code></a>
 helper to create a meta tag "csp-nonce" with the per-session nonce value
 for allowing inline <code>&lt;script&gt;</code> tags.</p><div class="code_container">
 <pre class="brush: ruby; html-script: true; gutter: false; toolbar: false">
@@ -1135,7 +1132,7 @@ Rails.application.credentials.some_api_key! # =&gt; raises KeyError: :some_api_k
   <hr class="hide" />
   <div id="footer">
     <div class="wrapper">
-      <p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> License</p>
+      <p>본 결과물은 <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> 하에 라이센스가 적용된다. </p>
 <p>"Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. All rights reserved.</p>
 
     </div>

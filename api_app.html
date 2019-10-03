@@ -23,9 +23,6 @@
   <meta property="og:type" content="website" />
 </head>
 <body class="guide">
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
   <div id="topNav">
     <div class="wrapper">
       <strong class="more-info-label">More at <a href="https://rubyonrails.org/">rubyonrails.org:</a> </strong>
@@ -301,7 +298,7 @@ works too.</li>
 <li>Conditional GETs: Rails handles conditional <code>GET</code> (<code>ETag</code> and <code>Last-Modified</code>)
 processing request headers and returning the correct response headers and status
 code. All you need to do is use the
-<a href="https://edgeapi.rubyonrails.org/classes/ActionController/ConditionalGet.html#method-i-stale-3F"><code>stale?</code></a>
+<a href="https://api.rubyonrails.org/6/classes/ActionController/ConditionalGet.html#method-i-stale-3F"><code>stale?</code></a>
 check in your controller, and Rails will handle all of the HTTP details for you.</li>
 <li>HEAD requests: Rails will transparently convert <code>HEAD</code> requests into <code>GET</code> ones,
 and return just the headers on the way out. This makes <code>HEAD</code> work reliably in

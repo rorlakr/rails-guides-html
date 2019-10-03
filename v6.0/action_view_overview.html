@@ -23,9 +23,6 @@
   <meta property="og:type" content="website" />
 </head>
 <body class="guide">
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
   <div id="topNav">
     <div class="wrapper">
       <strong class="more-info-label">More at <a href="https://rubyonrails.org/">rubyonrails.org:</a> </strong>
@@ -546,7 +543,7 @@ append_view_path "app/views/direct"
 
 </pre>
 </div>
-<p>This will add <code>app/views/direct</code> to the end of the lookup paths.</p><h3 id="overview-of-helpers-provided-by-action-view"><a class="anchorlink" href="#overview-of-helpers-provided-by-action-view">6 Overview of helpers provided by Action View</a></h3><p>WIP: Not all the helpers are listed here. For a full list see the <a href="https://edgeapi.rubyonrails.org/classes/ActionView/Helpers.html">API documentation</a></p><p>The following is only a brief overview summary of the helpers available in Action View. It's recommended that you review the <a href="https://edgeapi.rubyonrails.org/classes/ActionView/Helpers.html">API Documentation</a>, which covers all of the helpers in more detail, but this should serve as a good starting point.</p><h4 id="assettaghelper"><a class="anchorlink" href="#assettaghelper">6.1 AssetTagHelper</a></h4><p>This module provides methods for generating HTML that links views to assets such as images, JavaScript files, stylesheets, and feeds.</p><p>By default, Rails links to these assets on the current host in the public folder, but you can direct Rails to link to assets from a dedicated assets server by setting <code>config.action_controller.asset_host</code> in the application configuration, typically in <code>config/environments/production.rb</code>. For example, let's say your asset host is <code>assets.example.com</code>:</p><div class="code_container">
+<p>This will add <code>app/views/direct</code> to the end of the lookup paths.</p><h3 id="overview-of-helpers-provided-by-action-view"><a class="anchorlink" href="#overview-of-helpers-provided-by-action-view">6 Overview of helpers provided by Action View</a></h3><p>WIP: Not all the helpers are listed here. For a full list see the <a href="https://api.rubyonrails.org/6/classes/ActionView/Helpers.html">API documentation</a></p><p>The following is only a brief overview summary of the helpers available in Action View. It's recommended that you review the <a href="https://api.rubyonrails.org/6/classes/ActionView/Helpers.html">API Documentation</a>, which covers all of the helpers in more detail, but this should serve as a good starting point.</p><h4 id="assettaghelper"><a class="anchorlink" href="#assettaghelper">6.1 AssetTagHelper</a></h4><p>This module provides methods for generating HTML that links views to assets such as images, JavaScript files, stylesheets, and feeds.</p><p>By default, Rails links to these assets on the current host in the public folder, but you can direct Rails to link to assets from a dedicated assets server by setting <code>config.action_controller.asset_host</code> in the application configuration, typically in <code>config/environments/production.rb</code>. For example, let's say your asset host is <code>assets.example.com</code>:</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 config.action_controller.asset_host = "assets.example.com"
 image_tag("rails.png") # =&gt; &lt;img src="http://assets.example.com/images/rails.png" /&gt;
@@ -1444,7 +1441,7 @@ end
   <hr class="hide" />
   <div id="footer">
     <div class="wrapper">
-      <p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> License</p>
+      <p>본 결과물은 <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> 하에 라이센스가 적용된다. </p>
 <p>"Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. All rights reserved.</p>
 
     </div>

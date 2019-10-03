@@ -23,9 +23,6 @@
   <meta property="og:type" content="website" />
 </head>
 <body class="guide">
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
   <div id="topNav">
     <div class="wrapper">
       <strong class="more-info-label">More at <a href="https://rubyonrails.org/">rubyonrails.org:</a> </strong>
@@ -342,7 +339,7 @@ end
 <li><p><code>config.filter_parameters</code> used for filtering out the parameters that
 you don't want shown in the logs, such as passwords or credit card
 numbers. It also filters out sensitive values of database columns when call <code>#inspect</code> on an Active Record object. By default, Rails filters out passwords by adding <code>Rails.application.config.filter_parameters += [:password]</code> in <code>config/initializers/filter_parameter_logging.rb</code>. Parameters filter works by partial matching regular expression.</p></li>
-<li><p><code>config.force_ssl</code> forces all requests to be served over HTTPS by using the <code>ActionDispatch::SSL</code> middleware, and sets <code>config.action_mailer.default_url_options</code> to be <code>{ protocol: 'https' }</code>. This can be configured by setting <code>config.ssl_options</code> - see the <a href="https://edgeapi.rubyonrails.org/classes/ActionDispatch/SSL.html">ActionDispatch::SSL documentation</a> for details.</p></li>
+<li><p><code>config.force_ssl</code> forces all requests to be served over HTTPS by using the <code>ActionDispatch::SSL</code> middleware, and sets <code>config.action_mailer.default_url_options</code> to be <code>{ protocol: 'https' }</code>. This can be configured by setting <code>config.ssl_options</code> - see the <a href="https://api.rubyonrails.org/6/classes/ActionDispatch/SSL.html">ActionDispatch::SSL documentation</a> for details.</p></li>
 <li><p><code>config.log_formatter</code> defines the formatter of the Rails logger. This option defaults to an instance of <code>ActiveSupport::Logger::SimpleFormatter</code> for all modes. If you are setting a value for <code>config.logger</code> you must manually pass the value of your formatter to your logger before it is wrapped in an <code>ActiveSupport::TaggedLogging</code> instance, Rails will not do it for you.</p></li>
 <li><p><code>config.log_level</code> defines the verbosity of the Rails logger. This option
 defaults to <code>:debug</code> for all environments. The available log levels are: <code>:debug</code>,
@@ -974,7 +971,7 @@ mailers. By default this is <code>mailers</code>.</p></li>
 <h4 id="configuring-active-job"><a class="anchorlink" href="#configuring-active-job">3.14 Configuring Active Job</a></h4><p><code>config.active_job</code> provides the following configuration options:</p>
 <ul>
 <li>
-<p><code>config.active_job.queue_adapter</code> sets the adapter for the queuing backend. The default adapter is <code>:async</code>. For an up-to-date list of built-in adapters see the <a href="https://edgeapi.rubyonrails.org/classes/ActiveJob/QueueAdapters.html">ActiveJob::QueueAdapters API documentation</a>.</p>
+<p><code>config.active_job.queue_adapter</code> sets the adapter for the queuing backend. The default adapter is <code>:async</code>. For an up-to-date list of built-in adapters see the <a href="https://api.rubyonrails.org/6/classes/ActiveJob/QueueAdapters.html">ActiveJob::QueueAdapters API documentation</a>.</p>
 <div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 # Be sure to have the adapter's gem in your Gemfile

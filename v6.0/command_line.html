@@ -23,9 +23,6 @@
   <meta property="og:type" content="website" />
 </head>
 <body class="guide">
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
   <div id="topNav">
     <div class="wrapper">
       <strong class="more-info-label">More at <a href="https://rubyonrails.org/">rubyonrails.org:</a> </strong>
@@ -459,7 +456,7 @@ Description:
 
 </pre>
 </div>
-<div class="note"><p>For a list of available field types for the <code>type</code> parameter, refer to the <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html#method-i-add_column">API documentation</a> for the add_column method for the <code>SchemaStatements</code> module. The <code>index</code> parameter generates a corresponding index for the column.</p></div><p>But instead of generating a model directly (which we'll be doing later), let's set up a scaffold. A <strong>scaffold</strong> in Rails is a full set of model, database migration for that model, controller to manipulate it, views to view and manipulate the data, and a test suite for each of the above.</p><p>We will set up a simple resource called "HighScore" that will keep track of our highest score on video games we play.</p><div class="code_container">
+<div class="note"><p>For a list of available field types for the <code>type</code> parameter, refer to the <a href="https://api.rubyonrails.org/6/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html#method-i-add_column">API documentation</a> for the add_column method for the <code>SchemaStatements</code> module. The <code>index</code> parameter generates a corresponding index for the column.</p></div><p>But instead of generating a model directly (which we'll be doing later), let's set up a scaffold. A <strong>scaffold</strong> in Rails is a full set of model, database migration for that model, controller to manipulate it, views to view and manipulate the data, and a test suite for each of the above.</p><p>We will set up a simple resource called "HighScore" that will keep track of our highest score on video games we play.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails generate scaffold HighScore game:string score:integer
     invoke  active_record
@@ -866,7 +863,7 @@ development:
   <hr class="hide" />
   <div id="footer">
     <div class="wrapper">
-      <p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> License</p>
+      <p>본 결과물은 <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> 하에 라이센스가 적용된다. </p>
 <p>"Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. All rights reserved.</p>
 
     </div>

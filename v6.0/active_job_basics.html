@@ -23,9 +23,6 @@
   <meta property="og:type" content="website" />
 </head>
 <body class="guide">
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
   <div id="topNav">
     <div class="wrapper">
       <strong class="more-info-label">More at <a href="https://rubyonrails.org/">rubyonrails.org:</a> </strong>
@@ -356,7 +353,7 @@ If the process crashes or the machine is reset, then all outstanding jobs are lo
 default async backend. This may be fine for smaller apps or non-critical jobs, but most
 production apps will need to pick a persistent backend.</p><h4 id="backends"><a class="anchorlink" href="#backends">4.1 Backends</a></h4><p>Active Job has built-in adapters for multiple queuing backends (Sidekiq,
 Resque, Delayed Job, and others). To get an up-to-date list of the adapters
-see the API Documentation for <a href="https://edgeapi.rubyonrails.org/classes/ActiveJob/QueueAdapters.html">ActiveJob::QueueAdapters</a>.</p><h4 id="setting-the-backend"><a class="anchorlink" href="#setting-the-backend">4.2 Setting the Backend</a></h4><p>You can easily set your queuing backend:</p><div class="code_container">
+see the API Documentation for <a href="https://api.rubyonrails.org/6/classes/ActiveJob/QueueAdapters.html">ActiveJob::QueueAdapters</a>.</p><h4 id="setting-the-backend"><a class="anchorlink" href="#setting-the-backend">4.2 Setting the Backend</a></h4><p>You can easily set your queuing backend:</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 # config/application.rb
 module YourApp
@@ -649,7 +646,7 @@ end
 
 </pre>
 </div>
-<p>To get more details see the API Documentation for <a href="https://edgeapi.rubyonrails.org/classes/ActiveJob/Exceptions/ClassMethods.html">ActiveJob::Exceptions</a>.</p><h4 id="deserialization"><a class="anchorlink" href="#deserialization">10.2 Deserialization</a></h4><p>GlobalID allows serializing full Active Record objects passed to <code>#perform</code>.</p><p>If a passed record is deleted after the job is enqueued but before the <code>#perform</code>
+<p>To get more details see the API Documentation for <a href="https://api.rubyonrails.org/6/classes/ActiveJob/Exceptions/ClassMethods.html">ActiveJob::Exceptions</a>.</p><h4 id="deserialization"><a class="anchorlink" href="#deserialization">10.2 Deserialization</a></h4><p>GlobalID allows serializing full Active Record objects passed to <code>#perform</code>.</p><p>If a passed record is deleted after the job is enqueued but before the <code>#perform</code>
 method is called Active Job will raise an <code>ActiveJob::DeserializationError</code>
 exception.</p><h3 id="job-testing"><a class="anchorlink" href="#job-testing">11 Job Testing</a></h3><p>You can find detailed instructions on how to test your jobs in the
 <a href="testing.html#testing-jobs">testing guide</a>.</p>
@@ -684,7 +681,7 @@ exception.</p><h3 id="job-testing"><a class="anchorlink" href="#job-testing">11 
   <hr class="hide" />
   <div id="footer">
     <div class="wrapper">
-      <p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> License</p>
+      <p>본 결과물은 <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> 하에 라이센스가 적용된다. </p>
 <p>"Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. All rights reserved.</p>
 
     </div>

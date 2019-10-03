@@ -23,9 +23,6 @@
   <meta property="og:type" content="website" />
 </head>
 <body class="guide">
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
   <div id="topNav">
     <div class="wrapper">
       <strong class="more-info-label">More at <a href="https://rubyonrails.org/">rubyonrails.org:</a> </strong>
@@ -1164,7 +1161,7 @@ end
 own custom validators.</p><h4 id="custom-methods"><a class="anchorlink" href="#custom-methods">6.2 Custom Methods</a></h4><p>You can also create methods that verify the state of your models and add
 messages to the <code>errors</code> collection when they are invalid. You must then
 register these methods by using the <code>validate</code>
-(<a href="https://edgeapi.rubyonrails.org/classes/ActiveModel/Validations/ClassMethods.html#method-i-validate">API</a>)
+(<a href="https://api.rubyonrails.org/6/classes/ActiveModel/Validations/ClassMethods.html#method-i-validate">API</a>)
 class method, passing in the symbols for the validation methods' names.</p><p>You can pass more than one symbol for each class method and the respective
 validations will be run in the same order as they were registered.</p><p>The <code>valid?</code> method will verify that the errors collection is empty,
 so your custom validation methods should add errors to it when you
