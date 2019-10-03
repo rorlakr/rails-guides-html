@@ -700,52 +700,52 @@ more up-to-date list, please check
 </thead>
 <tbody>
 <tr>
-<td><a href="https://api.rubyonrails.org/6/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_difference"><code>assert_difference(expressions, difference = 1, message = nil) {...}</code></a></td>
+<td><a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_difference"><code>assert_difference(expressions, difference = 1, message = nil) {...}</code></a></td>
 <td>Test numeric difference between the return value of an expression as a result of what is evaluated in the yielded block.</td>
 </tr>
 <tr>
-<td><a href="https://api.rubyonrails.org/6/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_difference"><code>assert_no_difference(expressions, message = nil, &amp;block)</code></a></td>
+<td><a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_difference"><code>assert_no_difference(expressions, message = nil, &amp;block)</code></a></td>
 <td>Asserts that the numeric result of evaluating an expression is not changed before and after invoking the passed in block.</td>
 </tr>
 <tr>
-<td><a href="https://api.rubyonrails.org/6/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_changes"><code>assert_changes(expressions, message = nil, from:, to:, &amp;block)</code></a></td>
+<td><a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_changes"><code>assert_changes(expressions, message = nil, from:, to:, &amp;block)</code></a></td>
 <td>Test that the result of evaluating an expression is changed after invoking the passed in block.</td>
 </tr>
 <tr>
-<td><a href="https://api.rubyonrails.org/6/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_changes"><code>assert_no_changes(expressions, message = nil, &amp;block)</code></a></td>
+<td><a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_changes"><code>assert_no_changes(expressions, message = nil, &amp;block)</code></a></td>
 <td>Test the result of evaluating an expression is not changed after invoking the passed in block.</td>
 </tr>
 <tr>
-<td><a href="https://api.rubyonrails.org/6/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_nothing_raised"><code>assert_nothing_raised { block }</code></a></td>
+<td><a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_nothing_raised"><code>assert_nothing_raised { block }</code></a></td>
 <td>Ensures that the given block doesn't raise any exceptions.</td>
 </tr>
 <tr>
-<td><a href="https://api.rubyonrails.org/6/classes/ActionDispatch/Assertions/RoutingAssertions.html#method-i-assert_recognizes"><code>assert_recognizes(expected_options, path, extras={}, message=nil)</code></a></td>
+<td><a href="https://api.rubyonrails.org/6-0-stable/classes/ActionDispatch/Assertions/RoutingAssertions.html#method-i-assert_recognizes"><code>assert_recognizes(expected_options, path, extras={}, message=nil)</code></a></td>
 <td>Asserts that the routing of the given path was handled correctly and that the parsed options (given in the expected_options hash) match path. Basically, it asserts that Rails recognizes the route given by expected_options.</td>
 </tr>
 <tr>
-<td><a href="https://api.rubyonrails.org/6/classes/ActionDispatch/Assertions/RoutingAssertions.html#method-i-assert_generates"><code>assert_generates(expected_path, options, defaults={}, extras = {}, message=nil)</code></a></td>
+<td><a href="https://api.rubyonrails.org/6-0-stable/classes/ActionDispatch/Assertions/RoutingAssertions.html#method-i-assert_generates"><code>assert_generates(expected_path, options, defaults={}, extras = {}, message=nil)</code></a></td>
 <td>Asserts that the provided options can be used to generate the provided path. This is the inverse of assert_recognizes. The extras parameter is used to tell the request the names and values of additional request parameters that would be in a query string. The message parameter allows you to specify a custom error message for assertion failures.</td>
 </tr>
 <tr>
-<td><a href="https://api.rubyonrails.org/6/classes/ActionDispatch/Assertions/ResponseAssertions.html#method-i-assert_response"><code>assert_response(type, message = nil)</code></a></td>
+<td><a href="https://api.rubyonrails.org/6-0-stable/classes/ActionDispatch/Assertions/ResponseAssertions.html#method-i-assert_response"><code>assert_response(type, message = nil)</code></a></td>
 <td>Asserts that the response comes with a specific status code. You can specify <code>:success</code> to indicate 200-299, <code>:redirect</code> to indicate 300-399, <code>:missing</code> to indicate 404, or <code>:error</code> to match the 500-599 range. You can also pass an explicit status number or its symbolic equivalent. For more information, see <a href="http://rubydoc.info/github/rack/rack/master/Rack/Utils#HTTP_STATUS_CODES-constant">full list of status codes</a> and how their <a href="https://rubydoc.info/github/rack/rack/master/Rack/Utils#SYMBOL_TO_STATUS_CODE-constant">mapping</a> works.</td>
 </tr>
 <tr>
-<td><a href="https://api.rubyonrails.org/6/classes/ActionDispatch/Assertions/ResponseAssertions.html#method-i-assert_redirected_to"><code>assert_redirected_to(options = {}, message=nil)</code></a></td>
+<td><a href="https://api.rubyonrails.org/6-0-stable/classes/ActionDispatch/Assertions/ResponseAssertions.html#method-i-assert_redirected_to"><code>assert_redirected_to(options = {}, message=nil)</code></a></td>
 <td>Asserts that the redirection options passed in match those of the redirect called in the latest action. This match can be partial, such that <code>assert_redirected_to(controller: "weblog")</code> will also match the redirection of <code>redirect_to(controller: "weblog", action: "show")</code> and so on. You can also pass named routes such as <code>assert_redirected_to root_path</code> and Active Record objects such as <code>assert_redirected_to @article</code>.</td>
 </tr>
 </tbody>
 </table>
 <p>You'll see the usage of some of these assertions in the next chapter.</p><h4 id="a-brief-note-about-test-cases"><a class="anchorlink" href="#a-brief-note-about-test-cases">2.6 A Brief Note About Test Cases</a></h4><p>All the basic assertions such as <code>assert_equal</code> defined in <code>Minitest::Assertions</code> are also available in the classes we use in our own test cases. In fact, Rails provides the following classes for you to inherit from:</p>
 <ul>
-<li><a href="https://api.rubyonrails.org/6/classes/ActiveSupport/TestCase.html"><code>ActiveSupport::TestCase</code></a></li>
-<li><a href="https://api.rubyonrails.org/6/classes/ActionMailer/TestCase.html"><code>ActionMailer::TestCase</code></a></li>
-<li><a href="https://api.rubyonrails.org/6/classes/ActionView/TestCase.html"><code>ActionView::TestCase</code></a></li>
-<li><a href="https://api.rubyonrails.org/6/classes/ActiveJob/TestCase.html"><code>ActiveJob::TestCase</code></a></li>
-<li><a href="https://api.rubyonrails.org/6/classes/ActionDispatch/IntegrationTest.html"><code>ActionDispatch::IntegrationTest</code></a></li>
-<li><a href="https://api.rubyonrails.org/6/classes/ActionDispatch/SystemTestCase.html"><code>ActionDispatch::SystemTestCase</code></a></li>
-<li><a href="https://api.rubyonrails.org/6/classes/Rails/Generators/TestCase.html"><code>Rails::Generators::TestCase</code></a></li>
+<li><a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveSupport/TestCase.html"><code>ActiveSupport::TestCase</code></a></li>
+<li><a href="https://api.rubyonrails.org/6-0-stable/classes/ActionMailer/TestCase.html"><code>ActionMailer::TestCase</code></a></li>
+<li><a href="https://api.rubyonrails.org/6-0-stable/classes/ActionView/TestCase.html"><code>ActionView::TestCase</code></a></li>
+<li><a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveJob/TestCase.html"><code>ActiveJob::TestCase</code></a></li>
+<li><a href="https://api.rubyonrails.org/6-0-stable/classes/ActionDispatch/IntegrationTest.html"><code>ActionDispatch::IntegrationTest</code></a></li>
+<li><a href="https://api.rubyonrails.org/6-0-stable/classes/ActionDispatch/SystemTestCase.html"><code>ActionDispatch::SystemTestCase</code></a></li>
+<li><a href="https://api.rubyonrails.org/6-0-stable/classes/Rails/Generators/TestCase.html"><code>Rails::Generators::TestCase</code></a></li>
 </ul>
 <p>Each of these classes include <code>Minitest::Assertions</code>, allowing us to use all of the basic assertions in our tests.</p><div class="note"><p>For more information on <code>Minitest</code>, refer to <a href="http://docs.seattlerb.org/minitest">its
 documentation</a>.</p></div><h4 id="the-rails-test-runner"><a class="anchorlink" href="#the-rails-test-runner">2.7 The Rails Test Runner</a></h4><p>We can run all of our tests at once by using the <code>rails test</code> command.</p><p>Or we can run a single test file by passing the <code>rails test</code> command the filename containing the test cases.</p><div class="code_container">
@@ -894,7 +894,7 @@ the migrations against the development database (<code>rails db:migrate</code>) 
 bring the schema up to date.</p><div class="note"><p>If there were modifications to existing migrations, the test database needs to
 be rebuilt. This can be done by executing <code>rails db:test:prepare</code>.</p></div><h4 id="the-low-down-on-fixtures"><a class="anchorlink" href="#the-low-down-on-fixtures">4.2 The Low-Down on Fixtures</a></h4><p>For good tests, you'll need to give some thought to setting up test data.
 In Rails, you can handle this by defining and customizing fixtures.
-You can find comprehensive documentation in the <a href="https://api.rubyonrails.org/6/classes/ActiveRecord/FixtureSet.html">Fixtures API documentation</a>.</p><h5 id="what-are-fixtures-questionmark"><a class="anchorlink" href="#what-are-fixtures-questionmark">4.2.1 What Are Fixtures?</a></h5><p><em>Fixtures</em> is a fancy word for sample data. Fixtures allow you to populate your testing database with predefined data before your tests run. Fixtures are database independent and written in YAML. There is one file per model.</p><div class="note"><p>Fixtures are not designed to create every object that your tests need, and are best managed when only used for default data that can be applied to the common case.</p></div><p>You'll find fixtures under your <code>test/fixtures</code> directory. When you run <code>rails generate model</code> to create a new model, Rails automatically creates fixture stubs in this directory.</p><h5 id="yaml"><a class="anchorlink" href="#yaml">4.2.2 YAML</a></h5><p>YAML-formatted fixtures are a human-friendly way to describe your sample data. These types of fixtures have the <strong>.yml</strong> file extension (as in <code>users.yml</code>).</p><p>Here's a sample YAML fixture file:</p><div class="code_container">
+You can find comprehensive documentation in the <a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveRecord/FixtureSet.html">Fixtures API documentation</a>.</p><h5 id="what-are-fixtures-questionmark"><a class="anchorlink" href="#what-are-fixtures-questionmark">4.2.1 What Are Fixtures?</a></h5><p><em>Fixtures</em> is a fancy word for sample data. Fixtures allow you to populate your testing database with predefined data before your tests run. Fixtures are database independent and written in YAML. There is one file per model.</p><div class="note"><p>Fixtures are not designed to create every object that your tests need, and are best managed when only used for default data that can be applied to the common case.</p></div><p>You'll find fixtures under your <code>test/fixtures</code> directory. When you run <code>rails generate model</code> to create a new model, Rails automatically creates fixture stubs in this directory.</p><h5 id="yaml"><a class="anchorlink" href="#yaml">4.2.2 YAML</a></h5><p>YAML-formatted fixtures are a human-friendly way to describe your sample data. These types of fixtures have the <strong>.yml</strong> file extension (as in <code>users.yml</code>).</p><p>Here's a sample YAML fixture file:</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 # lo &amp; behold! I am a YAML comment!
 david:
@@ -925,7 +925,7 @@ first:
 
 </pre>
 </div>
-<p>Notice the <code>category</code> key of the <code>first</code> article found in <code>fixtures/articles.yml</code> has a value of <code>about</code>. This tells Rails to load the category <code>about</code> found in <code>fixtures/categories.yml</code>.</p><div class="note"><p>For associations to reference one another by name, you can use the fixture name instead of specifying the <code>id:</code> attribute on the associated fixtures. Rails will auto assign a primary key to be consistent between runs. For more information on this association behavior please read the <a href="https://api.rubyonrails.org/6/classes/ActiveRecord/FixtureSet.html">Fixtures API documentation</a>.</p></div><h5 id="erb-in-it-up"><a class="anchorlink" href="#erb-in-it-up">4.2.3 ERB'in It Up</a></h5><p>ERB allows you to embed Ruby code within templates. The YAML fixture format is pre-processed with ERB when Rails loads fixtures. This allows you to use Ruby to help you generate some sample data. For example, the following code generates a thousand users:</p><div class="code_container">
+<p>Notice the <code>category</code> key of the <code>first</code> article found in <code>fixtures/articles.yml</code> has a value of <code>about</code>. This tells Rails to load the category <code>about</code> found in <code>fixtures/categories.yml</code>.</p><div class="note"><p>For associations to reference one another by name, you can use the fixture name instead of specifying the <code>id:</code> attribute on the associated fixtures. Rails will auto assign a primary key to be consistent between runs. For more information on this association behavior please read the <a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveRecord/FixtureSet.html">Fixtures API documentation</a>.</p></div><h5 id="erb-in-it-up"><a class="anchorlink" href="#erb-in-it-up">4.2.3 ERB'in It Up</a></h5><p>ERB allows you to embed Ruby code within templates. The YAML fixture format is pre-processed with ERB when Rails loads fixtures. This allows you to use Ruby to help you generate some sample data. For example, the following code generates a thousand users:</p><div class="code_container">
 <pre class="brush: ruby; html-script: true; gutter: false; toolbar: false">
 &lt;% 1000.times do |n| %&gt;
 user_&lt;%= n %&gt;:
@@ -972,7 +972,7 @@ create  test/fixtures/articles.yml
 
 </pre>
 </div>
-<p>Model tests don't have their own superclass like <code>ActionMailer::TestCase</code> instead they inherit from <a href="https://api.rubyonrails.org/6/classes/ActiveSupport/TestCase.html"><code>ActiveSupport::TestCase</code></a>.</p><h3 id="system-testing"><a class="anchorlink" href="#system-testing">6 System Testing</a></h3><p>System tests allow you to test user interactions with your application, running tests
+<p>Model tests don't have their own superclass like <code>ActionMailer::TestCase</code> instead they inherit from <a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveSupport/TestCase.html"><code>ActiveSupport::TestCase</code></a>.</p><h3 id="system-testing"><a class="anchorlink" href="#system-testing">6 System Testing</a></h3><p>System tests allow you to test user interactions with your application, running tests
 in either a real or a headless browser. System tests use Capybara under the hood.</p><p>For creating Rails system tests, you use the <code>test/system</code> directory in your
 application. Rails provides a generator to create a system test skeleton for you.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
@@ -1160,7 +1160,7 @@ end
 
 </pre>
 </div>
-<p>Here the test is inheriting from <code>ActionDispatch::IntegrationTest</code>. This makes some additional helpers available for us to use in our integration tests.</p><h4 id="helpers-available-for-integration-tests"><a class="anchorlink" href="#helpers-available-for-integration-tests">7.1 Helpers Available for Integration Tests</a></h4><p>In addition to the standard testing helpers, inheriting from <code>ActionDispatch::IntegrationTest</code> comes with some additional helpers available when writing integration tests. Let's get briefly introduced to the three categories of helpers we get to choose from.</p><p>For dealing with the integration test runner, see <a href="https://api.rubyonrails.org/6/classes/ActionDispatch/Integration/Runner.html"><code>ActionDispatch::Integration::Runner</code></a>.</p><p>When performing requests, we will have <a href="https://api.rubyonrails.org/6/classes/ActionDispatch/Integration/RequestHelpers.html"><code>ActionDispatch::Integration::RequestHelpers</code></a> available for our use.</p><p>If we need to modify the session, or state of our integration test, take a look at <a href="https://api.rubyonrails.org/6/classes/ActionDispatch/Integration/Session.html"><code>ActionDispatch::Integration::Session</code></a> to help.</p><h4 id="implementing-an-integration-test"><a class="anchorlink" href="#implementing-an-integration-test">7.2 Implementing an integration test</a></h4><p>Let's add an integration test to our blog application. We'll start with a basic workflow of creating a new blog article, to verify that everything is working properly.</p><p>We'll start by generating our integration test skeleton:</p><div class="code_container">
+<p>Here the test is inheriting from <code>ActionDispatch::IntegrationTest</code>. This makes some additional helpers available for us to use in our integration tests.</p><h4 id="helpers-available-for-integration-tests"><a class="anchorlink" href="#helpers-available-for-integration-tests">7.1 Helpers Available for Integration Tests</a></h4><p>In addition to the standard testing helpers, inheriting from <code>ActionDispatch::IntegrationTest</code> comes with some additional helpers available when writing integration tests. Let's get briefly introduced to the three categories of helpers we get to choose from.</p><p>For dealing with the integration test runner, see <a href="https://api.rubyonrails.org/6-0-stable/classes/ActionDispatch/Integration/Runner.html"><code>ActionDispatch::Integration::Runner</code></a>.</p><p>When performing requests, we will have <a href="https://api.rubyonrails.org/6-0-stable/classes/ActionDispatch/Integration/RequestHelpers.html"><code>ActionDispatch::Integration::RequestHelpers</code></a> available for our use.</p><p>If we need to modify the session, or state of our integration test, take a look at <a href="https://api.rubyonrails.org/6-0-stable/classes/ActionDispatch/Integration/Session.html"><code>ActionDispatch::Integration::Session</code></a> to help.</p><h4 id="implementing-an-integration-test"><a class="anchorlink" href="#implementing-an-integration-test">7.2 Implementing an integration test</a></h4><p>Let's add an integration test to our blog application. We'll start with a basic workflow of creating a new blog article, to verify that everything is working properly.</p><p>We'll start by generating our integration test skeleton:</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails generate integration_test blog_flow
 
@@ -1603,7 +1603,7 @@ Dir[Rails.root.join('lib', 'test', '**', '*.rb')].each { |file| require file }
 
 </pre>
 </div>
-<p>This has the downside of increasing the boot-up time, as opposed to manually requiring only the necessary files in your individual tests.</p><h3 id="testing-routes"><a class="anchorlink" href="#testing-routes">9 Testing Routes</a></h3><p>Like everything else in your Rails application, you can test your routes. Route tests reside in <code>test/controllers/</code> or are part of controller tests.</p><div class="note"><p>If your application has complex routes, Rails provides a number of useful helpers to test them.</p></div><p>For more information on routing assertions available in Rails, see the API documentation for <a href="https://api.rubyonrails.org/6/classes/ActionDispatch/Assertions/RoutingAssertions.html"><code>ActionDispatch::Assertions::RoutingAssertions</code></a>.</p><h3 id="testing-views"><a class="anchorlink" href="#testing-views">10 Testing Views</a></h3><p>Testing the response to your request by asserting the presence of key HTML elements and their content is a common way to test the views of your application. Like route tests, view tests reside in <code>test/controllers/</code> or are part of controller tests. The <code>assert_select</code> method allows you to query HTML elements of the response by using a simple yet powerful syntax.</p><p>There are two forms of <code>assert_select</code>:</p><p><code>assert_select(selector, [equality], [message])</code> ensures that the equality condition is met on the selected elements through the selector. The selector may be a CSS selector expression (String) or an expression with substitution values.</p><p><code>assert_select(element, selector, [equality], [message])</code> ensures that the equality condition is met on all the selected elements through the selector starting from the <em>element</em> (instance of <code>Nokogiri::XML::Node</code> or <code>Nokogiri::XML::NodeSet</code>) and its descendants.</p><p>For example, you could verify the contents on the title element in your response with:</p><div class="code_container">
+<p>This has the downside of increasing the boot-up time, as opposed to manually requiring only the necessary files in your individual tests.</p><h3 id="testing-routes"><a class="anchorlink" href="#testing-routes">9 Testing Routes</a></h3><p>Like everything else in your Rails application, you can test your routes. Route tests reside in <code>test/controllers/</code> or are part of controller tests.</p><div class="note"><p>If your application has complex routes, Rails provides a number of useful helpers to test them.</p></div><p>For more information on routing assertions available in Rails, see the API documentation for <a href="https://api.rubyonrails.org/6-0-stable/classes/ActionDispatch/Assertions/RoutingAssertions.html"><code>ActionDispatch::Assertions::RoutingAssertions</code></a>.</p><h3 id="testing-views"><a class="anchorlink" href="#testing-views">10 Testing Views</a></h3><p>Testing the response to your request by asserting the presence of key HTML elements and their content is a common way to test the views of your application. Like route tests, view tests reside in <code>test/controllers/</code> or are part of controller tests. The <code>assert_select</code> method allows you to query HTML elements of the response by using a simple yet powerful syntax.</p><p>There are two forms of <code>assert_select</code>:</p><p><code>assert_select(selector, [equality], [message])</code> ensures that the equality condition is met on the selected elements through the selector. The selector may be a CSS selector expression (String) or an expression with substitution values.</p><p><code>assert_select(element, selector, [equality], [message])</code> ensures that the equality condition is met on all the selected elements through the selector starting from the <em>element</em> (instance of <code>Nokogiri::XML::Node</code> or <code>Nokogiri::XML::NodeSet</code>) and its descendants.</p><p>For example, you could verify the contents on the title element in your response with:</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 assert_select 'title', "Welcome to Rails Testing Guide"
 
@@ -1780,7 +1780,7 @@ end
 
 </pre>
 </div>
-<div class="note"><p>The <code>assert_emails</code> method is not tied to a particular deliver method and will work with emails delivered with either the <code>deliver_now</code> or <code>deliver_later</code> method. If we explicitly want to assert that the email has been enqueued we can use the <code>assert_enqueued_emails</code> method. More information can be found in the  <a href="https://api.rubyonrails.org/6/classes/ActionMailer/TestHelper.html">documentation here</a>.</p></div><h3 id="testing-jobs"><a class="anchorlink" href="#testing-jobs">13 Testing Jobs</a></h3><p>Since your custom jobs can be queued at different levels inside your application,
+<div class="note"><p>The <code>assert_emails</code> method is not tied to a particular deliver method and will work with emails delivered with either the <code>deliver_now</code> or <code>deliver_later</code> method. If we explicitly want to assert that the email has been enqueued we can use the <code>assert_enqueued_emails</code> method. More information can be found in the  <a href="https://api.rubyonrails.org/6-0-stable/classes/ActionMailer/TestHelper.html">documentation here</a>.</p></div><h3 id="testing-jobs"><a class="anchorlink" href="#testing-jobs">13 Testing Jobs</a></h3><p>Since your custom jobs can be queued at different levels inside your application,
 you'll need to test both the jobs themselves (their behavior when they get enqueued)
 and that other entities correctly enqueue them.</p><h4 id="a-basic-test-case"><a class="anchorlink" href="#a-basic-test-case">13.1 A Basic Test Case</a></h4><p>By default, when you generate a job, an associated test will be generated as well
 under the <code>test/jobs</code> directory. Here's an example test with a billing job:</p><div class="code_container">
@@ -1800,7 +1800,7 @@ end
 as expected.</p><p>By default, <code>ActiveJob::TestCase</code> will set the queue adapter to <code>:test</code> so that
 your jobs are performed inline. It will also ensure that all previously performed
 and enqueued jobs are cleared before any test run so you can safely assume that
-no jobs have already been executed in the scope of each test.</p><h4 id="custom-assertions-and-testing-jobs-inside-other-components"><a class="anchorlink" href="#custom-assertions-and-testing-jobs-inside-other-components">13.2 Custom Assertions And Testing Jobs Inside Other Components</a></h4><p>Active Job ships with a bunch of custom assertions that can be used to lessen the verbosity of tests. For a full list of available assertions, see the API documentation for <a href="https://api.rubyonrails.org/6/classes/ActiveJob/TestHelper.html"><code>ActiveJob::TestHelper</code></a>.</p><p>It's a good practice to ensure that your jobs correctly get enqueued or performed
+no jobs have already been executed in the scope of each test.</p><h4 id="custom-assertions-and-testing-jobs-inside-other-components"><a class="anchorlink" href="#custom-assertions-and-testing-jobs-inside-other-components">13.2 Custom Assertions And Testing Jobs Inside Other Components</a></h4><p>Active Job ships with a bunch of custom assertions that can be used to lessen the verbosity of tests. For a full list of available assertions, see the API documentation for <a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveJob/TestHelper.html"><code>ActiveJob::TestHelper</code></a>.</p><p>It's a good practice to ensure that your jobs correctly get enqueued or performed
 wherever you invoke them (e.g. inside your controllers). This is precisely where
 the custom assertions provided by Active Job are pretty useful. For instance,
 within a model:</p><div class="code_container">
@@ -1871,7 +1871,7 @@ end
 
 </pre>
 </div>
-<p>See the API documentation for <a href="https://api.rubyonrails.org/6/classes/ActionCable/Connection/TestCase.html"><code>ActionCable::Connection::TestCase</code></a> for more information.</p><h4 id="channel-test-case"><a class="anchorlink" href="#channel-test-case">14.2 Channel Test Case</a></h4><p>By default, when you generate a channel, an associated test will be generated as well
+<p>See the API documentation for <a href="https://api.rubyonrails.org/6-0-stable/classes/ActionCable/Connection/TestCase.html"><code>ActionCable::Connection::TestCase</code></a> for more information.</p><h4 id="channel-test-case"><a class="anchorlink" href="#channel-test-case">14.2 Channel Test Case</a></h4><p>By default, when you generate a channel, an associated test will be generated as well
 under the <code>test/channels</code> directory. Here's an example test with a chat channel:</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 require "test_helper"
@@ -1905,7 +1905,7 @@ end
 
 </pre>
 </div>
-<p>See the API documentation for <a href="https://api.rubyonrails.org/6/classes/ActionCable/Channel/TestCase.html"><code>ActionCable::Channel::TestCase</code></a> for more information.</p><h4 id="custom-assertions-and-testing-broadcasts-inside-other-components"><a class="anchorlink" href="#custom-assertions-and-testing-broadcasts-inside-other-components">14.3 Custom Assertions And Testing Broadcasts Inside Other Components</a></h4><p>Action Cable ships with a bunch of custom assertions that can be used to lessen the verbosity of tests. For a full list of available assertions, see the API documentation for <a href="https://api.rubyonrails.org/6/classes/ActionCable/TestHelper.html"><code>ActionCable::TestHelper</code></a>.</p><p>It's a good practice to ensure that the correct message has been broadcasted inside other components (e.g. inside your controllers). This is precisely where
+<p>See the API documentation for <a href="https://api.rubyonrails.org/6-0-stable/classes/ActionCable/Channel/TestCase.html"><code>ActionCable::Channel::TestCase</code></a> for more information.</p><h4 id="custom-assertions-and-testing-broadcasts-inside-other-components"><a class="anchorlink" href="#custom-assertions-and-testing-broadcasts-inside-other-components">14.3 Custom Assertions And Testing Broadcasts Inside Other Components</a></h4><p>Action Cable ships with a bunch of custom assertions that can be used to lessen the verbosity of tests. For a full list of available assertions, see the API documentation for <a href="https://api.rubyonrails.org/6-0-stable/classes/ActionCable/TestHelper.html"><code>ActionCable::TestHelper</code></a>.</p><p>It's a good practice to ensure that the correct message has been broadcasted inside other components (e.g. inside your controllers). This is precisely where
 the custom assertions provided by Action Cable are pretty useful. For instance,
 within a model:</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
@@ -1948,7 +1948,7 @@ end
 
 </pre>
 </div>
-<h3 id="additional-testing-resources"><a class="anchorlink" href="#additional-testing-resources">15 Additional Testing Resources</a></h3><h4 id="testing-time-dependent-code"><a class="anchorlink" href="#testing-time-dependent-code">15.1 Testing Time-Dependent Code</a></h4><p>Rails provides built-in helper methods that enable you to assert that your time-sensitive code works as expected.</p><p>Here is an example using the <a href="https://api.rubyonrails.org/6/classes/ActiveSupport/Testing/TimeHelpers.html#method-i-travel_to"><code>travel_to</code></a> helper:</p><div class="code_container">
+<h3 id="additional-testing-resources"><a class="anchorlink" href="#additional-testing-resources">15 Additional Testing Resources</a></h3><h4 id="testing-time-dependent-code"><a class="anchorlink" href="#testing-time-dependent-code">15.1 Testing Time-Dependent Code</a></h4><p>Rails provides built-in helper methods that enable you to assert that your time-sensitive code works as expected.</p><p>Here is an example using the <a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveSupport/Testing/TimeHelpers.html#method-i-travel_to"><code>travel_to</code></a> helper:</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 # Lets say that a user is eligible for gifting a month after they register.
 user = User.create(name: 'Gaurish', activation_date: Date.new(2004, 10, 24))
@@ -1961,7 +1961,7 @@ assert_equal Date.new(2004, 10, 24), user.activation_date # The change was visib
 
 </pre>
 </div>
-<p>Please see <a href="https://api.rubyonrails.org/6/classes/ActiveSupport/Testing/TimeHelpers.html"><code>ActiveSupport::Testing::TimeHelpers</code> API Documentation</a>
+<p>Please see <a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveSupport/Testing/TimeHelpers.html"><code>ActiveSupport::Testing::TimeHelpers</code> API Documentation</a>
 for in-depth information about the available time helpers.</p>
 
         <h3>Feedback</h3>
