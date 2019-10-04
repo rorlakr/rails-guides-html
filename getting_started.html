@@ -259,7 +259,7 @@
 </ul>
 </li>
 <li>
-<a href="#%EB%91%90%EB%B2%88%EC%A7%B8-%EB%AA%A8%EB%8D%B8-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0">두번째 모델 추가하기</a>
+<a href="#adding-a-second-model">두번째 모델 추가하기</a>
 
 <ul>
 <li><a href="#generating-a-model">모델 생성하기</a></li>
@@ -1186,7 +1186,7 @@ end
 </pre>
 </div>
 <p>여기서는 다른 방식으로 <code>link_to</code>를 사용할 것이다. 네임드 라우트(named route, prefix가 있는 라우트)를 두 번째 인수로, 다른 옵션을 또 다른 인수로 전달한다.
-<code>method: :delete</code> 및 <code>data: { confirm : 'Are you sure?' }</code> 옵션은 HTML5 속성으로 사용되기 때문에, 링크를 클릭할 경우 레일스는 먼저 사용자에게 확인창을 보여 준 다음, <code>delete</code> 메소드를 사용하여 링크를 서밋한다. 이것은 애플리케이션을 생성 할 때 애플리케이션 레이아웃 (<code>app/views/layouts/application.html.erb</code>)에 자동으로 포함되는 자바스크립트 파일 <code>rails-ujs</code>를 통해 수행된다. 이 파일이 없으면 확인창이 나타나지 않을 것이다.</p><p><img src="images/getting_started/confirm_dialog.png" alt="Confirm Dialog"></p><div class="info"><p><a href="working_with_javascript_in_rails.html">Working With JavaScript in Rails</a> 가이드에서 unobtrusive 자바스크립트에 대해 자세히 알 수 있다.</p></div><p>축하한다. 이제 기사를 작성, 보여주기, 리스트보기, 업데이트 및 삭제할 수 있게 되었다.</p><div class="info"><p>일반적으로 레일스는 라우트를 수동으로 선언하는 대신 리소스 객체를 사용하도록 권장한다. 라우팅에 대한 자세한 내용은 <a href="routing.html">Rails Routing from the Outside In</a>을 참조하기 바란다.</p></div><h3 id="두번째-모델-추가하기"><a class="anchorlink" href="#%EB%91%90%EB%B2%88%EC%A7%B8-%EB%AA%A8%EB%8D%B8-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0">6 두번째 모델 추가하기</a></h3><p>이제 애플리케이션에 두 번째 모델을 추가할 때가 되었다. 두 번째 모델은 기사에 대한 댓글을 처리할 것이다.</p><h4 id="generating-a-model"><a class="anchorlink" href="#generating-a-model">6.1 모델 생성하기</a></h4><p><code>Article</code> 모델을 생성할 때 전에 사용했던 것과 같은 생성자를 사용할 것이다. 이번에는 기사에 대한 참조를 담는 <code>Comment</code> 모델을 생성할 것이다. 터미널에서 아래의 명령을 실행한다.</p><div class="code_container">
+<code>method: :delete</code> 및 <code>data: { confirm : 'Are you sure?' }</code> 옵션은 HTML5 속성으로 사용되기 때문에, 링크를 클릭할 경우 레일스는 먼저 사용자에게 확인창을 보여 준 다음, <code>delete</code> 메소드를 사용하여 링크를 서밋한다. 이것은 애플리케이션을 생성 할 때 애플리케이션 레이아웃 (<code>app/views/layouts/application.html.erb</code>)에 자동으로 포함되는 자바스크립트 파일 <code>rails-ujs</code>를 통해 수행된다. 이 파일이 없으면 확인창이 나타나지 않을 것이다.</p><p><img src="images/getting_started/confirm_dialog.png" alt="Confirm Dialog"></p><div class="info"><p><a href="working_with_javascript_in_rails.html">Working With JavaScript in Rails</a> 가이드에서 unobtrusive 자바스크립트에 대해 자세히 알 수 있다.</p></div><p>축하한다. 이제 기사를 작성, 보여주기, 리스트보기, 업데이트 및 삭제할 수 있게 되었다.</p><div class="info"><p>일반적으로 레일스는 라우트를 수동으로 선언하는 대신 리소스 객체를 사용하도록 권장한다. 라우팅에 대한 자세한 내용은 <a href="routing.html">Rails Routing from the Outside In</a>을 참조하기 바란다.</p></div><h3 id="adding-a-second-model"><a class="anchorlink" href="#adding-a-second-model">6 두번째 모델 추가하기</a></h3><p>이제 애플리케이션에 두 번째 모델을 추가할 때가 되었다. 두 번째 모델은 기사에 대한 댓글을 처리할 것이다.</p><h4 id="generating-a-model"><a class="anchorlink" href="#generating-a-model">6.1 모델 생성하기</a></h4><p><code>Article</code> 모델을 생성할 때 전에 사용했던 것과 같은 생성자를 사용할 것이다. 이번에는 기사에 대한 참조를 담는 <code>Comment</code> 모델을 생성할 것이다. 터미널에서 아래의 명령을 실행한다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails generate model Comment commenter:string body:text article:references
 
