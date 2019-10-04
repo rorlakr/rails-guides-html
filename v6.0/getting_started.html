@@ -208,7 +208,7 @@
 
   <div id="feature">
     <div class="wrapper">
-      <p><strong>GITHUB 온라인에서 이 파일을 읽으면 제대로 보이지 않을 수 있다. 공식 가이드는 <a href="https://guides.rubyonrails.org">https://guides.rubyonrails.org</a> 상에 게시되어 있다.</strong></p><h2>레일스로 시작하기</h2><p>본 가이드 내용에서는 루비온레일스(이하 레일스)를 준비하고 실행하는 것에 대해서 다룬다.</p><p>본 가이드를 읽은 후에는 다음의 내용을 알게 된다.</p>
+      <p><strong>GITHUB 온라인에서 이 파일을 읽으면 제대로 보이지 않을 수 있다. 공식 가이드는 <a href="https://guides.rubyonrails.org">https://guides.rubyonrails.org</a> 상에 게시되어 있다.</strong></p><h2 id="getting-started-with-rails">레일스로 시작하기</h2><p>본 가이드 내용에서는 루비온레일스(이하 레일스)를 준비하고 실행하는 것에 대해서 다룬다.</p><p>본 가이드를 읽은 후에는 다음의 내용을 알게 된다.</p>
 <ul>
 <li>레일스를 설치하는 방법, 레일스 애플리케이션을 생성하는 방법, 애플리케이션을 데이터베이스로 연결하는 방법</li>
 <li>레일스 애플리케이션의 일반적인 레이아웃</li>
@@ -220,79 +220,79 @@
               <div id="subCol">
           <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
           <ol class="chapters">
-<li><a href="#%EA%B0%80%EC%9D%B4%EB%93%9C%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%84%EC%A0%9C%EC%A1%B0%EA%B1%B4">가이드에 대한 전제조건</a></li>
-<li><a href="#%EB%A0%88%EC%9D%BC%EC%8A%A4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">레일스란 무엇인가</a></li>
+<li><a href="#guide-assumptions">가이드에 대한 전제조건</a></li>
+<li><a href="#what-is-rails">레일스란 무엇인가</a></li>
 <li>
-<a href="#%EB%A0%88%EC%9D%BC%EC%8A%A4-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0">레일스 프로젝트 생성하기</a>
+<a href="#creating-a-new-rails-project">레일스 프로젝트 생성하기</a>
 
 <ul>
-<li><a href="#%EB%A0%88%EC%9D%BC%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0">레일스 설치하기</a></li>
-<li><a href="#blog-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0">Blog 애플리케이션 생성하기</a></li>
+<li><a href="#installing-rails">레일스 설치하기</a></li>
+<li><a href="#creating%E2%80%93the%E2%80%93blog-application">Blog 애플리케이션 생성하기</a></li>
 </ul>
 </li>
 <li>
 <a href="#hello-rails-bang">Hello, Rails!</a>
 
 <ul>
-<li><a href="#%EC%9B%B9%EC%84%9C%EB%B2%84-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0">웹서버 시작하기</a></li>
-<li><a href="#hello-rails-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0">"Hello, Rails" 표시하기</a></li>
-<li><a href="#%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%ED%99%88-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0">애플리케이션 홈 페이지 설정하기</a></li>
+<li><a href="#starting-up-the-web-server">웹서버 시작하기</a></li>
+<li><a href="#say-hello-rails">"Hello, Rails" 표시하기</a></li>
+<li><a href="#setting-the-application-home-page">애플리케이션 홈 페이지 설정하기</a></li>
 </ul>
 </li>
 <li>
-<a href="#%EC%9E%91%EB%8F%99%ED%95%98%EA%B8%B0">작동하기</a>
+<a href="#getting-up-and-running">작동하기</a>
 
 <ul>
-<li><a href="#%EA%B8%B0%EB%B3%B8%ED%8B%80-%EC%9E%A1%EA%B8%B0">기본틀 잡기</a></li>
-<li><a href="#%EC%B2%AB%EB%B2%88%EC%A7%B8-%ED%8F%BC">첫번째 폼</a></li>
-<li><a href="#%EA%B8%B0%EC%82%AC-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0">기사 작성하기</a></li>
-<li><a href="#article-%EB%AA%A8%EB%8D%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0">Article 모델 생성하기</a></li>
-<li><a href="#%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98-%EC%9E%91%EC%97%85-%EC%88%98%ED%96%89%ED%95%98%EA%B8%B0">마이그레이션 작업 수행하기</a></li>
-<li><a href="#%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EC%97%90%EC%84%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0">컨트롤러에서 데이터 저장하기</a></li>
-<li><a href="#%EA%B8%B0%EC%82%AC-%EB%B3%B4%EC%97%AC%EC%A3%BC%EA%B8%B0">기사 보여주기</a></li>
-<li><a href="#%EB%AA%A8%EB%93%A0-%EA%B8%B0%EC%82%AC-%EB%AA%A9%EB%A1%9D-%EB%B3%B4%EA%B8%B0">모든 기사 목록 보기</a></li>
-<li><a href="#%EB%A7%81%ED%81%AC-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0">링크 추가하기</a></li>
-<li><a href="#%EB%AA%87%EA%B0%80%EC%A7%80-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0">몇가지 유효성 검사 추가하기</a></li>
-<li><a href="#%EA%B8%B0%EC%82%AC-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%ED%95%98%EA%B8%B0">기사 업데이트하기</a></li>
-<li><a href="#%ED%8C%8C%EC%85%9C%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-%EB%B7%B0%EC%9D%98-%EC%A4%91%EB%B3%B5-%EC%BD%94%EB%93%9C-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0">파셜을 이용하여 뷰의 중복 코드 정리하기</a></li>
-<li><a href="#%EA%B8%B0%EC%82%AC-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0">기사 삭제하기</a></li>
+<li><a href="#laying-down-the-groundwork">기본틀 잡기</a></li>
+<li><a href="#the-first-form">첫번째 폼</a></li>
+<li><a href="#creating-articles">기사 작성하기</a></li>
+<li><a href="#creating-the-article-model">Article 모델 생성하기</a></li>
+<li><a href="#running-a-migration">마이그레이션 작업 수행하기</a></li>
+<li><a href="#saving-data-in-the-controller">컨트롤러에서 데이터 저장하기</a></li>
+<li><a href="#showing-articles">기사 보여주기</a></li>
+<li><a href="#listing-all-articles">모든 기사 목록 보기</a></li>
+<li><a href="#adding-links">링크 추가하기</a></li>
+<li><a href="#adding-some-validation">몇가지 유효성 검사 추가하기</a></li>
+<li><a href="#updating-articles">기사 업데이트하기</a></li>
+<li><a href="#using-partials-to-clean-up-duplication-in-views">파셜을 이용하여 뷰의 중복 코드 정리하기</a></li>
+<li><a href="#deleting-articles">기사 삭제하기</a></li>
 </ul>
 </li>
 <li>
 <a href="#%EB%91%90%EB%B2%88%EC%A7%B8-%EB%AA%A8%EB%8D%B8-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0">두번째 모델 추가하기</a>
 
 <ul>
-<li><a href="#%EB%AA%A8%EB%8D%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0">모델 생성하기</a></li>
-<li><a href="#%EB%AA%A8%EB%8D%B8-%EA%B4%80%EA%B3%84-%EC%84%A0%EC%96%B8%ED%95%98%EA%B8%B0">모델 관계 선언하기</a></li>
-<li><a href="#%EB%8C%93%EA%B8%80%EC%97%90-%EB%8C%80%ED%95%9C-%EB%9D%BC%EC%9A%B0%ED%8A%B8-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0">댓글에 대한 라우트 추가하기</a></li>
-<li><a href="#%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0">컨트롤러 생성하기</a></li>
+<li><a href="#generating-a-model">모델 생성하기</a></li>
+<li><a href="#associating-models">모델 관계 선언하기</a></li>
+<li><a href="#adding-a-route-for-comments">댓글에 대한 라우트 추가하기</a></li>
+<li><a href="#generating-a-controller">컨트롤러 생성하기</a></li>
 </ul>
 </li>
 <li>
-<a href="#%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0">리팩토링하기</a>
+<a href="#refactoring">리팩토링하기</a>
 
 <ul>
-<li><a href="#%ED%8C%8C%EC%85%9C-%EC%BB%AC%EB%A0%89%EC%85%98-%EB%A0%8C%EB%8D%94%EB%A7%81%ED%95%98%EA%B8%B0">파셜 컬렉션 렌더링하기</a></li>
-<li><a href="#%ED%8C%8C%EC%85%9C-%ED%8F%BC-%EB%A0%8C%EB%8D%94%EB%A7%81%ED%95%98%EA%B8%B0">파셜 폼 렌더링하기</a></li>
+<li><a href="#rendering-partial-collections">파셜 컬렉션 렌더링하기</a></li>
+<li><a href="#rendering-a-partial-form">파셜 폼 렌더링하기</a></li>
 </ul>
 </li>
 <li>
-<a href="#%EB%8C%93%EA%B8%80-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0">댓글 삭제하기</a>
+<a href="#deleting-comments">댓글 삭제하기</a>
 
 <ul>
-<li><a href="#%EA%B4%80%EB%A0%A8-%EA%B0%9D%EC%B2%B4-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0">관련 객체 삭제하기</a></li>
+<li><a href="#deleting-associated-objects">관련 객체 삭제하기</a></li>
 </ul>
 </li>
 <li>
-<a href="#%EB%B3%B4%EC%95%88">보안</a>
+<a href="#security">보안</a>
 
 <ul>
-<li><a href="#%EA%B8%B0%EB%B3%B8-%EC%9D%B8%EC%A6%9D">기본 인증</a></li>
-<li><a href="#%EB%8B%A4%EB%A5%B8-%EB%B3%B4%EC%95%88-%EA%B3%A0%EB%A0%A4%EC%82%AC%ED%95%AD">다른 보안 고려사항</a></li>
+<li><a href="#basic-authentication">기본 인증</a></li>
+<li><a href="#other-security-considerations">다른 보안 고려사항</a></li>
 </ul>
 </li>
-<li><a href="#%ED%96%A5%ED%9B%84-%EA%B3%84%ED%9A%8D">향후 계획</a></li>
-<li><a href="#%EC%84%A4%EC%A0%95%EC%8B%9C-%EC%9C%A0%EC%9D%98%EC%82%AC%ED%95%AD">설정시 유의사항</a></li>
+<li><a href="#whats-next">향후 계획</a></li>
+<li><a href="#configuration-gotchas">설정시 유의사항</a></li>
 </ol>
 
         </div>
@@ -303,13 +303,13 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <h3 id="가이드에-대한-전제조건"><a class="anchorlink" href="#%EA%B0%80%EC%9D%B4%EB%93%9C%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%84%EC%A0%9C%EC%A1%B0%EA%B1%B4">1 가이드에 대한 전제조건</a></h3><p>본 가이드 내용은 레일스 애플리케이션을 만들어 본 경험이 없는 초보자를 대상으로 작성되었다. 반드시 레일스에 대한 경험을 필요로 하지 않는다.</p><p>레일스는 루비 언어로 만들어진 웹애플리케이션 프레임워크이다. 
+        <h3 id="guide-assumptions"><a class="anchorlink" href="#guide-assumptions">1 가이드에 대한 전제조건</a></h3><p>본 가이드 내용은 레일스 애플리케이션을 만들어 본 경험이 없는 초보자를 대상으로 작성되었다. 반드시 레일스에 대한 경험을 필요로 하지 않는다.</p><p>레일스는 루비 언어로 만들어진 웹애플리케이션 프레임워크이다. 
 루비 언어에 대한 사전 지식이 없이 바로 레일스로 작업을 하게 되면 매우 경사진 학습곡선을 경험하게 될 것이다. 아래에 루비 언어를 배우기 위한 온라인 자원에 대한 몇가지 목록을 모아 놓았다.</p>
 <ul>
 <li><a href="https://www.ruby-lang.org/en/documentation/">루비언어 공식 웹사이트</a></li>
 <li><a href="https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md#ruby">무료 프로그래밍 서적 목록</a></li>
 </ul>
-<p>주의할 것은 위에서 소개한 서적 중에는, 그 내용이 아주 훌륭한 것이지만, 오래된 버전인 루비 1.6과 주로 1.8 버전에 대한 것들이 있어서 레일스로 개발할 때 주로 접하게 되는 루비 문법들이 포함되지 않을 수 있다는 것이다.</p><h3 id="레일스란-무엇인가"><a class="anchorlink" href="#%EB%A0%88%EC%9D%BC%EC%8A%A4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">2 레일스란 무엇인가</a></h3><p>레일스란 루비 언어로 작성된 웹애플리케이션 개발 프레임워크이다.
+<p>주의할 것은 위에서 소개한 서적 중에는, 그 내용이 아주 훌륭한 것이지만, 오래된 버전인 루비 1.6과 주로 1.8 버전에 대한 것들이 있어서 레일스로 개발할 때 주로 접하게 되는 루비 문법들이 포함되지 않을 수 있다는 것이다.</p><h3 id="what-is-rails"><a class="anchorlink" href="#what-is-rails">2 레일스란 무엇인가</a></h3><p>레일스란 루비 언어로 작성된 웹애플리케이션 개발 프레임워크이다.
 모든 개발자들이 작업을 시작할 때 필요로 하는 것들이 사전에 준비된 것으로 가정하여 웹애플리케이션을 보다 쉽게 개발할 수 있도록 만들어졌다.
 다수의 언어와 프레임워크보다 더 작은 량의 코드를 작성하여 더 많은 것을 구현할 수 있게 해준다.
 고급 레일스 개발자들 역시 레일스가 웹애플리케이션 개발을 더 재밋게 해 준다고 말한다.</p><p>레일스는 독단적인 측면을 가지는 소프트웨어다. 즉 최선의 방식이 있다고 가정하여 그 방법을 사용하도록 권하지만 경우에 따라서는 다른 대안을 사용하지 않도록 한다. 소위 "레일스 방식"을 배우게 되면 생산성에 있어서 어마어마한 향상을 가져오게 되는 것을 알게 될 것이다. 다른 언어를 사용할 때 익혔던 습관을 레일스 개발시에 버리지 못하거나 다른 곳에서 배웠던 패턴을 그대로 사용하려고 할 경우는 레일스를 사용하므로써 얻게 되는 즐거움을 더 느끼게 될 것이다.</p><p>레일스 철학은 두 개의 중요한 가이드 원칙을 포함한다.</p>
@@ -319,7 +319,7 @@
 <li>
 <strong>Convention Over Configuration(설정보다는 관례를 우선시 함):</strong> 레일스는 웹애플리케이션에서 발생할 수 있는 다양한 작업들에 대한 최선의 방법을 알고 있기 때문에, 한없이 이어지는 설정파일들을 사용해서 상세한 설정 내용을 명시하는 대신에 이런 것들에 대한 일련의 사전 정의된 설정을 기본 규칙으로 지정해 준다.</li>
 </ul>
-<h3 id="레일스-프로젝트-생성하기"><a class="anchorlink" href="#%EB%A0%88%EC%9D%BC%EC%8A%A4-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0">3 레일스 프로젝트 생성하기</a></h3><p>본 가이드를 읽어가는 최선의 방식은 단계별로 따라서 해 보는 것이다. 모든 단계는 예제 애플리케이션을 실행하는데 필수이며 어떠한 코드나 단계도 추가적으로 필요하지 않다.  </p><p>본 가이드를 따라하면 <code>blog</code>라는 간단한 웹브로그 프로젝트를 만들게 될 것이다. 프로젝트를 진행하기 전에 각자의 시스템에 레일스가 설치되어 있어야 한다.</p><div class="info"><p>아래의 예제에서 사용하는 <code>$</code> 문자는 유닉스계열의 운영체제에서 터미널 프롬프트로 사용하는 것인데 설정에 따라 다르게 보일 수 있다. 윈도우를 사용할 경우에는 <code>C:\sourc_code</code>와 같이 보일 것이다.</p></div><h4 id="레일스-설치하기"><a class="anchorlink" href="#%EB%A0%88%EC%9D%BC%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0">3.1 레일스 설치하기</a></h4><p>레일스를 설치하기 전에 각자의 시스템에 레일스 프레이워크에서 사용하는 연관 언어나 프로그램이 설치되어 있는지 확인해야 하는데, 여기에는 루비와 SQLite3 등이 포함된다.</p><p>우선 터미널 프로그램을 실행한 후 커맨드라인 프롬프트를 연다. macOS에서는 Terminal.app 프로그램을 실행하고, 윈도에서는 시작 메뉴로부터 "실행(Run)" 명령을 선택한 후 'cmd.exe'라고 입력하여 엔터키를 입력한다. 달러 표시 <code>$</code> 문자 뒤에 오는 명령은 커맨드라인에서 실행해야 한다. 이어서 이설치된 루비 버전을 확인한다.</p><div class="code_container">
+<h3 id="creating-a-new-rails-project"><a class="anchorlink" href="#creating-a-new-rails-project">3 레일스 프로젝트 생성하기</a></h3><p>본 가이드를 읽어가는 최선의 방식은 단계별로 따라서 해 보는 것이다. 모든 단계는 예제 애플리케이션을 실행하는데 필수이며 어떠한 코드나 단계도 추가적으로 필요하지 않다.  </p><p>본 가이드를 따라하면 <code>blog</code>라는 간단한 웹브로그 프로젝트를 만들게 될 것이다. 프로젝트를 진행하기 전에 각자의 시스템에 레일스가 설치되어 있어야 한다.</p><div class="info"><p>아래의 예제에서 사용하는 <code>$</code> 문자는 유닉스계열의 운영체제에서 터미널 프롬프트로 사용하는 것인데 설정에 따라 다르게 보일 수 있다. 윈도우를 사용할 경우에는 <code>C:\sourc_code</code>와 같이 보일 것이다.</p></div><h4 id="installing-rails"><a class="anchorlink" href="#installing-rails">3.1 레일스 설치하기</a></h4><p>레일스를 설치하기 전에 각자의 시스템에 레일스 프레이워크에서 사용하는 연관 언어나 프로그램이 설치되어 있는지 확인해야 하는데, 여기에는 루비와 SQLite3 등이 포함된다.</p><p>우선 터미널 프로그램을 실행한 후 커맨드라인 프롬프트를 연다. macOS에서는 Terminal.app 프로그램을 실행하고, 윈도에서는 시작 메뉴로부터 "실행(Run)" 명령을 선택한 후 'cmd.exe'라고 입력하여 엔터키를 입력한다. 달러 표시 <code>$</code> 문자 뒤에 오는 명령은 커맨드라인에서 실행해야 한다. 이어서 이설치된 루비 버전을 확인한다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ ruby -v
 ruby 2.5.0
@@ -347,7 +347,7 @@ $ rails --version
 
 </pre>
 </div>
-<p>"Rails 6.0.0"과 같이 표시된다면 이제 시작할 준비가 된 것이다. </p><h4 id="blog-애플리케이션-생성하기"><a class="anchorlink" href="#blog-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0">3.2 Blog 애플리케이션 생성하기</a></h4><p>레일스에서 기본으로 제공해 주는 많은 생성자 스크립트를 이용하면 특정 작업에 필요한 모든 것을 자동으로 생성해 주기 때문에 개발을 보다 쉽게 할 수 있다. 이 중에 하나는 애플리케이션을 만들어 주는 생성자 스크립트인데 레일스 애플리케이션의 기본 골격구조를 제공해 주기 때문에 직접 코드를 작성할 필요가 없다.</p><p>이 생성자를 사용하기 위해서는 터미널을 열고 파일을 생성할 권한이 있는 적당한 디렉토리로 이동한 후 아래와 같이 입력한다.</p><div class="code_container">
+<p>"Rails 6.0.0"과 같이 표시된다면 이제 시작할 준비가 된 것이다. </p><h4 id="creating–the–blog-application"><a class="anchorlink" href="#creating%E2%80%93the%E2%80%93blog-application">3.2 Blog 애플리케이션 생성하기</a></h4><p>레일스에서 기본으로 제공해 주는 많은 생성자 스크립트를 이용하면 특정 작업에 필요한 모든 것을 자동으로 생성해 주기 때문에 개발을 보다 쉽게 할 수 있다. 이 중에 하나는 애플리케이션을 만들어 주는 생성자 스크립트인데 레일스 애플리케이션의 기본 골격구조를 제공해 주기 때문에 직접 코드를 작성할 필요가 없다.</p><p>이 생성자를 사용하기 위해서는 터미널을 열고 파일을 생성할 권한이 있는 적당한 디렉토리로 이동한 후 아래와 같이 입력한다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails new blog
 
@@ -442,13 +442,13 @@ $ cd blog
 </tr>
 </tbody>
 </table>
-<h3 id="hello-rails-bang"><a class="anchorlink" href="#hello-rails-bang">4 Hello, Rails!</a></h3><p>먼저, 스크린 상에 어떤 문자들이 보이도록 해 보자. 이를 위해서 레일스 애플리케이션 서버를 실행시켜야 한다.</p><h4 id="웹서버-시작하기"><a class="anchorlink" href="#%EC%9B%B9%EC%84%9C%EB%B2%84-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0">4.1 웹서버 시작하기</a></h4><p>레일스 애플리케이션은 사실 이미 정상적으로 동작이 가능한 상태이다. 이를 확인하려면 각자의 개발 머신에서 웹서버를 시작할 필요가 있다. <code>blog</code> 디렉토리에서 아래의 명령을 실행하여 서버를 시작할 수 있다.</p><div class="code_container">
+<h3 id="hello-rails-bang"><a class="anchorlink" href="#hello-rails-bang">4 Hello, Rails!</a></h3><p>먼저, 스크린 상에 어떤 문자들이 보이도록 해 보자. 이를 위해서 레일스 애플리케이션 서버를 실행시켜야 한다.</p><h4 id="starting-up-the-web-server"><a class="anchorlink" href="#starting-up-the-web-server">4.1 웹서버 시작하기</a></h4><p>레일스 애플리케이션은 사실 이미 정상적으로 동작이 가능한 상태이다. 이를 확인하려면 각자의 개발 머신에서 웹서버를 시작할 필요가 있다. <code>blog</code> 디렉토리에서 아래의 명령을 실행하여 서버를 시작할 수 있다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails server
 
 </pre>
 </div>
-<div class="info"><p>윈도우를 사용할 경우에는 <code>bin</code> 폴더에 있는 스크립트를, 예: <code>ruby bin\rails server</code>, 루비 인터프리터로 직접 넘겨 주어야 한다.</p></div><div class="info"><p>자바스크립트 애셋을 압축하기 위해서는 시스템에 자바스크립트 런타임이 설치되어 있어야 하는데, 만약 그렇지 못할 경우에는 <code>execjs</code> 에러가 발생할 것이다. 대부분의 경우 macOS와 윈도우에는 자바스크립트 런타임이 이미 설치되어 있다. <code>therubyrhino</code>는 JRuby 사용자들을 위한 권장되는 런타임이며 JRuby 하에 생성된 앱의 <code>Gemfile</code>에 기본으로 추가된다. <a href="https://github.com/rails/execjs#readme">ExecJS</a>에서 모든 사용가능한 런타임을 찾아 볼 수 있다.</p></div><p>이로써 레일스에서 디폴트로 배포하는 웹서버인 Puma를 시동하게 될 것이다. 작업 중인 애플리케이션이 동작하는 것을 확인하기 위해서 브라우저를 연 후 <a href="http://localhost:3000">http://localhost:3000</a>로 이동했을 때 아래와 같은 레일스 디폴트 정보 페이지를 볼 수 있어야 한다.</p><p><img src="images/getting_started/rails_welcome.png" alt="Welcome aboard screenshot"></p><div class="info"><p>웹서버를 중단하기 위해서는 서버가 실행 중인 터미널 윈도우에서 Ctrl+C를 누른다. 서버가 중단된 것을 확인하기 위해서는 커맨드 프롬프트를 다시 볼 수 있어야 한다. macOS를 포함해서 대부분의 유닉스계열의 시스템에서는 커맨드 프롬프트가 달러 문자 <code>$</code>로 표시될 것이다. 개발 모드에서는 변경된 내용이 서버에 자동으로 반영되기 때문에 일반적으로 서버를 재시동할 필요가 없다.</p></div><p>"Welcome aboard" 페이지는 레일스 애플리케이션이 제대로 생성되었는지를 알 수 있는 일종의 <em>smoke test</em> 의 의미를 가진다. 즉, 소프트웨어가 제대로 설정되어 페이지를 서비스할 수 있음을 확인하는 것이다.</p><h4 id="hello-rails-표시하기"><a class="anchorlink" href="#hello-rails-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0">4.2 "Hello, Rails" 표시하기</a></h4><p>"Hello" 문자를 표시하기 위해서는 최소한 하나의 <em>controller(컨트롤러)</em> 와 하나의 <em>view(뷰)</em> 를 생성해야 한다.</p><p>컨트롤러는 애플리케이션에 대한 특정 요청를 받는 역할을 한다.
+<div class="info"><p>윈도우를 사용할 경우에는 <code>bin</code> 폴더에 있는 스크립트를, 예: <code>ruby bin\rails server</code>, 루비 인터프리터로 직접 넘겨 주어야 한다.</p></div><div class="info"><p>자바스크립트 애셋을 압축하기 위해서는 시스템에 자바스크립트 런타임이 설치되어 있어야 하는데, 만약 그렇지 못할 경우에는 <code>execjs</code> 에러가 발생할 것이다. 대부분의 경우 macOS와 윈도우에는 자바스크립트 런타임이 이미 설치되어 있다. <code>therubyrhino</code>는 JRuby 사용자들을 위한 권장되는 런타임이며 JRuby 하에 생성된 앱의 <code>Gemfile</code>에 기본으로 추가된다. <a href="https://github.com/rails/execjs#readme">ExecJS</a>에서 모든 사용가능한 런타임을 찾아 볼 수 있다.</p></div><p>이로써 레일스에서 디폴트로 배포하는 웹서버인 Puma를 시동하게 될 것이다. 작업 중인 애플리케이션이 동작하는 것을 확인하기 위해서 브라우저를 연 후 <a href="http://localhost:3000">http://localhost:3000</a>로 이동했을 때 아래와 같은 레일스 디폴트 정보 페이지를 볼 수 있어야 한다.</p><p><img src="images/getting_started/rails_welcome.png" alt="Welcome aboard screenshot"></p><div class="info"><p>웹서버를 중단하기 위해서는 서버가 실행 중인 터미널 윈도우에서 Ctrl+C를 누른다. 서버가 중단된 것을 확인하기 위해서는 커맨드 프롬프트를 다시 볼 수 있어야 한다. macOS를 포함해서 대부분의 유닉스계열의 시스템에서는 커맨드 프롬프트가 달러 문자 <code>$</code>로 표시될 것이다. 개발 모드에서는 변경된 내용이 서버에 자동으로 반영되기 때문에 일반적으로 서버를 재시동할 필요가 없다.</p></div><p>"Welcome aboard" 페이지는 레일스 애플리케이션이 제대로 생성되었는지를 알 수 있는 일종의 <em>smoke test</em> 의 의미를 가진다. 즉, 소프트웨어가 제대로 설정되어 페이지를 서비스할 수 있음을 확인하는 것이다.</p><h4 id="say-hello-rails"><a class="anchorlink" href="#say-hello-rails">4.2 "Hello, Rails" 표시하기</a></h4><p>"Hello" 문자를 표시하기 위해서는 최소한 하나의 <em>controller(컨트롤러)</em> 와 하나의 <em>view(뷰)</em> 를 생성해야 한다.</p><p>컨트롤러는 애플리케이션에 대한 특정 요청를 받는 역할을 한다.
 <em>Routing(라우팅)</em> 은 어떤 컨트롤러가 어떤 요청을 받을 것인가를 결정한다. 종종 하나의 컨트롤러가 하나 이상의 라우트로 연결되기도 하는데 이 때 특정 컨트롤러의 라우트들은 각기 다른 <em>actions(액션)</em> 을 호출하여 서비스한다. 액션은 정보를 모아서 뷰에 제공하는 역할을 수행한다.</p><p>뷰는 이러한 정보를 사람이 읽을 수 있는 형태로 표시하는데 중요한 차이점은 정보를 수집하는 곳이 뷰가 아니고 <em>컨트롤러</em> 라는 점이다. 뷰는 바로 이러한 정보를 단지 표시만해야 한다. 보통 뷰 템플릿은 eRuby(Embeded Ruby)로 작성하는데 사용자들에게 보내지기 전에 레일스 엔진이 요청 주기에 따라 처리하게 된다.</p><p>컨트롤러를 새로이 추가할 때는 "controlller" 생성자를 실행해야 하는데 이 때 "Welcome"이라는 컨트롤러와 "index"라는 액션을 아래와 같이 알려 주어야 한다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails generate controller Welcome index
@@ -479,7 +479,7 @@ create      app/assets/stylesheets/welcome.scss
 
 </pre>
 </div>
-<h4 id="애플리케이션-홈-페이지-설정하기"><a class="anchorlink" href="#%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%ED%99%88-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0">4.3 애플리케이션 홈 페이지 설정하기</a></h4><p>컨트롤러와 뷰를 작성했기 때문에 이제 레일스에게 "Hello, Rails!"라는 글을 보여줄 시점을 알려 주어야 한다. 여기서는 루트 URL <a href="http://localhost:3000">http://localhost:3000</a>로 이동할 때 보여 주고자 한다. 이 순간 바로 "Welcom aboard" 라는 글을 보게 될 것이다.</p><p>다음으로는 실제 홈 페이지의 위치를 지정해 주어야 한다.</p><p>에디터 상에서 <code>config/routes.rb</code> 파일을 열면 아래와 같은 내용이 보인다.</p><div class="code_container">
+<h4 id="setting-the-application-home-page"><a class="anchorlink" href="#setting-the-application-home-page">4.3 애플리케이션 홈 페이지 설정하기</a></h4><p>컨트롤러와 뷰를 작성했기 때문에 이제 레일스에게 "Hello, Rails!"라는 글을 보여줄 시점을 알려 주어야 한다. 여기서는 루트 URL <a href="http://localhost:3000">http://localhost:3000</a>로 이동할 때 보여 주고자 한다. 이 순간 바로 "Welcom aboard" 라는 글을 보게 될 것이다.</p><p>다음으로는 실제 홈 페이지의 위치를 지정해 주어야 한다.</p><p>에디터 상에서 <code>config/routes.rb</code> 파일을 열면 아래와 같은 내용이 보인다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 Rails.application.routes.draw do
   get 'welcome/index'
@@ -499,7 +499,7 @@ end
 
 </pre>
 </div>
-<p><code>root 'welcome#index'</code>는 레일스에게 애플리케이션 루트로 들어오는 요청을 welcome 컨트롤러의 index 액션으로 매핑하도록 알려 주며 <code>get 'welcome/index'</code>는 <a href="http://localhost:3000/welcome/index">http://localhost:3000/welcome/index</a>로 들어오는 요청을 welcome 컨트롤러의 index 액션으로 매핑하도록 알려 준다. 이것은 이전에 컨트롤러 생성자(<code>rails generate controller Welcome index</code>)를 실행했을 때 이미 만들어졌던 것이다.</p><p>컨트롤러를 만들기 위해서 중단한 경우에는 웹서버를 시작한 후 브라우저 상에서 <a href="http://localhost:3000">http://localhost:3000</a>로 이동한다. 이 때 <code>app/views/welcome/index.html.erb</code> 파일에 추가했던 "Hello, Rails!" 메시지를 보게 된다면 새로 추가한 라우트가 <code>WelcomeController</code>의 <code>index</code> 액션으로 제대로 이동하여 뷰를 정확하게 렌더링하고 있다는 것을 간접적으로 시사하는 것이다.</p><div class="info"><p>라우팅에 대한 더 자세한 내용은 <a href="routing.html">Rails Routing from the Outside In</a>를 참고하기 바란다.</p></div><h3 id="작동하기"><a class="anchorlink" href="#%EC%9E%91%EB%8F%99%ED%95%98%EA%B8%B0">5 작동하기</a></h3><p>컨트롤러, 액션, 뷰 작성법을 알게 되었으니 이제 좀 더 실질적인 것을 만들어 보도록 하자.</p><p>Blog 애플리케이션에서 새로운 <em>resource(리소스)</em> 를 하나 추가할 것이다. 리소스란 기사(읽은거리), 사람, 동물 등과 같이 비슷한 객체들을 일컫는 말한다. 특정 리소스에 대한 항목을 생성하고, 읽고, 업데이트하고, 삭제할 수 있고 이러한 작업을 <em>CRUD</em> 작업으로 말하기도 한다.</p><p>레일스에서 제공하는 <code>resources</code> 메소드는 표준 REST 리소스를 선언하는데 사용할 수 있다. 따라서 <code>config/routes.rb</code> 파일에 <em>article resource</em> 를 추가할 필요가 있으며 그 파일 내용은 아래와 같다.</p><div class="code_container">
+<p><code>root 'welcome#index'</code>는 레일스에게 애플리케이션 루트로 들어오는 요청을 welcome 컨트롤러의 index 액션으로 매핑하도록 알려 주며 <code>get 'welcome/index'</code>는 <a href="http://localhost:3000/welcome/index">http://localhost:3000/welcome/index</a>로 들어오는 요청을 welcome 컨트롤러의 index 액션으로 매핑하도록 알려 준다. 이것은 이전에 컨트롤러 생성자(<code>rails generate controller Welcome index</code>)를 실행했을 때 이미 만들어졌던 것이다.</p><p>컨트롤러를 만들기 위해서 중단한 경우에는 웹서버를 시작한 후 브라우저 상에서 <a href="http://localhost:3000">http://localhost:3000</a>로 이동한다. 이 때 <code>app/views/welcome/index.html.erb</code> 파일에 추가했던 "Hello, Rails!" 메시지를 보게 된다면 새로 추가한 라우트가 <code>WelcomeController</code>의 <code>index</code> 액션으로 제대로 이동하여 뷰를 정확하게 렌더링하고 있다는 것을 간접적으로 시사하는 것이다.</p><div class="info"><p>라우팅에 대한 더 자세한 내용은 <a href="routing.html">Rails Routing from the Outside In</a>를 참고하기 바란다.</p></div><h3 id="getting-up-and-running"><a class="anchorlink" href="#getting-up-and-running">5 작동하기</a></h3><p>컨트롤러, 액션, 뷰 작성법을 알게 되었으니 이제 좀 더 실질적인 것을 만들어 보도록 하자.</p><p>Blog 애플리케이션에서 새로운 <em>resource(리소스)</em> 를 하나 추가할 것이다. 리소스란 기사(읽은거리), 사람, 동물 등과 같이 비슷한 객체들을 일컫는 말한다. 특정 리소스에 대한 항목을 생성하고, 읽고, 업데이트하고, 삭제할 수 있고 이러한 작업을 <em>CRUD</em> 작업으로 말하기도 한다.</p><p>레일스에서 제공하는 <code>resources</code> 메소드는 표준 REST 리소스를 선언하는데 사용할 수 있다. 따라서 <code>config/routes.rb</code> 파일에 <em>article resource</em> 를 추가할 필요가 있으며 그 파일 내용은 아래와 같다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 Rails.application.routes.draw do
   get 'welcome/index'
@@ -528,7 +528,7 @@ welcome_index GET    /welcome/index(.:format)     welcome#index
 
 </pre>
 </div>
-<p>다음 섹션에서 새 기사를 생성한 후 결과를 볼 수 있도록 기능을 추가할 것이다. 이것은 CRUD에서 "C"와 "R"에 해당하는 것으로 create(생성하기)와 read(읽기)를 의미한다. 이러한 작업을 하는 폼 형태는 아래와 같이 보일 것이다.</p><p><img src="images/getting_started/new_article.png" alt="The new article form"></p><p>현재 상태는 기본 형태로 보이지만 작동하는데 문제가 없다. 이후에 스타일을 좋게 만드는 작업을 보게 될 것이다.</p><h4 id="기본틀-잡기"><a class="anchorlink" href="#%EA%B8%B0%EB%B3%B8%ED%8B%80-%EC%9E%A1%EA%B8%B0">5.1 기본틀 잡기</a></h4><p>먼저, 새로운 기사를 작성할 장소가 필요하다. 이를 위한 적당한 위치는 <code>/articles/new</code>가 될 것이다. 이미 정의된 바 있는 라우트를 따라 외부로부터의 요청은 <code>/articles/new</code>로 이어질 것이다. <a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>로 이동하면 라우팅 에러가 발생할 것이다. </p><p><img src="images/getting_started/routing_error_no_controller.png" alt="Another routing error, uninitialized constant ArticlesController"></p><p>이 에러는 해당 라우트의 요청을 처리하기 위해서는 하나의 컨트롤러가 정의되어 있어야 하기 때문에 발생한다.
+<p>다음 섹션에서 새 기사를 생성한 후 결과를 볼 수 있도록 기능을 추가할 것이다. 이것은 CRUD에서 "C"와 "R"에 해당하는 것으로 create(생성하기)와 read(읽기)를 의미한다. 이러한 작업을 하는 폼 형태는 아래와 같이 보일 것이다.</p><p><img src="images/getting_started/new_article.png" alt="The new article form"></p><p>현재 상태는 기본 형태로 보이지만 작동하는데 문제가 없다. 이후에 스타일을 좋게 만드는 작업을 보게 될 것이다.</p><h4 id="laying-down-the-groundwork"><a class="anchorlink" href="#laying-down-the-groundwork">5.1 기본틀 잡기</a></h4><p>먼저, 새로운 기사를 작성할 장소가 필요하다. 이를 위한 적당한 위치는 <code>/articles/new</code>가 될 것이다. 이미 정의된 바 있는 라우트를 따라 외부로부터의 요청은 <code>/articles/new</code>로 이어질 것이다. <a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>로 이동하면 라우팅 에러가 발생할 것이다. </p><p><img src="images/getting_started/routing_error_no_controller.png" alt="Another routing error, uninitialized constant ArticlesController"></p><p>이 에러는 해당 라우트의 요청을 처리하기 위해서는 하나의 컨트롤러가 정의되어 있어야 하기 때문에 발생한다.
 이러한 문제를 해결하는 방법은 간단하다. <code>ArticlesController</code>라는 컨트롤러를 생성하는 것이다. 아래와 같은 명령을 실행하면 이러한 작업을 수행할 수 있다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails generate controller Articles
@@ -564,7 +564,7 @@ end
 
 </pre>
 </div>
-<p><a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>를 새로 보기하면 하나의 타이틀을 포함하는 페이지를 보게 될 것이다. 라우트, 컨트롤러, 액션, 뷰가 조화롭게 잘 동작하고 있는 것이다. 새로운 기사를 작성할 폼을 생성할 시점이 되었다.</p><h4 id="첫번째-폼"><a class="anchorlink" href="#%EC%B2%AB%EB%B2%88%EC%A7%B8-%ED%8F%BC">5.2 첫번째 폼</a></h4><p>이 템플릿 파일에 폼을 생성하기 위해 <em>폼 빌더</em> 를 사용할 것이다. 레일스에서 사용하는 기본 폼 빌더는 <code>form_with</code> 헬퍼메소드가 제공해 준다. 이 메소드를 사용하기 위해서는 아래의 코드를 <code>app/views/articles/new.html.erb</code> 파일에 추가해 준다.</p><div class="code_container">
+<p><a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>를 새로 보기하면 하나의 타이틀을 포함하는 페이지를 보게 될 것이다. 라우트, 컨트롤러, 액션, 뷰가 조화롭게 잘 동작하고 있는 것이다. 새로운 기사를 작성할 폼을 생성할 시점이 되었다.</p><h4 id="the-first-form"><a class="anchorlink" href="#the-first-form">5.2 첫번째 폼</a></h4><p>이 템플릿 파일에 폼을 생성하기 위해 <em>폼 빌더</em> 를 사용할 것이다. 레일스에서 사용하는 기본 폼 빌더는 <code>form_with</code> 헬퍼메소드가 제공해 준다. 이 메소드를 사용하기 위해서는 아래의 코드를 <code>app/views/articles/new.html.erb</code> 파일에 추가해 준다.</p><div class="code_container">
 <pre class="brush: ruby; html-script: true; gutter: false; toolbar: false">
 &lt;%= form_with scope: :article, local: true do |form| %&gt;
   &lt;p&gt;
@@ -608,7 +608,7 @@ welcome_index GET    /welcome/index(.:format)     welcome#index
 
 </pre>
 </div>
-<p><code>articles_path</code> 헬퍼는 폼이 <code>articles</code> 접두어(prefix)와 연관되는 URI 패턴을 가리키도록 하는데 이 때 폼은 기본상태에서 해당 라우트로 <code>POST</code> 요청을 보내게 된다. 이 라우트는 <code>ArticlesController</code> 컨트롤러의 <code>create</code> 액션과 연결된다.</p><p>폼과 라우트가 지정된 상태에서 폼에 데이터를 입력한 후 서밋 버튼을 클릭하면 새 기사를 생성하는 과정을 시작하게 된다. 언급한 바와 같이 폼을 서밋하면 익숙한 에러 메시지를 보게 된다.</p><p><img src="images/getting_started/unknown_action_create_for_articles.png" alt="Unknown action create for ArticlesController"></p><p>이제 이것이 제대로 동작하도록 하려면 <code>ArticlesController</code> 내에 <code>create</code> 액션을 작성해야 한다.</p><div class="note"><p>보통은 <code>form_with</code> 헬퍼는 Ajax로 폼을 서밋하게 되므로 전체 페이지 리디렉션이 발생하지 않는다. 현재는 이 가이드를 보다 쉽게 이해할 수 있도록 <code>local: true</code>로 옵션을 지정하여 이 기능을 사용하지 않도록 했다.</p></div><h4 id="기사-작성하기"><a class="anchorlink" href="#%EA%B8%B0%EC%82%AC-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0">5.3 기사 작성하기</a></h4><p>"Unknow action" 에러 메시지가 사라지게 하려면, 아래와 같이 <code>app/controllers/articles_controller.rb</code> 파일 내의 <code>ArticlesController</code> 클래스에서, <code>new</code> 액션 바로 아래에, <code>create</code> 액션을 정의한다.</p><div class="code_container">
+<p><code>articles_path</code> 헬퍼는 폼이 <code>articles</code> 접두어(prefix)와 연관되는 URI 패턴을 가리키도록 하는데 이 때 폼은 기본상태에서 해당 라우트로 <code>POST</code> 요청을 보내게 된다. 이 라우트는 <code>ArticlesController</code> 컨트롤러의 <code>create</code> 액션과 연결된다.</p><p>폼과 라우트가 지정된 상태에서 폼에 데이터를 입력한 후 서밋 버튼을 클릭하면 새 기사를 생성하는 과정을 시작하게 된다. 언급한 바와 같이 폼을 서밋하면 익숙한 에러 메시지를 보게 된다.</p><p><img src="images/getting_started/unknown_action_create_for_articles.png" alt="Unknown action create for ArticlesController"></p><p>이제 이것이 제대로 동작하도록 하려면 <code>ArticlesController</code> 내에 <code>create</code> 액션을 작성해야 한다.</p><div class="note"><p>보통은 <code>form_with</code> 헬퍼는 Ajax로 폼을 서밋하게 되므로 전체 페이지 리디렉션이 발생하지 않는다. 현재는 이 가이드를 보다 쉽게 이해할 수 있도록 <code>local: true</code>로 옵션을 지정하여 이 기능을 사용하지 않도록 했다.</p></div><h4 id="creating-articles"><a class="anchorlink" href="#creating-articles">5.3 기사 작성하기</a></h4><p>"Unknow action" 에러 메시지가 사라지게 하려면, 아래와 같이 <code>app/controllers/articles_controller.rb</code> 파일 내의 <code>ArticlesController</code> 클래스에서, <code>new</code> 액션 바로 아래에, <code>create</code> 액션을 정의한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class ArticlesController &lt; ApplicationController
   def new
@@ -634,13 +634,13 @@ end
 
 </pre>
 </div>
-<p>이 액션은 폼으로부터 넘어 오는 해당 기사에 대한 매개변수를 보여 준다. 그러나 이것은 실제로 그렇게 유용하지 못하다. 그렇다. 매개변수들을 볼 수 있지만 그것들을 이용하여 특별히 작업한 것이 전혀 없다.</p><h4 id="article-모델-생성하기"><a class="anchorlink" href="#article-%EB%AA%A8%EB%8D%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0">5.4 Article 모델 생성하기</a></h4><p>레일스에서는 모델 이름을 단수형으로 사용하고 해당 데이터베이스 테이블명으로는 복수형을 사용한다. 레일스는 모델을 생성하는 생성자 스크립트를 제공하는데 대부분의 레일스 개발자들은 새로운 모델을 작성할 때 이것을 사용하려고 한다. 새로운 모델을 작성할 때는 터미널에서 아래의 명령을 실행한다.</p><div class="code_container">
+<p>이 액션은 폼으로부터 넘어 오는 해당 기사에 대한 매개변수를 보여 준다. 그러나 이것은 실제로 그렇게 유용하지 못하다. 그렇다. 매개변수들을 볼 수 있지만 그것들을 이용하여 특별히 작업한 것이 전혀 없다.</p><h4 id="creating-the-article-model"><a class="anchorlink" href="#creating-the-article-model">5.4 Article 모델 생성하기</a></h4><p>레일스에서는 모델 이름을 단수형으로 사용하고 해당 데이터베이스 테이블명으로는 복수형을 사용한다. 레일스는 모델을 생성하는 생성자 스크립트를 제공하는데 대부분의 레일스 개발자들은 새로운 모델을 작성할 때 이것을 사용하려고 한다. 새로운 모델을 작성할 때는 터미널에서 아래의 명령을 실행한다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails generate model Article title:string text:text
 
 </pre>
 </div>
-<p>이 명령으로써 문자형의 <em>title</em> 속성과 텍스트 속성의 <em>text</em> 속성을 가지는 <code>Article</code> 모델을 원한다고 레일스에게 알려주게 된다. 이 속성들은 자동으로 데이터베이스 <code>articles</code> 테이블에 추가되어 <code>Article</code> 모델로 매핑된다.</p><p>레일스 다수의 파일들을 생성하므로써 응답을 보이게 된다. 현재로서는 <code>app/models/article.rb</code> 와 <code>db/migrate/20140120191729_create_articles.rb</code> 파일(각자 파일명에 차이가 있을 수 있음)에만 집중하도록 한다. 후자는 데이터베이스 구조를 정의하는 것을 담당하는데 이것은 다음에 살펴 보도록 한다.</p><div class="info"><p>액티브 레코드는 매우 스마트해서 자동으로 컬럼명을 모델 속성으로 매핑해 주는데, 이것은 액티브 레코드가 자동으로 해 주기 때문에 레일스 모델 내에서 속성들을 따로 선언해 줄 필요가 없다는 것을 뜻한다.</p></div><h4 id="마이그레이션-작업-수행하기"><a class="anchorlink" href="#%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98-%EC%9E%91%EC%97%85-%EC%88%98%ED%96%89%ED%95%98%EA%B8%B0">5.5 마이그레이션 작업 수행하기</a></h4><p>방금 보았듯이 <code>rails generate model</code> 명령으로 <code>db/migrate</code> 디렉토리 내에 <em>데이터베이스 마이그레이션</em> 파일이 생성되었다. 마이그레이션을 데이터베이스 테이블을 생성하고 변경하는 작업을 쉽게 해 주기 위해 작성된 루비 클래스이다. 레일스는 rake 명령을 사용하여 마이그레이션 작업을 수행하며 데이터베이스에 적용이 완료된 후에도 마이그레이션을 취소할 수도 있다. 마이그레이션 파일명은 타임스탬프를 포함하는데 생성된 순서대로 마이그레이션으로 처리하기 위한 것이다.</p><p><code>db/migrate/YYYYMMDDHHMMSS_create_articles.rb</code> 파일(각자의 파일명이 다를 수 있음)의 내용은 아래와 같을 것이다.</p><div class="code_container">
+<p>이 명령으로써 문자형의 <em>title</em> 속성과 텍스트 속성의 <em>text</em> 속성을 가지는 <code>Article</code> 모델을 원한다고 레일스에게 알려주게 된다. 이 속성들은 자동으로 데이터베이스 <code>articles</code> 테이블에 추가되어 <code>Article</code> 모델로 매핑된다.</p><p>레일스 다수의 파일들을 생성하므로써 응답을 보이게 된다. 현재로서는 <code>app/models/article.rb</code> 와 <code>db/migrate/20140120191729_create_articles.rb</code> 파일(각자 파일명에 차이가 있을 수 있음)에만 집중하도록 한다. 후자는 데이터베이스 구조를 정의하는 것을 담당하는데 이것은 다음에 살펴 보도록 한다.</p><div class="info"><p>액티브 레코드는 매우 스마트해서 자동으로 컬럼명을 모델 속성으로 매핑해 주는데, 이것은 액티브 레코드가 자동으로 해 주기 때문에 레일스 모델 내에서 속성들을 따로 선언해 줄 필요가 없다는 것을 뜻한다.</p></div><h4 id="running-a-migration"><a class="anchorlink" href="#running-a-migration">5.5 마이그레이션 작업 수행하기</a></h4><p>방금 보았듯이 <code>rails generate model</code> 명령으로 <code>db/migrate</code> 디렉토리 내에 <em>데이터베이스 마이그레이션</em> 파일이 생성되었다. 마이그레이션을 데이터베이스 테이블을 생성하고 변경하는 작업을 쉽게 해 주기 위해 작성된 루비 클래스이다. 레일스는 rake 명령을 사용하여 마이그레이션 작업을 수행하며 데이터베이스에 적용이 완료된 후에도 마이그레이션을 취소할 수도 있다. 마이그레이션 파일명은 타임스탬프를 포함하는데 생성된 순서대로 마이그레이션으로 처리하기 위한 것이다.</p><p><code>db/migrate/YYYYMMDDHHMMSS_create_articles.rb</code> 파일(각자의 파일명이 다를 수 있음)의 내용은 아래와 같을 것이다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class CreateArticles &lt; ActiveRecord::Migration[6.0]
   def change
@@ -670,7 +670,7 @@ $ rails db:migrate
 
 </pre>
 </div>
-<div class="note"><p>보통 개발 환경에서 작업을 할 것이기 때문에 <code>config/database.yml</code> 파일의 <code>development</code> 섹션에 정의된 데이터베이스에 마이그레이션 작업이 적용될 것이다. 다른 환경에서 마이그레이션을 실행하고자 할 경우, 예를 들어 운영 환경에서, <code>rails db:migrate RAILS_ENV=production</code>와 같이 명령을 호출할 때 명시적으로 지정해 주어야 한다.</p></div><h4 id="컨트롤러에서-데이터-저장하기"><a class="anchorlink" href="#%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EC%97%90%EC%84%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0">5.6 컨트롤러에서 데이터 저장하기</a></h4><p>새로 생성한 <code>Article</code> 모델을 이용하여 데이터베이스로 데이터를 저장하기 위해서는 <code>ArticlesController</code>로 돌아가서 <code>create</code> 액션을 변경할 필요가 있다. <code>app/controllers/articles_controller.rb</code> 파일을 열고 아래와 같이 <code>create</code> 액션을 변경한다.</p><div class="code_container">
+<div class="note"><p>보통 개발 환경에서 작업을 할 것이기 때문에 <code>config/database.yml</code> 파일의 <code>development</code> 섹션에 정의된 데이터베이스에 마이그레이션 작업이 적용될 것이다. 다른 환경에서 마이그레이션을 실행하고자 할 경우, 예를 들어 운영 환경에서, <code>rails db:migrate RAILS_ENV=production</code>와 같이 명령을 호출할 때 명시적으로 지정해 주어야 한다.</p></div><h4 id="saving-data-in-the-controller"><a class="anchorlink" href="#saving-data-in-the-controller">5.6 컨트롤러에서 데이터 저장하기</a></h4><p>새로 생성한 <code>Article</code> 모델을 이용하여 데이터베이스로 데이터를 저장하기 위해서는 <code>ArticlesController</code>로 돌아가서 <code>create</code> 액션을 변경할 필요가 있다. <code>app/controllers/articles_controller.rb</code> 파일을 열고 아래와 같이 <code>create</code> 액션을 변경한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 def create
   @article = Article.new(params[:article])
@@ -703,7 +703,7 @@ private
 
 </pre>
 </div>
-<div class="info"><p>자세한 내용은 위의 레퍼런스 및 <a href="ttps://weblog.rubyonrails.org/2012/3/21/strong-parameters/">Strong Paramters에 대한 이 블로그의 관련 기사</a>를 참고한다.</p></div><h4 id="기사-보여주기"><a class="anchorlink" href="#%EA%B8%B0%EC%82%AC-%EB%B3%B4%EC%97%AC%EC%A3%BC%EA%B8%B0">5.7 기사 보여주기</a></h4><p>지금 폼을 다시 서밋하면 레일스는 <code>show</code> 액션를 찾지 못한다고 불평할 것이다. 그다지 유용하지는 않더라도 계속하기 전에 <code>show</code> 액션을 추가하도록 한다.</p><p><code>rails routes</code>의 결과에서 보았 듯이 <code>show</code> 액션의 라우트는 다음과 같다.</p><div class="code_container">
+<div class="info"><p>자세한 내용은 위의 레퍼런스 및 <a href="ttps://weblog.rubyonrails.org/2012/3/21/strong-parameters/">Strong Paramters에 대한 이 블로그의 관련 기사</a>를 참고한다.</p></div><h4 id="showing-articles"><a class="anchorlink" href="#showing-articles">5.7 기사 보여주기</a></h4><p>지금 폼을 다시 서밋하면 레일스는 <code>show</code> 액션를 찾지 못한다고 불평할 것이다. 그다지 유용하지는 않더라도 계속하기 전에 <code>show</code> 액션을 추가하도록 한다.</p><p><code>rails routes</code>의 결과에서 보았 듯이 <code>show</code> 액션의 라우트는 다음과 같다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 article GET    /articles/:id(.:format)      articles#show
 
@@ -738,7 +738,7 @@ class ArticlesController &lt; ApplicationController
 </pre>
 </div>
 <p>이와 같이 변경한 후 비로서 기사를 새로 작성할 수 있게 되는 것이다.
-이제 <a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>를 방문하여 직접 사용해 보기 바란다!</p><p><img src="images/getting_started/show_action_for_articles.png" alt="Show action for articles"></p><h4 id="모든-기사-목록-보기"><a class="anchorlink" href="#%EB%AA%A8%EB%93%A0-%EA%B8%B0%EC%82%AC-%EB%AA%A9%EB%A1%9D-%EB%B3%B4%EA%B8%B0">5.8 모든 기사 목록 보기</a></h4><p>모든 기사를 나열할 방법도 필요하므로 함께 진행하도록 하자.
+이제 <a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>를 방문하여 직접 사용해 보기 바란다!</p><p><img src="images/getting_started/show_action_for_articles.png" alt="Show action for articles"></p><h4 id="listing-all-articles"><a class="anchorlink" href="#listing-all-articles">5.8 모든 기사 목록 보기</a></h4><p>모든 기사를 나열할 방법도 필요하므로 함께 진행하도록 하자.
 <code>rails routes</code>의 결과에 따른 라우트는 아래와 같다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 articles GET    /articles(.:format)          articles#index
@@ -785,7 +785,7 @@ class ArticlesController &lt; ApplicationController
 
 </pre>
 </div>
-<p>이제 <a href="http://localhost:3000/articles">http://localhost:3000/articles</a>로 이동하면 지금까지 작성한 모든 기사 목록이 표시될 것이다.</p><h4 id="링크-추가하기"><a class="anchorlink" href="#%EB%A7%81%ED%81%AC-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0">5.9 링크 추가하기</a></h4><p>이제 기사를 작성하고 보여주고 목록을 나열할 수 있게 되었다. 다음으로 페이지간의 이동을 위한 몇가지 링크를 추가해 보도록 하자.</p><p><code>app/views/welcome/index.html.erb</code> 파일을 열고 아래와 같이 변경한다.</p><div class="code_container">
+<p>이제 <a href="http://localhost:3000/articles">http://localhost:3000/articles</a>로 이동하면 지금까지 작성한 모든 기사 목록이 표시될 것이다.</p><h4 id="adding-links"><a class="anchorlink" href="#adding-links">5.9 링크 추가하기</a></h4><p>이제 기사를 작성하고 보여주고 목록을 나열할 수 있게 되었다. 다음으로 페이지간의 이동을 위한 몇가지 링크를 추가해 보도록 하자.</p><p><code>app/views/welcome/index.html.erb</code> 파일을 열고 아래와 같이 변경한다.</p><div class="code_container">
 <pre class="brush: ruby; html-script: true; gutter: false; toolbar: false">
 &lt;h1&gt;Hello, Rails!&lt;/h1&gt;
 &lt;%= link_to 'My Blog', controller: 'articles' %&gt;
@@ -824,7 +824,7 @@ class ArticlesController &lt; ApplicationController
 
 </pre>
 </div>
-<div class="info"><p>레일스는 기본적으로 현재 컨트롤러를 사용하기 때문에 동일한 컨트롤러에서 액션에 연결하고자 할 경우 <code>:controller</code> 옵션을 지정할 필요가 없다.</p></div><div class="info"><p>개발 모드(기본적으로 작업중인 모드)에서 레일스는 모든 브라우저 요청에 따라 애플리케이션을 다시 로드하므로 소스 코드의 변경시 웹 서버를 중지했다가 다시 시작할 필요가 없다.</p></div><h4 id="몇가지-유효성-검사-추가하기"><a class="anchorlink" href="#%EB%AA%87%EA%B0%80%EC%A7%80-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0">5.10 몇가지 유효성 검사 추가하기</a></h4><p><code>app/models/article.rb</code> 모델 파일은 아래와 같이 간단하다.</p><div class="code_container">
+<div class="info"><p>레일스는 기본적으로 현재 컨트롤러를 사용하기 때문에 동일한 컨트롤러에서 액션에 연결하고자 할 경우 <code>:controller</code> 옵션을 지정할 필요가 없다.</p></div><div class="info"><p>개발 모드(기본적으로 작업중인 모드)에서 레일스는 모든 브라우저 요청에 따라 애플리케이션을 다시 로드하므로 소스 코드의 변경시 웹 서버를 중지했다가 다시 시작할 필요가 없다.</p></div><h4 id="adding-some-validation"><a class="anchorlink" href="#adding-some-validation">5.10 몇가지 유효성 검사 추가하기</a></h4><p><code>app/models/article.rb</code> 모델 파일은 아래와 같이 간단하다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Article &lt; ApplicationRecord
 end
@@ -903,7 +903,7 @@ private
 
 </pre>
 </div>
-<p>여기서 처리되는 과정을 보면, <code>@article.errors.any?</code>를 호출하여 오류가 있는지 확인하고, 이 경우 <code>@article.errors.full_messages</code>로 모든 오류 목록을 표시하도록 한다.</p><p><code>pluralize</code>는 숫자와 문자열을 인수로 받는 레일스 헬퍼 메소드이다. 숫자가 1보다 크면 문자열이 복수형으로 자동변환된다.</p><p><code>ArticlesController</code>에 <code>@article = Article.new</code>를 추가한 이유는 그렇지 않을 경우 뷰 상에서 인스턴스 변수 <code>@article</code>의 값은 <code>nil</code>이 되고  이 때<code>@article.errors.any?</code>를 호출하면 에러가 발생하기 때문이다.</p><div class="info"><p>레일스는 <code>field_with_errors</code> 클래스가 지정되어 있는 div 태그로 에러를 포함하는 필드를 자동으로 래핑한다. CSS 규칙을 정의하여 이러한 필드를 두드러지게 보이게 할 수 있다.</p></div><p>이제 새 기사 폼 <a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>에서 title을 지정하지 않고 기사를 저장할 때 오류 메시지가 멋있게 표시될 것이다.</p><p><img src="images/getting_started/form_with_errors.png" alt="Form With Errors"></p><h4 id="기사-업데이트하기"><a class="anchorlink" href="#%EA%B8%B0%EC%82%AC-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%ED%95%98%EA%B8%B0">5.11 기사 업데이트하기</a></h4><p>지금까지 CRUD의 "CR"부분을 다뤘다. 이제 기사를 업데이트하면서 "U"부분에 초점을 맞추어 보자.</p><p>첫 번째 단계는 아래와 같이 <code>edit</code> 액션을 <code>ArticlesController</code>에 추가하는 것이다. 일반적으로 <code>new</code>와 <code>create</code> 액션 사이에 위치한다.</p><div class="code_container">
+<p>여기서 처리되는 과정을 보면, <code>@article.errors.any?</code>를 호출하여 오류가 있는지 확인하고, 이 경우 <code>@article.errors.full_messages</code>로 모든 오류 목록을 표시하도록 한다.</p><p><code>pluralize</code>는 숫자와 문자열을 인수로 받는 레일스 헬퍼 메소드이다. 숫자가 1보다 크면 문자열이 복수형으로 자동변환된다.</p><p><code>ArticlesController</code>에 <code>@article = Article.new</code>를 추가한 이유는 그렇지 않을 경우 뷰 상에서 인스턴스 변수 <code>@article</code>의 값은 <code>nil</code>이 되고  이 때<code>@article.errors.any?</code>를 호출하면 에러가 발생하기 때문이다.</p><div class="info"><p>레일스는 <code>field_with_errors</code> 클래스가 지정되어 있는 div 태그로 에러를 포함하는 필드를 자동으로 래핑한다. CSS 규칙을 정의하여 이러한 필드를 두드러지게 보이게 할 수 있다.</p></div><p>이제 새 기사 폼 <a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>에서 title을 지정하지 않고 기사를 저장할 때 오류 메시지가 멋있게 표시될 것이다.</p><p><img src="images/getting_started/form_with_errors.png" alt="Form With Errors"></p><h4 id="updating-articles"><a class="anchorlink" href="#updating-articles">5.11 기사 업데이트하기</a></h4><p>지금까지 CRUD의 "CR"부분을 다뤘다. 이제 기사를 업데이트하면서 "U"부분에 초점을 맞추어 보자.</p><p>첫 번째 단계는 아래와 같이 <code>edit</code> 액션을 <code>ArticlesController</code>에 추가하는 것이다. 일반적으로 <code>new</code>와 <code>create</code> 액션 사이에 위치한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 def new
   @article = Article.new
@@ -1024,7 +1024,7 @@ private
 
 </pre>
 </div>
-<p>그리고 지금까지 작업한 내용은 아래와 같다.</p><p><img src="images/getting_started/index_action_with_edit_link.png" alt="Index action with edit link"></p><h4 id="파셜을-이용하여-뷰의-중복-코드-정리하기"><a class="anchorlink" href="#%ED%8C%8C%EC%85%9C%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-%EB%B7%B0%EC%9D%98-%EC%A4%91%EB%B3%B5-%EC%BD%94%EB%93%9C-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0">5.12 파셜을 이용하여 뷰의 중복 코드 정리하기</a></h4><p><code>edit</code> 페이지는 <code>new</code> 페이지와 매우 유사하다. 실제로 둘 다 폼을 표시하기 위해 동일한 코드를 공유한다. 뷰 파셜을 사용하여 이러한 중복 코드를 제거할 수 있다. 일반적으로 파셜 파일의 이름은 밑줄로 시작된다.</p><div class="info"><p>파셜에 대한 자세한 내용은 <a href="layouts_and_rendering.html">Layouts and Rendering in Rails</a> 가이드를 읽어 보기 바란다.</p></div><p>아래의 내용으로 <code>app/views/articles/_form.html.erb</code> 파일을 새로 생성한다.</p><div class="code_container">
+<p>그리고 지금까지 작업한 내용은 아래와 같다.</p><p><img src="images/getting_started/index_action_with_edit_link.png" alt="Index action with edit link"></p><h4 id="using-partials-to-clean-up-duplication-in-views"><a class="anchorlink" href="#using-partials-to-clean-up-duplication-in-views">5.12 파셜을 이용하여 뷰의 중복 코드 정리하기</a></h4><p><code>edit</code> 페이지는 <code>new</code> 페이지와 매우 유사하다. 실제로 둘 다 폼을 표시하기 위해 동일한 코드를 공유한다. 뷰 파셜을 사용하여 이러한 중복 코드를 제거할 수 있다. 일반적으로 파셜 파일의 이름은 밑줄로 시작된다.</p><div class="info"><p>파셜에 대한 자세한 내용은 <a href="layouts_and_rendering.html">Layouts and Rendering in Rails</a> 가이드를 읽어 보기 바란다.</p></div><p>아래의 내용으로 <code>app/views/articles/_form.html.erb</code> 파일을 새로 생성한다.</p><div class="code_container">
 <pre class="brush: ruby; html-script: true; gutter: false; toolbar: false">
 &lt;%= form_with model: @article, local: true do |form| %&gt;
 
@@ -1082,7 +1082,7 @@ private
 
 </pre>
 </div>
-<h4 id="기사-삭제하기"><a class="anchorlink" href="#%EA%B8%B0%EC%82%AC-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0">5.13 기사 삭제하기</a></h4><p>이제 데이터베이스에서 기사를 삭제하는 CRUD의 "D"부분에 대해선 언급할 것이다. REST 규칙에 따른 <code>rails routes</code>의 결과를 근거로 기사 삭제 라우트는 아래와 같다.</p><div class="code_container">
+<h4 id="deleting-articles"><a class="anchorlink" href="#deleting-articles">5.13 기사 삭제하기</a></h4><p>이제 데이터베이스에서 기사를 삭제하는 CRUD의 "D"부분에 대해선 언급할 것이다. REST 규칙에 따른 <code>rails routes</code>의 결과를 근거로 기사 삭제 라우트는 아래와 같다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 DELETE /articles/:id(.:format)      articles#destroy
 
@@ -1186,7 +1186,7 @@ end
 </pre>
 </div>
 <p>여기서는 다른 방식으로 <code>link_to</code>를 사용할 것이다. 네임드 라우트(named route, prefix가 있는 라우트)를 두 번째 인수로, 다른 옵션을 또 다른 인수로 전달한다.
-<code>method: :delete</code> 및 <code>data: { confirm : 'Are you sure?' }</code> 옵션은 HTML5 속성으로 사용되기 때문에, 링크를 클릭할 경우 레일스는 먼저 사용자에게 확인창을 보여 준 다음, <code>delete</code> 메소드를 사용하여 링크를 서밋한다. 이것은 애플리케이션을 생성 할 때 애플리케이션 레이아웃 (<code>app/views/layouts/application.html.erb</code>)에 자동으로 포함되는 자바스크립트 파일 <code>rails-ujs</code>를 통해 수행된다. 이 파일이 없으면 확인창이 나타나지 않을 것이다.</p><p><img src="images/getting_started/confirm_dialog.png" alt="Confirm Dialog"></p><div class="info"><p><a href="working_with_javascript_in_rails.html">Working With JavaScript in Rails</a> 가이드에서 unobtrusive 자바스크립트에 대해 자세히 알 수 있다.</p></div><p>축하한다. 이제 기사를 작성, 보여주기, 리스트보기, 업데이트 및 삭제할 수 있게 되었다.</p><div class="info"><p>일반적으로 레일스는 라우트를 수동으로 선언하는 대신 리소스 객체를 사용하도록 권장한다. 라우팅에 대한 자세한 내용은 <a href="routing.html">Rails Routing from the Outside In</a>을 참조하기 바란다.</p></div><h3 id="두번째-모델-추가하기"><a class="anchorlink" href="#%EB%91%90%EB%B2%88%EC%A7%B8-%EB%AA%A8%EB%8D%B8-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0">6 두번째 모델 추가하기</a></h3><p>이제 애플리케이션에 두 번째 모델을 추가할 때가 되었다. 두 번째 모델은 기사에 대한 댓글을 처리할 것이다.</p><h4 id="모델-생성하기"><a class="anchorlink" href="#%EB%AA%A8%EB%8D%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0">6.1 모델 생성하기</a></h4><p><code>Article</code> 모델을 생성할 때 전에 사용했던 것과 같은 생성자를 사용할 것이다. 이번에는 기사에 대한 참조를 담는 <code>Comment</code> 모델을 생성할 것이다. 터미널에서 아래의 명령을 실행한다.</p><div class="code_container">
+<code>method: :delete</code> 및 <code>data: { confirm : 'Are you sure?' }</code> 옵션은 HTML5 속성으로 사용되기 때문에, 링크를 클릭할 경우 레일스는 먼저 사용자에게 확인창을 보여 준 다음, <code>delete</code> 메소드를 사용하여 링크를 서밋한다. 이것은 애플리케이션을 생성 할 때 애플리케이션 레이아웃 (<code>app/views/layouts/application.html.erb</code>)에 자동으로 포함되는 자바스크립트 파일 <code>rails-ujs</code>를 통해 수행된다. 이 파일이 없으면 확인창이 나타나지 않을 것이다.</p><p><img src="images/getting_started/confirm_dialog.png" alt="Confirm Dialog"></p><div class="info"><p><a href="working_with_javascript_in_rails.html">Working With JavaScript in Rails</a> 가이드에서 unobtrusive 자바스크립트에 대해 자세히 알 수 있다.</p></div><p>축하한다. 이제 기사를 작성, 보여주기, 리스트보기, 업데이트 및 삭제할 수 있게 되었다.</p><div class="info"><p>일반적으로 레일스는 라우트를 수동으로 선언하는 대신 리소스 객체를 사용하도록 권장한다. 라우팅에 대한 자세한 내용은 <a href="routing.html">Rails Routing from the Outside In</a>을 참조하기 바란다.</p></div><h3 id="두번째-모델-추가하기"><a class="anchorlink" href="#%EB%91%90%EB%B2%88%EC%A7%B8-%EB%AA%A8%EB%8D%B8-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0">6 두번째 모델 추가하기</a></h3><p>이제 애플리케이션에 두 번째 모델을 추가할 때가 되었다. 두 번째 모델은 기사에 대한 댓글을 처리할 것이다.</p><h4 id="generating-a-model"><a class="anchorlink" href="#generating-a-model">6.1 모델 생성하기</a></h4><p><code>Article</code> 모델을 생성할 때 전에 사용했던 것과 같은 생성자를 사용할 것이다. 이번에는 기사에 대한 참조를 담는 <code>Comment</code> 모델을 생성할 것이다. 터미널에서 아래의 명령을 실행한다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails generate model Comment commenter:string body:text article:references
 
@@ -1260,7 +1260,7 @@ $ rails db:migrate
 
 </pre>
 </div>
-<h4 id="모델-관계-선언하기"><a class="anchorlink" href="#%EB%AA%A8%EB%8D%B8-%EA%B4%80%EA%B3%84-%EC%84%A0%EC%96%B8%ED%95%98%EA%B8%B0">6.2 모델 관계 선언하기</a></h4><p>액티브레코드 관계를 사용하면 두 모델 간의 관계를 쉽게 선언 할 수 있다. 댓글과 기사의 경우 다음과 같이 관계를 작성할 수 있다.</p>
+<h4 id="associating-models"><a class="anchorlink" href="#associating-models">6.2 모델 관계 선언하기</a></h4><p>액티브레코드 관계를 사용하면 두 모델 간의 관계를 쉽게 선언 할 수 있다. 댓글과 기사의 경우 다음과 같이 관계를 작성할 수 있다.</p>
 <ul>
 <li>각 댓글은 하나의 기사에 속한다.</li>
 <li>하나의 기사는 다수의 댓글을 가질 수 있다.</li>
@@ -1283,7 +1283,7 @@ end
 
 </pre>
 </div>
-<p>이 두 가지 선언을 통해서 몇가지 작업을 자동화할 수 있다. 예를 들어 기사를 포함하는 인스턴스 변수 '@article'가 있는 경우 <code>@ article.comments</code>를 사용하여 해당 기사에 속하는 모든 댓글을 배열로 검색 할 수 있다.</p><div class="info"><p>액티브 레코드 연결에 대한 자세한 내용은 <a href="association_basics.html">Active Record Associations</a> 안내서를 참조한다.</p></div><h4 id="댓글에-대한-라우트-추가하기"><a class="anchorlink" href="#%EB%8C%93%EA%B8%80%EC%97%90-%EB%8C%80%ED%95%9C-%EB%9D%BC%EC%9A%B0%ED%8A%B8-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0">6.3 댓글에 대한 라우트 추가하기</a></h4><p><code>welcome</code> 컨트롤러와 마찬가지로 <code>comments</code> 리소스에 대한 라우트를 추가해야 할 것이다. <code>config/routes.rb</code> 파일을 다시 열고 아래와 같이 수정한다.</p><div class="code_container">
+<p>이 두 가지 선언을 통해서 몇가지 작업을 자동화할 수 있다. 예를 들어 기사를 포함하는 인스턴스 변수 '@article'가 있는 경우 <code>@ article.comments</code>를 사용하여 해당 기사에 속하는 모든 댓글을 배열로 검색 할 수 있다.</p><div class="info"><p>액티브 레코드 연결에 대한 자세한 내용은 <a href="association_basics.html">Active Record Associations</a> 안내서를 참조한다.</p></div><h4 id="adding-a-route-for-comments"><a class="anchorlink" href="#adding-a-route-for-comments">6.3 댓글에 대한 라우트 추가하기</a></h4><p><code>welcome</code> 컨트롤러와 마찬가지로 <code>comments</code> 리소스에 대한 라우트를 추가해야 할 것이다. <code>config/routes.rb</code> 파일을 다시 열고 아래와 같이 수정한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 resources :articles do
   resources :comments
@@ -1291,7 +1291,7 @@ end
 
 </pre>
 </div>
-<p>이것은 <code>articles</code> 내에서 <code>comments</code>를 <em>nested resource</em> 상태로 생성한다. 이것은 기사와 댓글 사이에 존재하는 계층적 관계를 적용하는 또 다른 부분이다.</p><div class="info"><p>라우팅에 대한 자세한 내용은 <a href="routing.html">Rails Routing</a> 안내서를 참조한다.</p></div><h4 id="컨트롤러-생성하기"><a class="anchorlink" href="#%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0">6.4 컨트롤러 생성하기</a></h4><p>모델이 준비된 상태에서 다음으로 연관 컨트롤러를 만드는 데 집중해야 한다. 이 때 전에 사용했던 것과 동일한 생성자를 사용할 것이다.</p><div class="code_container">
+<p>이것은 <code>articles</code> 내에서 <code>comments</code>를 <em>nested resource</em> 상태로 생성한다. 이것은 기사와 댓글 사이에 존재하는 계층적 관계를 적용하는 또 다른 부분이다.</p><div class="info"><p>라우팅에 대한 자세한 내용은 <a href="routing.html">Rails Routing</a> 안내서를 참조한다.</p></div><h4 id="generating-a-controller"><a class="anchorlink" href="#generating-a-controller">6.4 컨트롤러 생성하기</a></h4><p>모델이 준비된 상태에서 다음으로 연관 컨트롤러를 만드는 데 집중해야 한다. 이 때 전에 사용했던 것과 동일한 생성자를 사용할 것이다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails generate controller Comments
 
@@ -1422,7 +1422,7 @@ end
 
 </pre>
 </div>
-<p>이제 블로그에 기사와 댓글을 추가하고 재위치에 보여 줄 수 있게 되었다.</p><p><img src="images/getting_started/article_with_comments.png" alt="Article with Comments"></p><h3 id="리팩토링하기"><a class="anchorlink" href="#%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0">7 리팩토링하기</a></h3><p>이제 기사와 댓글이 작성되었으므로 <code>app/views/articles/show.html.erb</code> 템플릿을 살펴 보도록 한다. 코드가 길어지면서 점점 어색해지고 있다. 파셜을 사용하면 깨끗하게 정리할 수 있다.</p><h4 id="파셜-컬렉션-렌더링하기"><a class="anchorlink" href="#%ED%8C%8C%EC%85%9C-%EC%BB%AC%EB%A0%89%EC%85%98-%EB%A0%8C%EB%8D%94%EB%A7%81%ED%95%98%EA%B8%B0">7.1 파셜 컬렉션 렌더링하기</a></h4><p>먼저 해당 기사에 대한 모든 댓글을 보여 주기 위해 댓글 파셜을 작성한다. <code>app/views/comments/_comment.html.erb</code> 파일을 생성하고 아래와 같이 입력한다.</p><div class="code_container">
+<p>이제 블로그에 기사와 댓글을 추가하고 재위치에 보여 줄 수 있게 되었다.</p><p><img src="images/getting_started/article_with_comments.png" alt="Article with Comments"></p><h3 id="refactoring"><a class="anchorlink" href="#refactoring">7 리팩토링하기</a></h3><p>이제 기사와 댓글이 작성되었으므로 <code>app/views/articles/show.html.erb</code> 템플릿을 살펴 보도록 한다. 코드가 길어지면서 점점 어색해지고 있다. 파셜을 사용하면 깨끗하게 정리할 수 있다.</p><h4 id="rendering-partial-collections"><a class="anchorlink" href="#rendering-partial-collections">7.1 파셜 컬렉션 렌더링하기</a></h4><p>먼저 해당 기사에 대한 모든 댓글을 보여 주기 위해 댓글 파셜을 작성한다. <code>app/views/comments/_comment.html.erb</code> 파일을 생성하고 아래와 같이 입력한다.</p><div class="code_container">
 <pre class="brush: ruby; html-script: true; gutter: false; toolbar: false">
 &lt;p&gt;
   &lt;strong&gt;Commenter:&lt;/strong&gt;
@@ -1471,7 +1471,7 @@ end
 
 </pre>
 </div>
-<p>이것은 이제 <code>@article.comments</code> 컬렉션에 있는 각 댓글마다 <code>app/views/comments/_comment.html.erb</code> 파셜을 한번씩 렌더링한다. <code>render</code> 메소드가 <code>@article.comments</code> 컬렉션을 반복 할 때, 각 댓글을 파셜과 같은 이름의 로컬 변수 (이 경우에는 <code>comment</code>)에 할당하며 이 변수는 파셜 템플릿에서 사용할 수 있다.</p><h4 id="파셜-폼-렌더링하기"><a class="anchorlink" href="#%ED%8C%8C%EC%85%9C-%ED%8F%BC-%EB%A0%8C%EB%8D%94%EB%A7%81%ED%95%98%EA%B8%B0">7.2 파셜 폼 렌더링하기</a></h4><p>새로운 댓글 섹션을 파셜 템플릿으로 옮기도록 한다. 또 다시, 아래와 같은 내용을 포함하는 <code>app/views/comments/_form.html.erb</code> 파일을 생성한다.</p><div class="code_container">
+<p>이것은 이제 <code>@article.comments</code> 컬렉션에 있는 각 댓글마다 <code>app/views/comments/_comment.html.erb</code> 파셜을 한번씩 렌더링한다. <code>render</code> 메소드가 <code>@article.comments</code> 컬렉션을 반복 할 때, 각 댓글을 파셜과 같은 이름의 로컬 변수 (이 경우에는 <code>comment</code>)에 할당하며 이 변수는 파셜 템플릿에서 사용할 수 있다.</p><h4 id="rendering-a-partial-form"><a class="anchorlink" href="#rendering-a-partial-form">7.2 파셜 폼 렌더링하기</a></h4><p>새로운 댓글 섹션을 파셜 템플릿으로 옮기도록 한다. 또 다시, 아래와 같은 내용을 포함하는 <code>app/views/comments/_form.html.erb</code> 파일을 생성한다.</p><div class="code_container">
 <pre class="brush: ruby; html-script: true; gutter: false; toolbar: false">
 &lt;%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %&gt;
   &lt;p&gt;
@@ -1512,7 +1512,7 @@ end
 
 </pre>
 </div>
-<p>두 번째 render 메소드는 파셜 템플릿 <code>comments/form</code>을 정의한다. 레일스는 이 문자열에서 슬래시를 인식할 수 있기 때문에 <code>_form.html.erb</code> 파일을 <code>app/views/comments</code> 디렉토리에 렌더링하게 된다.</p><p><code>@article</code> 객체는 인스턴스 변수로 정의 되었기 때문에 뷰에서 렌더링되는 모든 파셜에서 사용할 수 있다.</p><h3 id="댓글-삭제하기"><a class="anchorlink" href="#%EB%8C%93%EA%B8%80-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0">8 댓글 삭제하기</a></h3><p>블로그의 또 다른 중요한 기능은 스팸 댓글을 삭제할 수 있어야 한다. 이를 위해서 뷰에서 댓글 삭제를 위한 링크와 <code>CommentsController</code>에서 <code>destroy</code> 액션을 구현해야 한다.</p><p>먼저 <code>app/views/comments/_comment.html.erb</code> 파셜에 삭제 링크를 추가한다.</p><div class="code_container">
+<p>두 번째 render 메소드는 파셜 템플릿 <code>comments/form</code>을 정의한다. 레일스는 이 문자열에서 슬래시를 인식할 수 있기 때문에 <code>_form.html.erb</code> 파일을 <code>app/views/comments</code> 디렉토리에 렌더링하게 된다.</p><p><code>@article</code> 객체는 인스턴스 변수로 정의 되었기 때문에 뷰에서 렌더링되는 모든 파셜에서 사용할 수 있다.</p><h3 id="deleting-comments"><a class="anchorlink" href="#deleting-comments">8 댓글 삭제하기</a></h3><p>블로그의 또 다른 중요한 기능은 스팸 댓글을 삭제할 수 있어야 한다. 이를 위해서 뷰에서 댓글 삭제를 위한 링크와 <code>CommentsController</code>에서 <code>destroy</code> 액션을 구현해야 한다.</p><p>먼저 <code>app/views/comments/_comment.html.erb</code> 파셜에 삭제 링크를 추가한다.</p><div class="code_container">
 <pre class="brush: ruby; html-script: true; gutter: false; toolbar: false">
 &lt;p&gt;
   &lt;strong&gt;Commenter:&lt;/strong&gt;
@@ -1556,7 +1556,7 @@ end
 
 </pre>
 </div>
-<p><code>destroy</code> 액션는 우선 기사를 먼저 찾은 후 <code>@article.comments</code> 컬렉션에서 대상 댓글을 찾아 데이터베이스에서 제거하고 기사의 show 액션으로 돌려 보낸다.</p><h4 id="관련-객체-삭제하기"><a class="anchorlink" href="#%EA%B4%80%EB%A0%A8-%EA%B0%9D%EC%B2%B4-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0">8.1 관련 객체 삭제하기</a></h4><p>기사를 삭제하면 관련 댓글도 삭제해야 한다. 그렇지 않으면 사용하지 않는 댓글이 데이터베이스의 공간을 차지하게 된다. 레일스를 사용하면 관계 설정시 <code>dependent</code> 옵션을 사용하여 이런 문제를 해결할 수 있다. 아래와 같이 Article 모델 <code>app/models/article.rb</code>를 수정한다.</p><div class="code_container">
+<p><code>destroy</code> 액션는 우선 기사를 먼저 찾은 후 <code>@article.comments</code> 컬렉션에서 대상 댓글을 찾아 데이터베이스에서 제거하고 기사의 show 액션으로 돌려 보낸다.</p><h4 id="deleting-associated-objects"><a class="anchorlink" href="#deleting-associated-objects">8.1 관련 객체 삭제하기</a></h4><p>기사를 삭제하면 관련 댓글도 삭제해야 한다. 그렇지 않으면 사용하지 않는 댓글이 데이터베이스의 공간을 차지하게 된다. 레일스를 사용하면 관계 설정시 <code>dependent</code> 옵션을 사용하여 이런 문제를 해결할 수 있다. 아래와 같이 Article 모델 <code>app/models/article.rb</code>를 수정한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Article &lt; ApplicationRecord
   has_many :comments, dependent: :destroy
@@ -1566,7 +1566,7 @@ end
 
 </pre>
 </div>
-<h3 id="보안"><a class="anchorlink" href="#%EB%B3%B4%EC%95%88">9 보안</a></h3><h4 id="기본-인증"><a class="anchorlink" href="#%EA%B8%B0%EB%B3%B8-%EC%9D%B8%EC%A6%9D">9.1 기본 인증</a></h4><p>블로그를 온라인으로 게시할 경우, 누구나 기사를 추가, 수정, 삭제할 수 있으며 댓글을 삭제할 수 있다.</p><p>레일스는 이런 상황에서 잘 작동하는 매우 간단한 HTTP 인증 시스템을 제공한다.</p><p><code>ArticlesController</code>에서는 인증되지 않은 사용자의 경우 액션에 대한 접근 권한을 차단하는 방법이 필요하다. 여기서 레일스 <code>http_basic_authenticate_with</code> 메소드를 사용할 수 있는데, 이 메소드가 허용하는 경우 요청된 액션에 대해 접근할 수 있게 한다.</p><p>인증 시스템을 사용하기 위해 <code>app/controllers/articles_controller.rb</code> 파일에 있는 <code>ArticlesController</code> 상단에 이것을 명시한다. 여기서는 <code>index</code>와 <code>show</code>를 제외한 모든 액션에 대해 사용자가 인증되기를 원한다.</p><div class="code_container">
+<h3 id="security"><a class="anchorlink" href="#security">9 보안</a></h3><h4 id="basic-authentication"><a class="anchorlink" href="#basic-authentication">9.1 기본 인증</a></h4><p>블로그를 온라인으로 게시할 경우, 누구나 기사를 추가, 수정, 삭제할 수 있으며 댓글을 삭제할 수 있다.</p><p>레일스는 이런 상황에서 잘 작동하는 매우 간단한 HTTP 인증 시스템을 제공한다.</p><p><code>ArticlesController</code>에서는 인증되지 않은 사용자의 경우 액션에 대한 접근 권한을 차단하는 방법이 필요하다. 여기서 레일스 <code>http_basic_authenticate_with</code> 메소드를 사용할 수 있는데, 이 메소드가 허용하는 경우 요청된 액션에 대해 접근할 수 있게 한다.</p><p>인증 시스템을 사용하기 위해 <code>app/controllers/articles_controller.rb</code> 파일에 있는 <code>ArticlesController</code> 상단에 이것을 명시한다. 여기서는 <code>index</code>와 <code>show</code>를 제외한 모든 액션에 대해 사용자가 인증되기를 원한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class ArticlesController &lt; ApplicationController
 
@@ -1595,14 +1595,14 @@ class CommentsController &lt; ApplicationController
 
 </pre>
 </div>
-<p>이제 새 기사를 작성하려고 하면 기본 HTTP 인증창이 표시된다.</p><p><img src="images/getting_started/challenge.png" alt="Basic HTTP Authentication Challenge"></p><p>레일스 애플리케이션에 다른 인증 방법을 사용할 수 있다. 레일스에 널리 사용되는 두 가지 인증 애드온은 <a href="https://github.com/plataformatec/devise">Devise</a> 레일스 엔진과 <a href="https://github.com/binarylogic/authlogic">Authlogic</a> 젬이 있으며 기타 다른 젬들도 다수 존재한다.</p><h4 id="다른-보안-고려사항"><a class="anchorlink" href="#%EB%8B%A4%EB%A5%B8-%EB%B3%B4%EC%95%88-%EA%B3%A0%EB%A0%A4%EC%82%AC%ED%95%AD">9.2 다른 보안 고려사항</a></h4><p>특히 웹 애플리케이션의 보안은 광범위하고 세밀한 분야이다. 레일스 애플리케이션의 보안은 <a href="security.html">Ruby on Rails Security Guide</a>에 자세히 설명되어 있다.</p><h3 id="향후-계획"><a class="anchorlink" href="#%ED%96%A5%ED%9B%84-%EA%B3%84%ED%9A%8D">10 향후 계획</a></h3><p>이제 처음으로 레일스 애플리케이션을 경험해 보았으므로 자유롭게 수정해 보고  마음 껏 테스트해 보기 바란다.</p><p>도움없이 모든 것을 할 필요는 없다는 것을 기억하기 바란다. 레일스를 작동시키는데 도움이 필요할 경우 아래의 지원 리소스를 참조하면 된다.</p>
+<p>이제 새 기사를 작성하려고 하면 기본 HTTP 인증창이 표시된다.</p><p><img src="images/getting_started/challenge.png" alt="Basic HTTP Authentication Challenge"></p><p>레일스 애플리케이션에 다른 인증 방법을 사용할 수 있다. 레일스에 널리 사용되는 두 가지 인증 애드온은 <a href="https://github.com/plataformatec/devise">Devise</a> 레일스 엔진과 <a href="https://github.com/binarylogic/authlogic">Authlogic</a> 젬이 있으며 기타 다른 젬들도 다수 존재한다.</p><h4 id="other-security-considerations"><a class="anchorlink" href="#other-security-considerations">9.2 다른 보안 고려사항</a></h4><p>특히 웹 애플리케이션의 보안은 광범위하고 세밀한 분야이다. 레일스 애플리케이션의 보안은 <a href="security.html">Ruby on Rails Security Guide</a>에 자세히 설명되어 있다.</p><h3 id="whats-next"><a class="anchorlink" href="#whats-next">10 향후 계획</a></h3><p>이제 처음으로 레일스 애플리케이션을 경험해 보았으므로 자유롭게 수정해 보고  마음 껏 테스트해 보기 바란다.</p><p>도움없이 모든 것을 할 필요는 없다는 것을 기억하기 바란다. 레일스를 작동시키는데 도움이 필요할 경우 아래의 지원 리소스를 참조하면 된다.</p>
 <ul>
 <li><a href="index.html">Ruby on Rails Guides</a></li>
 <li><a href="https://www.railstutorial.org/book">Ruby on Rails Tutorial</a></li>
 <li><a href="https://groups.google.com/group/rubyonrails-talk">Ruby on Rails mailing list</a></li>
 <li>irc.freenode.net : <a href="irc://irc.freenode.net/#rubyonrails">#rubyonrails</a> 채널</li>
 </ul>
-<h3 id="설정시-유의사항"><a class="anchorlink" href="#%EC%84%A4%EC%A0%95%EC%8B%9C-%EC%9C%A0%EC%9D%98%EC%82%AC%ED%95%AD">11 설정시 유의사항</a></h3><p>레일스를 사용하는 가장 쉬운 방법은 모든 외부 데이터를 UTF-8로 저장하는 것이다. 그렇지 못할 경우, 루비 라이브러리와 레일스가 종종 원본 데이터를 UTF-8로 변환 할 수 있지만 항상 안정적으로 작동하는 것이 아니므로 모든 외부 데이터가 UTF-8인지 확인하는 것이 좋다.</p><p>이 부분에서 실수를 할 때 발생하는 가장 일반적인 증상은 브라우저에 가운데 물음표가 있는 검은 색 다이아몬드가 표시된다는 것이다. 또 다른 일반적인 증상은 "ü" 문자가 "Ã"와 같은 문자로 보이는 것이다. 레일스는 이러한 문제의 일반적인 원인을 완화하기 위해 자동으로 감지하고 수정할 수 있는  여러 가지 내부 단계를 수행한다. 그러나 UTF-8로 저장되지 않은 외부 데이터가 있는 경우 레일스에서 자동으로 감지하여 수정할 수 없는 이러 종류의 문제가 발생할 수 있다.</p><p>UTF-8이 아닌 두 가지 매우 일반적인 데이터 소스:</p>
+<h3 id="configuration-gotchas"><a class="anchorlink" href="#configuration-gotchas">11 설정시 유의사항</a></h3><p>레일스를 사용하는 가장 쉬운 방법은 모든 외부 데이터를 UTF-8로 저장하는 것이다. 그렇지 못할 경우, 루비 라이브러리와 레일스가 종종 원본 데이터를 UTF-8로 변환 할 수 있지만 항상 안정적으로 작동하는 것이 아니므로 모든 외부 데이터가 UTF-8인지 확인하는 것이 좋다.</p><p>이 부분에서 실수를 할 때 발생하는 가장 일반적인 증상은 브라우저에 가운데 물음표가 있는 검은 색 다이아몬드가 표시된다는 것이다. 또 다른 일반적인 증상은 "ü" 문자가 "Ã"와 같은 문자로 보이는 것이다. 레일스는 이러한 문제의 일반적인 원인을 완화하기 위해 자동으로 감지하고 수정할 수 있는  여러 가지 내부 단계를 수행한다. 그러나 UTF-8로 저장되지 않은 외부 데이터가 있는 경우 레일스에서 자동으로 감지하여 수정할 수 없는 이러 종류의 문제가 발생할 수 있다.</p><p>UTF-8이 아닌 두 가지 매우 일반적인 데이터 소스:</p>
 <ul>
 <li>사용 중인 텍스트 에디터: (TextMate와 같은) 대부분의 텍스트 에디터들은 기본적으로 UTF-8 인코딩 방식으로 파일을 저장한다. 그렇지 못할 경우, (é와 같은) 특수한 문자를 템플릿 파일에 입력할 경우 브라우저 상에서 가운데 물음표가 있는 다이어몬드 문자로 표시될 수 있다. 또한 이러한 무제는 i18n 변환 파일에도 적용된다. Dreamweaver의 일부 버전에서와 같이 UTF-8을 기본 인코딩 방식으로 지정하지 않는 대부분의 에디터들은 기본 인코딩을 UTF-8로 변경할 수 있는 방법을 제공한다. 이와 같이 설정을 변경해 두도록 한다.</li>
 <li>사용 중인 데이터베이스: 레일스는 기본적으로 데이터베이스로부터 가져 오는 데이터를 UTF-8 인코딩 방식으로 변환한다. 그러나 사용 중인 데이터베이스가 내부적으로 UTF-8을 사용하지 않을 경우, 사용자가 입력하는 모든 문자들을 저장하지 못할 수 있다. 예를 들어, 사용 중인 데이터베이스가 내부적으로 Latin-1 인코딩을 사용하고 있는 상태에서 사용자들이 러시아어, 히브리어, 일본어를 입력할 경우 데이터는 일단 데이터베이스로 들어 간후 영구히 소실될 것이다. 가능한한 데이터베이스의 내부 저장 방식을 UTF-8로 지정하도록 한다.</li>
