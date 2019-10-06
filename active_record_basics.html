@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Active Record Basics — Ruby on Rails Guides</title>
+  <title>Ruby on Rails Guides</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css" data-turbolinks-track="reload">
   <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
   <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" data-turbolinks-track="reload">
@@ -14,15 +14,18 @@
   <script src="javascripts/turbolinks.js" data-turbolinks-track="reload"></script>
   <script src="javascripts/guides.js" data-turbolinks-track="reload"></script>
   <script src="javascripts/responsive-tables.js" data-turbolinks-track="reload"></script>
-  <meta property="og:title" content="Active Record Basics — Ruby on Rails Guides" />
-  <meta name="description" content="Active Record BasicsThis guide is an introduction to Active Record.After reading this guide, you will know: What Object Relational Mapping and Active Record are and how they are used in Rails. How Active Record fits into the Model-View-Controller paradigm. How to use Active Record models to manipulate data stored in a relational database. Active Record schema naming conventions. The concepts of database migrations, validations, and callbacks." />
-  <meta property="og:description" content="Active Record BasicsThis guide is an introduction to Active Record.After reading this guide, you will know: What Object Relational Mapping and Active Record are and how they are used in Rails. How Active Record fits into the Model-View-Controller paradigm. How to use Active Record models to manipulate data stored in a relational database. Active Record schema naming conventions. The concepts of database migrations, validations, and callbacks." />
+  <meta property="og:title" content="Ruby on Rails Guides" />
+  <meta name="description" content="" />
+  <meta property="og:description" content="" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Ruby on Rails Guides" />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/4223" />
   <meta property="og:type" content="website" />
 </head>
 <body class="guide">
+  <div>
+    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
+  </div>
   <div id="topNav">
     <div class="wrapper">
       <strong class="more-info-label">More at <a href="https://rubyonrails.org/">rubyonrails.org:</a> </strong>
@@ -54,7 +57,7 @@
                 </div>
                 <div class="guides-section">
                   <dt>Models</dt>
-                  <dd><a href="active_record_basics.html">Active Record Basics</a></dd>
+                  <dd><a href="active_record_basics.html">액티브 레코드 기본</a></dd>
                   <dd><a href="active_record_migrations.html">Active Record Migrations</a></dd>
                   <dd><a href="active_record_validations.html">Active Record Validations</a></dd>
                   <dd><a href="active_record_callbacks.html">Active Record Callbacks</a></dd>
@@ -136,7 +139,7 @@
                   <option value="getting_started.html">레일스로 시작하기</option>
               </optgroup>
               <optgroup label="Models">
-                  <option value="active_record_basics.html">Active Record Basics</option>
+                  <option value="active_record_basics.html">액티브 레코드 기본</option>
                   <option value="active_record_migrations.html">Active Record Migrations</option>
                   <option value="active_record_validations.html">Active Record Validations</option>
                   <option value="active_record_callbacks.html">Active Record Callbacks</option>
@@ -208,27 +211,17 @@
 
   <div id="feature">
     <div class="wrapper">
-      <h2>Active Record Basics</h2><p>This guide is an introduction to Active Record.</p><p>After reading this guide, you will know:</p>
-<ul>
-<li>What Object Relational Mapping and Active Record are and how they are used in
-Rails.</li>
-<li>How Active Record fits into the Model-View-Controller paradigm.</li>
-<li>How to use Active Record models to manipulate data stored in a relational
-database.</li>
-<li>Active Record schema naming conventions.</li>
-<li>The concepts of database migrations, validations, and callbacks.</li>
-</ul>
-
+      
 
               <div id="subCol">
           <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
           <ol class="chapters">
 <li>
-<a href="#what-is-active-record-questionmark">What is Active Record?</a>
+<a href="#what-is-active-record?">액티브 레코드란?</a>
 
 <ul>
-<li><a href="#the-active-record-pattern">The Active Record Pattern</a></li>
-<li><a href="#object-relational-mapping">Object Relational Mapping</a></li>
+<li><a href="#the-active-record-pattern">액티브 레코드 패턴</a></li>
+<li><a href="#object-relational-mapping">object relational mapping</a></li>
 <li><a href="#active-record-as-an-orm-framework">Active Record as an ORM Framework</a></li>
 </ul>
 </li>
@@ -265,17 +258,17 @@ database.</li>
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <h3 id="what-is-active-record-questionmark"><a class="anchorlink" href="#what-is-active-record-questionmark">1 What is Active Record?</a></h3><p>Active Record is the M in <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a> - the
-model - which is the layer of the system responsible for representing business
-data and logic. Active Record facilitates the creation and use of business
-objects whose data requires persistent storage to a database. It is an
-implementation of the Active Record pattern which itself is a description of an
-Object Relational Mapping system.</p><h4 id="the-active-record-pattern"><a class="anchorlink" href="#the-active-record-pattern">1.1 The Active Record Pattern</a></h4><p><a href="https://www.martinfowler.com/eaaCatalog/activeRecord.html">Active Record was described by Martin Fowler</a>
-in his book <em>Patterns of Enterprise Application Architecture</em>. In
-Active Record, objects carry both persistent data and behavior which
-operates on that data. Active Record takes the opinion that ensuring
-data access logic as part of the object will educate users of that
-object on how to write to and read from the database.</p><h4 id="object-relational-mapping"><a class="anchorlink" href="#object-relational-mapping">1.2 Object Relational Mapping</a></h4><p><a href="https://en.wikipedia.org/wiki/Object-relational_mapping">Object Relational Mapping</a>, commonly referred to as its abbreviation ORM, is
+        <h2 id="active-record-basics">액티브 레코드 기본</h2><p>이 가이드는 액티브 레코드에 대한 소개이다.</p><p>이 가이드를 읽은 후 아래의 내용을 알게 될 것이다.</p>
+<ul>
+<li>Object Relational Mapping(ORM)과 액티브 레코드는 무엇이고 레일스에서 어떻게 사용되는지.</li>
+<li>액티브 레코드가 모델-뷰-컨트롤러 패러다임에 어떻게 적용되는지</li>
+<li>액티브 레코드 모델을 사용하여 관계형 데이터베이스에 저장된 데이터를 다루는 방법</li>
+<li>액티브 레코드 스키마 명명 규칙.</li>
+<li>데이터베이스 마이그레이션, 유효성 검사 및 콜백의 개념</li>
+</ul>
+
+<hr>
+<h3 id="what-is-active-record?"><a class="anchorlink" href="#what-is-active-record?">1 액티브 레코드란?</a></h3><p>액티브 레코드는 <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a>의 M (모델)에 해당하며, 비즈니스 데이터 및 로직를 나타내는 시스템 계층이다. 액티브 레코드는 데이터베이스에 데이터를 지속적으로 저장해야 하는 비즈니스 객체의 작성 및 사용을 용이하게 한다. 이것은 Object Relational Mapping(ORM: 객체와 관계형 데이터베이스를 연결하는 작업) 시스템을 기술해 놓은 것으로 액티브 레코드 패턴을 구현한 것이다.</p><h4 id="the-active-record-pattern"><a class="anchorlink" href="#the-active-record-pattern">1.1 액티브 레코드 패턴</a></h4><p><a href="https://www.martinfowler.com/eaaCatalog/activeRecord.html">마틴 파울러(Martin Fowler)는 그의 저서 <em>Patterns of Enterprise Application Architecture</em> 에서 액티브 레코드를 기술했다</a>. 액티브 레코드에서 객체란 영구 데이터와 그 데이터를 다루는 동작을 모두 가지고 있다. 액티브 레코드는, 객체의 일부로 데이터 액세스 논리를 보장할 경우 해당 객체의 사용자에게 데이터베이스에 쓰고 읽는 방법을 교육하는 일이 될 것이라는 견해를 가진다.</p><h4 id="object-relational-mapping"><a class="anchorlink" href="#object-relational-mapping">1.2 object relational mapping</a></h4><p><a href="https://en.wikipedia.org/wiki/Object-relational_mapping">Object Relational Mapping</a>, commonly referred to as its abbreviation ORM, is
 a technique that connects the rich objects of an application to tables in
 a relational database management system. Using ORM, the properties and
 relationships of the objects in an application can be easily stored and
@@ -365,11 +358,11 @@ record is first created.</li>
 <code>updated_at</code> - Automatically gets set to the current date and time whenever
 the record is created or updated.</li>
 <li>
-<code>lock_version</code> - Adds <a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveRecord/Locking.html">optimistic
+<code>lock_version</code> - Adds <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Locking.html">optimistic
 locking</a> to
 a model.</li>
 <li>
-<code>type</code> - Specifies that the model uses <a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveRecord/Base.html#class-ActiveRecord::Base-label-Single+table+inheritance">Single Table
+<code>type</code> - Specifies that the model uses <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Base.html#class-ActiveRecord::Base-label-Single+table+inheritance">Single Table
 Inheritance</a>.</li>
 <li>
 <code>(association_name)_type</code> - Stores the type for
