@@ -23,9 +23,6 @@
   <meta property="og:type" content="website" />
 </head>
 <body class="guide">
-  <div>
-    <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
   <div id="topNav">
     <div class="wrapper">
       <strong class="more-info-label">More at <a href="https://rubyonrails.org/">rubyonrails.org:</a> </strong>
@@ -58,7 +55,7 @@
                 <div class="guides-section">
                   <dt>Models</dt>
                   <dd><a href="active_record_basics.html">액티브 레코드 기본</a></dd>
-                  <dd><a href="active_record_migrations.html">Active Record Migrations</a></dd>
+                  <dd><a href="active_record_migrations.html">액티브 레코드 마이그레이션</a></dd>
                   <dd><a href="active_record_validations.html">Active Record Validations</a></dd>
                   <dd><a href="active_record_callbacks.html">Active Record Callbacks</a></dd>
                   <dd><a href="association_basics.html">Active Record Associations</a></dd>
@@ -140,7 +137,7 @@
               </optgroup>
               <optgroup label="Models">
                   <option value="active_record_basics.html">액티브 레코드 기본</option>
-                  <option value="active_record_migrations.html">Active Record Migrations</option>
+                  <option value="active_record_migrations.html">액티브 레코드 마이그레이션</option>
                   <option value="active_record_validations.html">Active Record Validations</option>
                   <option value="active_record_callbacks.html">Active Record Callbacks</option>
                   <option value="association_basics.html">Active Record Associations</option>
@@ -968,7 +965,7 @@ end
 
 </pre>
 </div>
-<p>이번에는 폼이 <code>update</code> 액션을 가리키도록 하는데, 아직 정의되지 않았지만 곧 될 것이다.</p><p><code>form_with</code> 메소드에 기사 객체를 전달하면 편집 된 기사 폼을 서밋하기 위한 URL이 자동으로 설정된다. 이 옵션을 사용하면 <code>PATCH</code> HTTP 메소드로 이 폼을 서밋할 수 있으며 이 메소드는 REST 프로토콜에 따라 리소스를 <strong>업데이트</strong>하는 데 사용하는 HTTP 메소드이다.</p><p>또한, 위의 편집 뷰에서 <code>model: @article</code>과 같이 <code>form_with</code>에 모델 객체를 전달하면 폼 헬퍼가 객체의 해당 값으로 폼 필드를 채우게 된다. new 뷰에서와 같이 <code>scope: :article</code>과 같은 심볼 스코프를 전달하면 빈 폼 필드 만 생성된다. 자세한 내용은 <a href="https://edgeapi.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_with">form_with documentation</a>에서 찾아 볼 수 있다.</p><p>다음으로 <code>app/controllers/articles_controller.rb</code>에 <code>update</code> 액션을 만들어야 한다. <code>create</code> 액션과 <code>private</code> 메소드 사이에 추가한다.</p><div class="code_container">
+<p>이번에는 폼이 <code>update</code> 액션을 가리키도록 하는데, 아직 정의되지 않았지만 곧 될 것이다.</p><p><code>form_with</code> 메소드에 기사 객체를 전달하면 편집 된 기사 폼을 서밋하기 위한 URL이 자동으로 설정된다. 이 옵션을 사용하면 <code>PATCH</code> HTTP 메소드로 이 폼을 서밋할 수 있으며 이 메소드는 REST 프로토콜에 따라 리소스를 <strong>업데이트</strong>하는 데 사용하는 HTTP 메소드이다.</p><p>또한, 위의 편집 뷰에서 <code>model: @article</code>과 같이 <code>form_with</code>에 모델 객체를 전달하면 폼 헬퍼가 객체의 해당 값으로 폼 필드를 채우게 된다. new 뷰에서와 같이 <code>scope: :article</code>과 같은 심볼 스코프를 전달하면 빈 폼 필드 만 생성된다. 자세한 내용은 <a href="https://api.rubyonrails.org/6-0-stable/classes/ActionView/Helpers/FormHelper.html#method-i-form_with">form_with documentation</a>에서 찾아 볼 수 있다.</p><p>다음으로 <code>app/controllers/articles_controller.rb</code>에 <code>update</code> 액션을 만들어야 한다. <code>create</code> 액션과 <code>private</code> 메소드 사이에 추가한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 def create
   @article = Article.new(article_params)
@@ -1065,7 +1062,7 @@ private
 </div>
 <p><code>form_with</code> 선언을 제외한 모든 것은 동일하게 유지되었다.
 이와 같이 더 짧고 간단한 <code>form_with</code> 선언을 다른 폼 중 하나에 사용할 수 있는 이유는 <code>@article</code>이 전체 RESTful 라우트 세트에 일치하는 <em>리소스</em>이고 레일스가 어떤 URI와 메소드를 사용할 것인지를 유추할 수 있기 때문이다.
-<code>form_with</code> 사용에 대한 자세한 내용은 <a href="https://edgeapi.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_with-label-Resource-oriented+style">Resource-oriented style</a>을 참조하기 바란다.</p><p>이제 이 파셜을 사용하도록 <code>app/views/articles/new.html.erb</code> 뷰를 완전히 다시 작성하여 업데이트 하자.</p><div class="code_container">
+<code>form_with</code> 사용에 대한 자세한 내용은 <a href="https://api.rubyonrails.org/6-0-stable/classes/ActionView/Helpers/FormHelper.html#method-i-form_with-label-Resource-oriented+style">Resource-oriented style</a>을 참조하기 바란다.</p><p>이제 이 파셜을 사용하도록 <code>app/views/articles/new.html.erb</code> 뷰를 완전히 다시 작성하여 업데이트 하자.</p><div class="code_container">
 <pre class="brush: ruby; html-script: true; gutter: false; toolbar: false">
 &lt;h1&gt;New article&lt;/h1&gt;
 

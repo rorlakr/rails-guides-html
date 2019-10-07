@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ruby on Rails Guides</title>
+  <title>액티브 레코드 기본 — Ruby on Rails Guides</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css" data-turbolinks-track="reload">
   <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
   <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" data-turbolinks-track="reload">
@@ -14,9 +14,9 @@
   <script src="javascripts/turbolinks.js" data-turbolinks-track="reload"></script>
   <script src="javascripts/guides.js" data-turbolinks-track="reload"></script>
   <script src="javascripts/responsive-tables.js" data-turbolinks-track="reload"></script>
-  <meta property="og:title" content="Ruby on Rails Guides" />
-  <meta name="description" content="" />
-  <meta property="og:description" content="" />
+  <meta property="og:title" content="액티브 레코드 기본 — Ruby on Rails Guides" />
+  <meta name="description" content="액티브 레코드 기본이 가이드는 액티브 레코드에 대한 소개이다.이 가이드를 읽은 후 아래의 내용을 알게 될 것이다. 객체 관계 매핑(ORM)과 액티브 레코드는 무엇이고 레일스에서 어떻게 사용되는지. 액티브 레코드가 모델-뷰-컨트롤러 패러다임에 어떻게 적용되는지 액티브 레코드 모델을 사용하여 관계형 데이터베이스에 저장된 데이터를 다루는 방법 액티브 레코드 스키마 명명 규칙. 데이터베이스 마이그레이션, 유효성 검사 및 콜백의 개념" />
+  <meta property="og:description" content="액티브 레코드 기본이 가이드는 액티브 레코드에 대한 소개이다.이 가이드를 읽은 후 아래의 내용을 알게 될 것이다. 객체 관계 매핑(ORM)과 액티브 레코드는 무엇이고 레일스에서 어떻게 사용되는지. 액티브 레코드가 모델-뷰-컨트롤러 패러다임에 어떻게 적용되는지 액티브 레코드 모델을 사용하여 관계형 데이터베이스에 저장된 데이터를 다루는 방법 액티브 레코드 스키마 명명 규칙. 데이터베이스 마이그레이션, 유효성 검사 및 콜백의 개념" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Ruby on Rails Guides" />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/4223" />
@@ -55,7 +55,7 @@
                 <div class="guides-section">
                   <dt>Models</dt>
                   <dd><a href="active_record_basics.html">액티브 레코드 기본</a></dd>
-                  <dd><a href="active_record_migrations.html">Active Record Migrations</a></dd>
+                  <dd><a href="active_record_migrations.html">액티브 레코드 마이그레이션</a></dd>
                   <dd><a href="active_record_validations.html">Active Record Validations</a></dd>
                   <dd><a href="active_record_callbacks.html">Active Record Callbacks</a></dd>
                   <dd><a href="association_basics.html">Active Record Associations</a></dd>
@@ -137,7 +137,7 @@
               </optgroup>
               <optgroup label="Models">
                   <option value="active_record_basics.html">액티브 레코드 기본</option>
-                  <option value="active_record_migrations.html">Active Record Migrations</option>
+                  <option value="active_record_migrations.html">액티브 레코드 마이그레이션</option>
                   <option value="active_record_validations.html">Active Record Validations</option>
                   <option value="active_record_callbacks.html">Active Record Callbacks</option>
                   <option value="association_basics.html">Active Record Associations</option>
@@ -208,7 +208,15 @@
 
   <div id="feature">
     <div class="wrapper">
-      
+      <h2 id="active-record-basics">액티브 레코드 기본</h2><p>이 가이드는 액티브 레코드에 대한 소개이다.</p><p>이 가이드를 읽은 후 아래의 내용을 알게 될 것이다.</p>
+<ul>
+<li>객체 관계 매핑(ORM)과 액티브 레코드는 무엇이고 레일스에서 어떻게 사용되는지.</li>
+<li>액티브 레코드가 모델-뷰-컨트롤러 패러다임에 어떻게 적용되는지</li>
+<li>액티브 레코드 모델을 사용하여 관계형 데이터베이스에 저장된 데이터를 다루는 방법</li>
+<li>액티브 레코드 스키마 명명 규칙.
+데이터베이스 마이그레이션, 유효성 검사 및 콜백의 개념</li>
+</ul>
+
 
               <div id="subCol">
           <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
@@ -255,17 +263,7 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <h2 id="active-record-basics">액티브 레코드 기본</h2><p>이 가이드는 액티브 레코드에 대한 소개이다.</p><p>이 가이드를 읽은 후 아래의 내용을 알게 될 것이다.</p>
-<ul>
-<li>Object Relational Mapping(ORM)과 액티브 레코드는 무엇이고 레일스에서 어떻게 사용되는지.</li>
-<li>액티브 레코드가 모델-뷰-컨트롤러 패러다임에 어떻게 적용되는지</li>
-<li>액티브 레코드 모델을 사용하여 관계형 데이터베이스에 저장된 데이터를 다루는 방법</li>
-<li>액티브 레코드 스키마 명명 규칙.
-데이터베이스 마이그레이션, 유효성 검사 및 콜백의 개념</li>
-</ul>
-
-<hr>
-<h3 id="what-is-active-record?"><a class="anchorlink" href="#what-is-active-record?">1 액티브 레코드란?</a></h3><p>액티브 레코드는 <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a>의 M (모델)에 해당하며, 비즈니스 데이터 및 로직를 나타내는 시스템 계층이다. 액티브 레코드는 데이터베이스에 데이터를 지속적으로 저장해야 하는 비즈니스 객체의 작성 및 사용을 용이하게 한다. 이것은 Object Relational Mapping(ORM: 객체와 관계형 데이터베이스를 연결하는 작업) 시스템을 기술해 놓은 것으로 액티브 레코드 패턴을 구현한 것이다.</p><h4 id="the-active-record-pattern"><a class="anchorlink" href="#the-active-record-pattern">1.1 액티브 레코드 패턴</a></h4><p><a href="https://www.martinfowler.com/eaaCatalog/activeRecord.html">마틴 파울러(Martin Fowler)는 그의 저서 <em>Patterns of Enterprise Application Architecture</em> 에서 액티브 레코드를 기술했다</a>. 액티브 레코드에서 객체란 영구 데이터와 그 데이터를 다루는 동작을 모두 가지고 있다. 데이터 액세스 로직이 액티브 레코드 객체 내에 포함되어 있기 때문에, 그 객체를 사용하는 사람들은 객체내에 포함된 로직에 따라 데이터베이스로부터 읽고 쓰는 법을 알게 될 것이다.</p><h4 id="object-relational-mapping"><a class="anchorlink" href="#object-relational-mapping">1.2 객체 관계 매핑</a></h4><div class="note"><p>객체를 관계형 데이터베이스로 연결하는 것을 말한다.(역주)</p></div><p>일반적으로 ORM이라는 약자로 일컫는 <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">객체 관계 매핑</a>은 애플리케이션 내의 객체를 관계형 데이터베이스 관리 시스템의 테이블에 연결하는 기술이다. ORM을 사용하면 SQL 문을 직접 작성하지 않고 전체 데이터베이스 액세스 코드를 적게 사용하고도 애플리케이션 내 객체의 특성 및 관계를 데이터베이스에서 쉽게 저장하고 검색 할 수 있다.</p><div class="note"><p>관계형 데이터베이스 관리 시스템 (RDBMS) 및 구조적 쿼리 언어 (SQL)에 대한 기본 지식은 액티브 레코드를 완전히 이해하는 데 도움이 된다. 더 많은 내용을 배우고자 할 경우, <a href="https://www.w3schools.com/sql/default.asp">이 튜토리얼</a> (또는 <a href="http://www.sqlcourse.com/">이것</a>)을 참조하거나 다른 방법으로 학습하기 바란다.</p></div><h4 id="active-record-as-an-orm-framework"><a class="anchorlink" href="#active-record-as-an-orm-framework">1.3 ORM으로서 액티브 레코드 사용하기</a></h4><p>액티브 레코드가 제공해 주는 여러가지 기전 중에서 가장 중요한 기능은 아래와 같다.</p>
+        <h3 id="what-is-active-record?"><a class="anchorlink" href="#what-is-active-record?">1 액티브 레코드란?</a></h3><p>액티브 레코드는 <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a>의 M (모델)에 해당하며, 비즈니스 데이터 및 로직를 나타내는 시스템 계층이다. 액티브 레코드는 데이터베이스에 데이터를 지속적으로 저장해야 하는 비즈니스 객체의 작성 및 사용을 용이하게 한다. 이것은 Object Relational Mapping(ORM: 객체와 관계형 데이터베이스를 연결하는 작업) 시스템을 기술해 놓은 것으로 액티브 레코드 패턴을 구현한 것이다.</p><h4 id="the-active-record-pattern"><a class="anchorlink" href="#the-active-record-pattern">1.1 액티브 레코드 패턴</a></h4><p><a href="https://www.martinfowler.com/eaaCatalog/activeRecord.html">마틴 파울러(Martin Fowler)는 그의 저서 <em>Patterns of Enterprise Application Architecture</em> 에서 액티브 레코드를 기술했다</a>. 액티브 레코드에서 객체란 영구 데이터와 그 데이터를 다루는 동작을 모두 가지고 있다. 데이터 액세스 로직이 액티브 레코드 객체 내에 포함되어 있기 때문에, 그 객체를 사용하는 사람들은 객체내에 포함된 로직에 따라 데이터베이스로부터 읽고 쓰는 법을 알게 될 것이다.</p><h4 id="object-relational-mapping"><a class="anchorlink" href="#object-relational-mapping">1.2 객체 관계 매핑</a></h4><div class="note"><p>객체를 관계형 데이터베이스로 연결하는 것을 말한다.(역주)</p></div><p>일반적으로 ORM이라는 약자로 일컫는 <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">객체 관계 매핑</a>은 애플리케이션 내의 객체를 관계형 데이터베이스 관리 시스템의 테이블에 연결하는 기술이다. ORM을 사용하면 SQL 문을 직접 작성하지 않고 전체 데이터베이스 액세스 코드를 적게 사용하고도 애플리케이션 내 객체의 특성 및 관계를 데이터베이스에서 쉽게 저장하고 검색 할 수 있다.</p><div class="note"><p>관계형 데이터베이스 관리 시스템 (RDBMS) 및 구조적 쿼리 언어 (SQL)에 대한 기본 지식은 액티브 레코드를 완전히 이해하는 데 도움이 된다. 더 많은 내용을 배우고자 할 경우, <a href="https://www.w3schools.com/sql/default.asp">이 튜토리얼</a> (또는 <a href="http://www.sqlcourse.com/">이것</a>)을 참조하거나 다른 방법으로 학습하기 바란다.</p></div><h4 id="active-record-as-an-orm-framework"><a class="anchorlink" href="#active-record-as-an-orm-framework">1.3 ORM으로서 액티브 레코드 사용하기</a></h4><p>액티브 레코드가 제공해 주는 여러가지 기전 중에서 가장 중요한 기능은 아래와 같다.</p>
 <ul>
 <li>모델과 해당 데이터를 나타낸다.</li>
 <li>모델 간의 연관성을 나타낸다.</li>
