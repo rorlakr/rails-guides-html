@@ -646,8 +646,7 @@ remove_column :posts, :slug, :string, null: false, default: ''
 
 </pre>
 </div>
-<p>If you're going to need to use any other methods, you should use <code>reversible</code>
-or write the <code>up</code> and <code>down</code> methods instead of using the <code>change</code> method.</p><h4 id="using-reversible"><a class="anchorlink" href="#using-reversible">3.9 Using <code>reversible</code></a></h4><p>Complex migrations may require processing that Active Record doesn't know how
+<p>If you're going to need to use any other methods, you should use <code>reversible</code> or write the <code>up</code> and <code>down</code> methods instead of using the <code>change</code> method.</p><h4 id="using-reversible"><a class="anchorlink" href="#using-reversible">3.9 Using <code>reversible</code></a></h4><p>Complex migrations may require processing that Active Record doesn't know how
 to reverse. You can use <code>reversible</code> to specify what to do when running a
 migration and what else to do when reverting it. For example:</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
