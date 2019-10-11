@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ruby on Rails Guides</title>
+  <title>액티브 레코드 마이그레이션 — Ruby on Rails Guides</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css" data-turbolinks-track="reload">
   <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
   <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" data-turbolinks-track="reload">
@@ -14,9 +14,9 @@
   <script src="javascripts/turbolinks.js" data-turbolinks-track="reload"></script>
   <script src="javascripts/guides.js" data-turbolinks-track="reload"></script>
   <script src="javascripts/responsive-tables.js" data-turbolinks-track="reload"></script>
-  <meta property="og:title" content="Ruby on Rails Guides" />
-  <meta name="description" content="" />
-  <meta property="og:description" content="" />
+  <meta property="og:title" content="액티브 레코드 마이그레이션 — Ruby on Rails Guides" />
+  <meta name="description" content="액티브 레코드 마이그레이션마이그레이션은 시간이 지남에 따라 데이터베이스 스키마를 발전시킬 수있는 액티브 레코드의 특수한 기능이다. 순수 SQL로 스키마 수정을 작성하는 대신 마이그레이션을 통해 쉬운 루비 DSL을 사용하여 테이블의 변경 사항을 기술할 수 있다.이 가이드를 읽은 후에는 아래의 내용을 알게 될 것이다. 마이그레이션을 생성할 때 사용하는 생성자 데이터베이스를 다루기 위해서 액티브 레코드가 제공하는 메소드 마이그레이션과 스키마를 다루는 레일스 명령어 마이그레이션이 schema.rb와 연관되는 방법" />
+  <meta property="og:description" content="액티브 레코드 마이그레이션마이그레이션은 시간이 지남에 따라 데이터베이스 스키마를 발전시킬 수있는 액티브 레코드의 특수한 기능이다. 순수 SQL로 스키마 수정을 작성하는 대신 마이그레이션을 통해 쉬운 루비 DSL을 사용하여 테이블의 변경 사항을 기술할 수 있다.이 가이드를 읽은 후에는 아래의 내용을 알게 될 것이다. 마이그레이션을 생성할 때 사용하는 생성자 데이터베이스를 다루기 위해서 액티브 레코드가 제공하는 메소드 마이그레이션과 스키마를 다루는 레일스 명령어 마이그레이션이 schema.rb와 연관되는 방법" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Ruby on Rails Guides" />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/4223" />
@@ -208,7 +208,14 @@
 
   <div id="feature">
     <div class="wrapper">
-      
+      <h2 id="active-record-migrations">액티브 레코드 마이그레이션</h2><p>마이그레이션은 시간이 지남에 따라 데이터베이스 스키마를 발전시킬 수있는 액티브 레코드의 특수한 기능이다. 순수 SQL로 스키마 수정을 작성하는 대신 마이그레이션을 통해 쉬운 루비 DSL을 사용하여 테이블의 변경 사항을 기술할 수 있다.</p><p>이 가이드를 읽은 후에는 아래의 내용을 알게 될 것이다.</p>
+<ul>
+<li>마이그레이션을 생성할 때 사용하는 생성자</li>
+<li>데이터베이스를 다루기 위해서 액티브 레코드가 제공하는 메소드</li>
+<li>마이그레이션과 스키마를 다루는 레일스 명령어</li>
+<li>마이그레이션이 <code>schema.rb</code>와 연관되는 방법</li>
+</ul>
+
 
               <div id="subCol">
           <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
@@ -275,16 +282,7 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <h2 id="active-record-migrations">액티브 레코드 마이그레이션</h2><p>마이그레이션은 시간이 지남에 따라 데이터베이스 스키마를 발전시킬 수있는 액티브 레코드의 특수한 기능이다. 순수 SQL로 스키마 수정을 작성하는 대신 마이그레이션을 통해 쉬운 루비 DSL을 사용하여 테이블의 변경 사항을 기술할 수 있다.</p><p>이 가이드를 읽은 후에는 아래의 내용을 알게 될 것이다.</p>
-<ul>
-<li>마이그레이션을 생성할 때 사용하는 생성자</li>
-<li>데이터베이스를 다루기 위해서 액티브 레코드가 제공하는 메소드</li>
-<li>마이그레이션과 스키마를 다루는 레일스 명령어</li>
-<li>마이그레이션이 <code>schema.rb</code>와 연관되는 방법</li>
-</ul>
-
-<hr>
-<h3 id="migration-overview"><a class="anchorlink" href="#migration-overview">1 마이그레이션 개요</a></h3><p>마이그레이션은 일관되고 쉬운 방법으로 <a href="https://en.wikipedia.org/wiki/Schema_migration">시간이 지남에 따라 데이터베이스 스키마를 변경</a>하는 편리한 방법이다. SQL을 직접 작성하지 않고 루비 DSL을 사용하므로 스키마와 변경 사항을 데이터베이스와 독립적으로 만들 수 있다.</p><p>각 마이그레이션을 데이터베이스의 새로운 '버전'으로 생각할 수 있다. 스키마는 아무 것도 없이 시작하며 각 마이그레이션은 테이블, 컬럼 또는 항목을 추가하거나 제거하도록 스키마를 수정한다. 액티브 레코드는 이와 같은 마이그레이션 타임 라인에 따라 스키마를 업데이트하는 방법을 알고 있으며 히스토리 상의 어느 지점에 있더라도 최신 버전으로 유지한다. 액티브 레코드는 또한 데이터베이스의 최신 구조와 일치하도록 <code>db/schema.rb</code> 파일을 업데이트 할 것이다.</p><p>마이그레이션의 예는 아래와 같다.</p><div class="code_container">
+        <h3 id="migration-overview"><a class="anchorlink" href="#migration-overview">1 마이그레이션 개요</a></h3><p>마이그레이션은 일관되고 쉬운 방법으로 <a href="https://en.wikipedia.org/wiki/Schema_migration">시간이 지남에 따라 데이터베이스 스키마를 변경</a>하는 편리한 방법이다. SQL을 직접 작성하지 않고 루비 DSL을 사용하므로 스키마와 변경 사항을 데이터베이스와 독립적으로 만들 수 있다.</p><p>각 마이그레이션을 데이터베이스의 새로운 '버전'으로 생각할 수 있다. 스키마는 아무 것도 없이 시작하며 각 마이그레이션은 테이블, 컬럼 또는 항목을 추가하거나 제거하도록 스키마를 수정한다. 액티브 레코드는 이와 같은 마이그레이션 타임 라인에 따라 스키마를 업데이트하는 방법을 알고 있으며 히스토리 상의 어느 지점에 있더라도 최신 버전으로 유지한다. 액티브 레코드는 또한 데이터베이스의 최신 구조와 일치하도록 <code>db/schema.rb</code> 파일을 업데이트 할 것이다.</p><p>마이그레이션의 예는 아래와 같다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class CreateProducts &lt; ActiveRecord::Migration[5.0]
   def change
@@ -591,7 +589,7 @@ change_column_default :products, :approved, from: true, to: false
 <li>
 <code>comment</code> : 컬럼에 주석을 추가한다.</li>
 </ul>
-<p>일부 어댑터는 추가 옵션을 지원할 수 있다. 자세한 정보는 어댑터 별 API 문서를 참조한다.</p><div class="note"><p><code>null</code> 및 <code>default</code>는 커맨드 라인을 통해 지정할 수 없다.</p></div><h4 id="foreign-keys"><a class="anchorlink" href="#foreign-keys">3.6 외래키</a></h4><p>필수 사항은 아니지만, <a href="#active-record-and-reference-integrity">guarantee referential integrity</a>에 외래키 제약 조건을 추가할 수 있다.</p><div class="code_container">
+<p>일부 어댑터는 추가 옵션을 지원할 수 있다. 자세한 정보는 어댑터 별 API 문서를 참조한다.</p><div class="note"><p><code>null</code> 및 <code>default</code>는 커맨드 라인을 통해 지정할 수 없다.</p></div><h4 id="foreign-keys"><a class="anchorlink" href="#foreign-keys">3.6 외래키</a></h4><p>필수 사항은 아니지만, <a href="#active-record-and-referential-integrity">guarantee referential integrity</a>에 외래키 제약 조건을 추가할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 add_foreign_key :articles, :authors
 
