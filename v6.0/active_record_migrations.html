@@ -15,8 +15,8 @@
   <script src="javascripts/guides.js" data-turbolinks-track="reload"></script>
   <script src="javascripts/responsive-tables.js" data-turbolinks-track="reload"></script>
   <meta property="og:title" content="액티브 레코드 마이그레이션 — Ruby on Rails Guides" />
-  <meta name="description" content="액티브 레코드 마이그레이션마이그레이션은 시간이 지남에 따라 데이터베이스 스키마를 발전시킬 수있는 액티브 레코드의 특수한 기능이다. 순수 SQL로 스키마 수정을 작성하는 대신 마이그레이션을 통해 쉬운 루비 DSL을 사용하여 테이블의 변경 사항을 기술할 수 있다.이 가이드를 읽은 후에는 아래의 내용을 알게 될 것이다. 마이그레이션을 생성할 때 사용하는 생성자 데이터베이스를 다루기 위해서 액티브 레코드가 제공하는 메소드 마이그레이션과 스키마를 다루는 레일스 명령어 마이그레이션이 schema.rb와 연관되는 방법" />
-  <meta property="og:description" content="액티브 레코드 마이그레이션마이그레이션은 시간이 지남에 따라 데이터베이스 스키마를 발전시킬 수있는 액티브 레코드의 특수한 기능이다. 순수 SQL로 스키마 수정을 작성하는 대신 마이그레이션을 통해 쉬운 루비 DSL을 사용하여 테이블의 변경 사항을 기술할 수 있다.이 가이드를 읽은 후에는 아래의 내용을 알게 될 것이다. 마이그레이션을 생성할 때 사용하는 생성자 데이터베이스를 다루기 위해서 액티브 레코드가 제공하는 메소드 마이그레이션과 스키마를 다루는 레일스 명령어 마이그레이션이 schema.rb와 연관되는 방법" />
+  <meta name="description" content="액티브 레코드 마이그레이션마이그레이션은 시간이 지남에 따라 데이터베이스 스키마를 발전시킬 수 있는 액티브 레코드의 특수한 기능이다. 순수 SQL로 스키마 수정을 작성하는 대신 마이그레이션을 통해 쉬운 루비 DSL을 사용하여 테이블의 변경 사항을 기술할 수 있다.이 가이드를 읽은 후에는 아래의 내용을 알게 될 것이다. 마이그레이션을 생성할 때 사용하는 생성자 데이터베이스를 다루기 위해서 액티브 레코드가 제공하는 메소드 마이그레이션과 스키마를 다루는 레일스 명령어 마이그레이션이 schema.rb와 연관되는 방법" />
+  <meta property="og:description" content="액티브 레코드 마이그레이션마이그레이션은 시간이 지남에 따라 데이터베이스 스키마를 발전시킬 수 있는 액티브 레코드의 특수한 기능이다. 순수 SQL로 스키마 수정을 작성하는 대신 마이그레이션을 통해 쉬운 루비 DSL을 사용하여 테이블의 변경 사항을 기술할 수 있다.이 가이드를 읽은 후에는 아래의 내용을 알게 될 것이다. 마이그레이션을 생성할 때 사용하는 생성자 데이터베이스를 다루기 위해서 액티브 레코드가 제공하는 메소드 마이그레이션과 스키마를 다루는 레일스 명령어 마이그레이션이 schema.rb와 연관되는 방법" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Ruby on Rails Guides" />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/4223" />
@@ -208,7 +208,7 @@
 
   <div id="feature">
     <div class="wrapper">
-      <h2 id="active-record-migrations">액티브 레코드 마이그레이션</h2><p>마이그레이션은 시간이 지남에 따라 데이터베이스 스키마를 발전시킬 수있는 액티브 레코드의 특수한 기능이다. 순수 SQL로 스키마 수정을 작성하는 대신 마이그레이션을 통해 쉬운 루비 DSL을 사용하여 테이블의 변경 사항을 기술할 수 있다.</p><p>이 가이드를 읽은 후에는 아래의 내용을 알게 될 것이다.</p>
+      <h2 id="active-record-migrations">액티브 레코드 마이그레이션</h2><p>마이그레이션은 시간이 지남에 따라 데이터베이스 스키마를 발전시킬 수 있는 액티브 레코드의 특수한 기능이다. 순수 SQL로 스키마 수정을 작성하는 대신 마이그레이션을 통해 쉬운 루비 DSL을 사용하여 테이블의 변경 사항을 기술할 수 있다.</p><p>이 가이드를 읽은 후에는 아래의 내용을 알게 될 것이다.</p>
 <ul>
 <li>마이그레이션을 생성할 때 사용하는 생성자</li>
 <li>데이터베이스를 다루기 위해서 액티브 레코드가 제공하는 메소드</li>
@@ -330,7 +330,7 @@ end
 
 </pre>
 </div>
-<h3 id="creating-a-migration"><a class="anchorlink" href="#creating-a-migration">2 마이그레이션 작성하기</a></h3><h4 id="creating-a-standalone-migration"><a class="anchorlink" href="#creating-a-standalone-migration">2.1 별도의 마이그레이션 파일 작성하기</a></h4><p>마이그레이션은 각 마이그레이션 클래스마다 하나씩 <code>db/migrate</code> 디렉토리에 파일로 저장된다. 파일 이름은 <code>YYYYMMDDHHMMSS_create_products.rb</code> 형식을 가진다. 즉, 마이그레이션을 식별하는 UTC 타임 스탬프와 밑줄 그리고 마이그레이션 이름으로 구성되어 있다. 마이그레이션 클래스의 이름 (CamelCased 버전)은 파일 이름의 후반 부분과 일치해야 한다. 예를 들어<code>20080906120000_create_products.rb</code>는 <code>CreateProducts</code> 클래스를 정의하고 <code>20080906120001_add_details_to_products.rb</code>는<code>AddDetailsToProducts</code>를 정의해야 한다. 레일스는 이 타임 스탬프를 사용하여 마이그레이션을 어떤 순서로 실행할지 결정하므로 다른 애플리케이션에서 마이그레이션을 복사하거나 파일을 직접 생성하는 경우 순서에 따라 위치를 알고 있어야 한다.</p><p>물론 타임 스탬프 계산은 재미있는 작업이 아니기 때문에 액티브 레코드에서는 ㅇ아래와 같은 작업을 처리 할 수 있는 생성자를 제공한다.</p><div class="code_container">
+<h3 id="creating-a-migration"><a class="anchorlink" href="#creating-a-migration">2 마이그레이션 작성하기</a></h3><h4 id="creating-a-standalone-migration"><a class="anchorlink" href="#creating-a-standalone-migration">2.1 별도의 마이그레이션 파일 작성하기</a></h4><p>마이그레이션은 각 마이그레이션 클래스마다 하나씩 <code>db/migrate</code> 디렉토리에 파일로 저장된다. 파일 이름은 <code>YYYYMMDDHHMMSS_create_products.rb</code> 형식을 가진다. 즉, 마이그레이션을 식별하는 UTC 타임 스탬프와 밑줄 그리고 마이그레이션 이름으로 구성되어 있다. 마이그레이션 클래스의 이름 (CamelCased 버전)은 파일 이름의 후반 부분과 일치해야 한다. 예를 들어<code>20080906120000_create_products.rb</code>는 <code>CreateProducts</code> 클래스를 정의하고 <code>20080906120001_add_details_to_products.rb</code>는<code>AddDetailsToProducts</code>를 정의해야 한다. 레일스는 이 타임 스탬프를 사용하여 마이그레이션을 어떤 순서로 실행할지 결정하므로 다른 애플리케이션에서 마이그레이션을 복사하거나 파일을 직접 생성하는 경우 순서에 따라 위치를 알고 있어야 한다.</p><p>물론 타임 스탬프 계산은 재미있는 작업이 아니기 때문에 액티브 레코드에서는 아래와 같은 작업을 처리 할 수 있는 생성자를 제공한다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails generate migration AddPartNumberToProducts
 
@@ -759,7 +759,7 @@ end
 
 </pre>
 </div>
-<p><code>revert</code>를 사용하지 않고 동일한 마이그레이션을 작성할 수도 있겠지만 몇 가지 단계가 더 필요할 것이다. 즉, <code>create_table</code>과 <code>reversible</code> 순서를 바꾸고, <code>create_table</code>을 <code>drop_table</code>로 변경하며, 마지막으로 <code>up</code>을 <code>down</code>으로 대체하는 것이다. 이 반대로도 마찬가지다. 이것은 모두 <code>revert</code> 메소드에 의해 처리된다.</p><p>위의 예와 같이 check 제약 조건을 추가하려면 <code>structure.sql</code>을 덤프 메소드로 사용해야 한다. <a href="#%20schema-dumping-and-you">Schema Dumping and You</a>를 참조하기 바란다.</p><h3 id="running-migrations"><a class="anchorlink" href="#running-migrations">4 마이그레이션 실행하기</a></h3><p>레일스는 마이그레이션 작업을 실행하기 위해 몇가지 rails 명령을 제공한다.</p><p>가장 먼저 사용할 마이그레이션 관련 rails 명령은 아마도 <code>rails db:migrate</code> 일 것이다. 가장 기본적인 형태로는, 아직 실행되지 않은 모든 마이그레이션에 대해 <code>change</code> 또는<code>up</code> 메소드만을 실행하는 것이다. 이와 같이 미실행 마이그레이션이 없으면 작업은 바로 종료된다. 이러한 마이그레이션 작업은 마이그레이션 날짜를 기준으로 순서대로 실행된다.</p><p><code>db:migrate</code> 명령을 실행하면 <code>db:schema:dump</code> 명령이 호출되어 데이터베이스의 구조와 일치하도록 <code>db/schema.rb</code> 파일이 업데이트된다는 것을 주목한다.</p><p>대상 버전을 지정하면 액티브 레코드는 지정된 버전에 도달 할 때까지 필요한 마이그레이션(change, up, down)을 실행한다. 버전은 마이그레이션 파일 이름의 숫자 접두사에 해당한다. 예를 들어, 20080906120000 버전으로 마이그레이션하려면 아래와 같이 실행한다.</p><div class="code_container">
+<p><code>revert</code>를 사용하지 않고 동일한 마이그레이션을 작성할 수도 있겠지만 몇 가지 단계가 더 필요할 것이다. 즉, <code>create_table</code>과 <code>reversible</code> 순서를 바꾸고, <code>create_table</code>을 <code>drop_table</code>로 변경하며, 마지막으로 <code>up</code>을 <code>down</code>으로 대체하는 것이다. 이 반대로도 마찬가지다. 이것은 모두 <code>revert</code> 메소드에 의해 처리된다.</p><p>위의 예와 같이 check 제약 조건을 추가하려면 <code>structure.sql</code>을 덤프 메소드로 사용해야 한다. <a href="#schema-dumping-and-you">Schema Dumping and You</a>를 참조하기 바란다.</p><h3 id="running-migrations"><a class="anchorlink" href="#running-migrations">4 마이그레이션 실행하기</a></h3><p>레일스는 마이그레이션 작업을 실행하기 위해 몇가지 rails 명령을 제공한다.</p><p>가장 먼저 사용할 마이그레이션 관련 rails 명령은 아마도 <code>rails db:migrate</code> 일 것이다. 가장 기본적인 형태로는, 아직 실행되지 않은 모든 마이그레이션에 대해 <code>change</code> 또는<code>up</code> 메소드만을 실행하는 것이다. 이와 같이 미실행 마이그레이션이 없으면 작업은 바로 종료된다. 이러한 마이그레이션 작업은 마이그레이션 날짜를 기준으로 순서대로 실행된다.</p><p><code>db:migrate</code> 명령을 실행하면 <code>db:schema:dump</code> 명령이 호출되어 데이터베이스의 구조와 일치하도록 <code>db/schema.rb</code> 파일이 업데이트된다는 것을 주목한다.</p><p>대상 버전을 지정하면 액티브 레코드는 지정된 버전에 도달 할 때까지 필요한 마이그레이션(change, up, down)을 실행한다. 버전은 마이그레이션 파일 이름의 숫자 접두사에 해당한다. 예를 들어, 20080906120000 버전으로 마이그레이션하려면 아래와 같이 실행한다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 $ rails db:migrate VERSION=20080906120000
 
@@ -911,7 +911,7 @@ end
 </div>
 <p>This is generally a much cleaner way to set up the database of a blank application.</p><h3 id="old-migrations"><a class="anchorlink" href="#old-migrations">9 과거 마이그레이션</a></h3><p><code>db/schema.rb</code> 또는 <code>db/structure.sql</code>은 데이터베이스의 현재 상태에 대한 스냅 샷이며 해당 데이터베이스를 재구축하기 위한 신뢰할 수 있는 소스이다. 과거 마이그레이션 파일을 삭제하는 것이 가능하다. </p><p><code>db/migrate/</code> 디렉토리에서 마이그레이션 파일을 삭제하면, 해당 파일이 존재하는 상태에서 <code>rails db:migrate</code>가 실행되었던 환경에는 내부 레일스 데이터베이스 테이블(<code>schema_migrations</code>) 내부에 해당 마이그레이션의 타임스탬프 참조가 포함된다. 이 테이블은 특정 환경에서 마이그레이션이 실행되었는지 여부를 추적하는 데 사용된다.</p><p>각 마이그레이션의 상태 (up 또는 down)를 표시하는 <code>rails db:migrate :status</code> 명령을 실행하면, 특정 환경에서 한 번 실행 되었지만 더 이상 <code>db/migrate/</code> 디렉토리에서 찾을 수 없는 삭제된 마이그레이션 파일 옆에 <code>********** NO FILE **********</code>이 표시된다.</p>
 
-        <h3>Feedback</h3>
+        <h3>피드백</h3>
         <p>
           You're encouraged to help improve the quality of this guide.
         </p>
@@ -941,8 +941,8 @@ end
   <hr class="hide" />
   <div id="footer">
     <div class="wrapper">
-      <p>본 결과물은 <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> 하에 라이센스가 적용된다. </p>
-<p>"Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. All rights reserved.</p>
+      <p>본 결과물은 <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> 를 준수한다. </p>
+<p>"Rails", "Ruby on Rails", 그리고 레일스 로고는 David Heinemeier Hansson의 등록상표이다. 판권 소유.</p>
 
     </div>
   </div>
