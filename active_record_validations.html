@@ -251,7 +251,7 @@
 </ul>
 </li>
 <li>
-<a href="#common-validation-options">Common Validation Options</a>
+<a href="#common-validation-options">일반적인 유효성 검증 옵션</a>
 
 <ul>
 <li><a href="#allow-nil"><code>:allow_nil</code></a></li>
@@ -260,27 +260,27 @@
 <li><a href="#on"><code>:on</code></a></li>
 </ul>
 </li>
-<li><a href="#strict-validations">Strict Validations</a></li>
+<li><a href="#strict-validations">엄격한 유효성 검증</a></li>
 <li>
-<a href="#conditional-validation">Conditional Validation</a>
+<a href="#conditional-validation">조건부 유효성 검증</a>
 
 <ul>
 <li><a href="#using-a-symbol-with-if-and-unless">Using a Symbol with <code>:if</code> and <code>:unless</code></a></li>
 <li><a href="#using-a-proc-with-if-and-unless">Using a Proc with <code>:if</code> and <code>:unless</code></a></li>
-<li><a href="#grouping-conditional-validations">Grouping Conditional validations</a></li>
-<li><a href="#combining-validation-conditions">Combining Validation Conditions</a></li>
+<li><a href="#grouping-conditional-validations">조건부 유효성 검증 그룹화하기</a></li>
+<li><a href="#combining-validation-conditions">유효성 검증 조건 결합하기</a></li>
 </ul>
 </li>
 <li>
-<a href="#performing-custom-validations">Performing Custom Validations</a>
+<a href="#performing-custom-validations">사용자 정의 유효성 검증하기</a>
 
 <ul>
-<li><a href="#custom-validators">Custom Validators</a></li>
-<li><a href="#custom-methods">Custom Methods</a></li>
+<li><a href="#custom-validators">사용자 정의 유효성 검증 클래스</a></li>
+<li><a href="#custom-method">사용자 정의 유효성 검증 메소드</a></li>
 </ul>
 </li>
 <li>
-<a href="#working-with-validation-errors">Working with Validation Errors</a>
+<a href="#working-with-validation-errors">유효성 검증 에러 발생시 처리</a>
 
 <ul>
 <li><a href="#working-with-validation-errors-errors"><code>errors</code></a></li>
@@ -292,7 +292,7 @@
 <li><a href="#errors-size"><code>errors.size</code></a></li>
 </ul>
 </li>
-<li><a href="#displaying-validation-errors-in-views">Displaying Validation Errors in Views</a></li>
+<li><a href="#displaying-validation-errors-in-views">유효성 검증 에러를 뷰에 표시하기</a></li>
 </ol>
 
         </div>
@@ -459,7 +459,7 @@ end
 
 </pre>
 </div>
-<p>이 유효성 검증은 웹 애플리케이션에만 적용되며 이 '수락'은 데이터베이스의 어느 곳에나 기록할 필요가 없다. 해당 필드가 없으면 헬퍼 메소드는 가상 속성만 만들게 된다. 해당 필드가 데이터베이스에 존재하면 <code>accept</code> 옵션을 true로 설정하거나 포함해야 한다. 그렇지 않으면 유효성 검증이 실행되지 않는다.</p><h4 id="validates-associated"><a class="anchorlink" href="#validates-associated">2.2 <code>validates_associated</code></a></h4><p>You should use this helper when your model has associations with other models and they also need to be validated. When you try to save your object, <code>valid?</code> will be called upon each one of the associated objects.</p><div class="code_container">
+<p>이 유효성 검증은 웹 애플리케이션에만 적용되며 이 '수락'은 데이터베이스의 어느 곳에나 기록할 필요가 없다. 해당 필드가 없으면 헬퍼 메소드는 가상 속성만 만들게 된다. 해당 필드가 데이터베이스에 존재하면 <code>accept</code> 옵션을 true로 설정하거나 포함해야 한다. 그렇지 않으면 유효성 검증이 실행되지 않는다.</p><h4 id="validates-associated"><a class="anchorlink" href="#validates-associated">2.2 <code>validates_associated</code></a></h4><p>모델이 다른 모델과 연관되어 있고 유효성을 검증해야하는 경우에는 이 헬퍼 메소드를 사용해야 한다. 그러면 객체를 저장할 때 연관된 객체 각각에 대해 <code>valid?</code> 메소드를 호출하게 된다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Library &lt; ApplicationRecord
   has_many :books
@@ -468,13 +468,7 @@ end
 
 </pre>
 </div>
-<p>This validation will work with all of the association types.</p><div class="warning"><p>Don't use <code>validates_associated</code> on both ends of your associations.
-They would call each other in an infinite loop.</p></div><p>The default error message for <code>validates_associated</code> is <em>"is invalid"</em>. Note
-that each associated object will contain its own <code>errors</code> collection; errors do
-not bubble up to the calling model.</p><h4 id="confirmation"><a class="anchorlink" href="#confirmation">2.3 <code>confirmation</code></a></h4><p>You should use this helper when you have two text fields that should receive
-exactly the same content. For example, you may want to confirm an email address
-or a password. This validation creates a virtual attribute whose name is the
-name of the field that has to be confirmed with "_confirmation" appended.</p><div class="code_container">
+<p>이 유효성 검증은 모든 연관 형태에서 작동한다.</p><div class="warning"><p>서로간에 연관이 정의된 모델 양쪽에 <code>validates_associated</code>를 사용하지 않도록 한다. 각 모델에서 서로를 호출하여 무한 루프에 빠지기 때문이다.</p></div><p><code>validates_associated</code>의 기본 에러 메시지는 <em>"is invalid"</em> 이다. 연결된 각 객체는 자체에 <code>errors</code> 컬렉션를 포함한다. 그러나 이 에러 컬렉션은 호출 모델에 영향을 미치지 않는다.</p><h4 id="confirmation"><a class="anchorlink" href="#confirmation">2.3 <code>confirmation</code></a></h4><p>정확히 동일한 내용을 수신해야하는 두 개의 텍스트 필드가있는 경우 이 헬퍼 메소드를 사용해야 한다. 이메일 주소나 비밀번호를 예로 들 수 있다. 이 유효성 검증은 확인되어야 하는 필드 이름 끝에 "_confirmation"이 추가된 가상 속성을 생성한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :email, confirmation: true
@@ -482,16 +476,14 @@ end
 
 </pre>
 </div>
-<p>In your view template you could use something like</p><div class="code_container">
+<p>뷰 템플릿 파일에서는 아래와 같이 사용할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; html-script: true; gutter: false; toolbar: false">
 &lt;%= text_field :person, :email %&gt;
 &lt;%= text_field :person, :email_confirmation %&gt;
 
 </pre>
 </div>
-<p>This check is performed only if <code>email_confirmation</code> is not <code>nil</code>. To require
-confirmation, make sure to add a presence check for the confirmation attribute
-(we'll take a look at <code>presence</code> later on in this guide):</p><div class="code_container">
+<p>이것은 <code>email_confirmation</code>이 <code>nil</code>이 아닌 경우에만 수행된다. 확인을 요구하려면 확인 속성에 대한 존재 여부을 추가해야 한다 (이 안내서의 뒷부분에서 <code>presence</code> 옵션에 대해서 살펴 볼 것이다).</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :email, confirmation: true
@@ -500,9 +492,7 @@ end
 
 </pre>
 </div>
-<p>There is also a <code>:case_sensitive</code> option that you can use to define whether the
-confirmation constraint will be case sensitive or not. This option defaults to
-true.</p><div class="code_container">
+<p>또한 <code>:case_sensitive</code> 옵션을 추가하면 확인 제약 조건이 대소 문자를 구분할지 여부를 정의하는 데 사용할 수 있다. 이 옵션의 기본값은 true이다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :email, confirmation: { case_sensitive: false }
@@ -510,8 +500,7 @@ end
 
 </pre>
 </div>
-<p>The default error message for this helper is <em>"doesn't match confirmation"</em>.</p><h4 id="exclusion"><a class="anchorlink" href="#exclusion">2.4 <code>exclusion</code></a></h4><p>This helper validates that the attributes' values are not included in a given
-set. In fact, this set can be any enumerable object.</p><div class="code_container">
+<p>이 헬퍼 메소드의 기본 에러 메시지는 <em>"doesn't match confirmation"</em> 이다.</p><h4 id="exclusion"><a class="anchorlink" href="#exclusion">2.4 <code>exclusion</code></a></h4><p>이 헬퍼 메소드는 속성 값이 주어진 세트에 포함되지 않았는지 검증한다. 실제로 이 세트는 열거 가능한(enumerable) 객체일 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Account &lt; ApplicationRecord
   validates :subdomain, exclusion: { in: %w(www us ca jp),
@@ -520,13 +509,7 @@ end
 
 </pre>
 </div>
-<p>The <code>exclusion</code> helper has an option <code>:in</code> that receives the set of values that
-will not be accepted for the validated attributes. The <code>:in</code> option has an
-alias called <code>:within</code> that you can use for the same purpose, if you'd like to.
-This example uses the <code>:message</code> option to show how you can include the
-attribute's value. For full options to the message argument please see the
-<a href="#message">message documentation</a>.</p><p>The default error message is <em>"is reserved"</em>.</p><h4 id="format"><a class="anchorlink" href="#format">2.5 <code>format</code></a></h4><p>This helper validates the attributes' values by testing whether they match a
-given regular expression, which is specified using the <code>:with</code> option.</p><div class="code_container">
+<p><code>exclusion</code> 헬퍼는 검증이 필요한 속성에 허용되지 않는 값들을 받는<code>:in</code> 옵션을 가지고 있다. <code>:in</code> 옵션에는 원한다면 같은 목적으로 사용할 수 있는<code>:within</code>이라는 별칭도 있다. 위의 예제는 <code>:message</code> 옵션을 사용하여 속성 값을 포함하는 방법을 보여 준다. 메시지 인수에 대한 전체 옵션은 <a href="#message">message documentation</a>를 참조한다.</p><p>기본 에러 메시지는 <em>"is reserved"</em> 이다.</p><h4 id="format"><a class="anchorlink" href="#format">2.5 <code>format</code></a></h4><p>이 헬퍼는 속성 값이 <code>:with</code> 옵션을 사용하여 지정한 정규 표현식과 일치하는지 테스트하여 속성 값의 유효성을 검증한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Product &lt; ApplicationRecord
   validates :legacy_code, format: { with: /\A[a-zA-Z]+\z/,
@@ -535,8 +518,7 @@ end
 
 </pre>
 </div>
-<p>Alternatively, you can require that the specified attribute does <em>not</em> match the regular expression by using the <code>:without</code> option.</p><p>The default error message is <em>"is invalid"</em>.</p><h4 id="inclusion"><a class="anchorlink" href="#inclusion">2.6 <code>inclusion</code></a></h4><p>This helper validates that the attributes' values are included in a given set.
-In fact, this set can be any enumerable object.</p><div class="code_container">
+<p>또는 <code>:without</code> 옵션을 사용하여 지정된 속성이 정규 표현식과 일치하지 <em>않도록</em> 요구할 수 있다.</p><p>기본 에러 메시지는 <em>"is invalid"</em> 이다.</p><h4 id="inclusion"><a class="anchorlink" href="#inclusion">2.6 <code>inclusion</code></a></h4><p>이 헬퍼는 속성 값이 주어진 집합에 포함되어 있는지 확인합니다. 실제로 이 세트는 열거 가능한(enumerable) 객체일 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Coffee &lt; ApplicationRecord
   validates :size, inclusion: { in: %w(small medium large),
@@ -545,12 +527,7 @@ end
 
 </pre>
 </div>
-<p>The <code>inclusion</code> helper has an option <code>:in</code> that receives the set of values that
-will be accepted. The <code>:in</code> option has an alias called <code>:within</code> that you can
-use for the same purpose, if you'd like to. The previous example uses the
-<code>:message</code> option to show how you can include the attribute's value. For full
-options please see the <a href="#message">message documentation</a>.</p><p>The default error message for this helper is <em>"is not included in the list"</em>.</p><h4 id="length"><a class="anchorlink" href="#length">2.7 <code>length</code></a></h4><p>This helper validates the length of the attributes' values. It provides a
-variety of options, so you can specify length constraints in different ways:</p><div class="code_container">
+<p><code>inclusion</code> 헬퍼에서는 <code>:in</code> 옵션을 사용하여 허용되는 값들을 지정할 수 있다. <code>:in</code> 옵션에는 원한다면 같은 목적으로 사용할 수 있는 <code>:within</code>이라는 별칭도 있다. 이전 예제는<code>:message</code> 옵션을 사용하여 속성 값을 포함하는 방법을 보여 준다. 전체 옵션은 <a href="#message">message documentation</a>를 참조한다.</p><p>이 헬퍼의 기본 에러 메시지는 <em>"is not included in the list"</em> 이다.</p><h4 id="length"><a class="anchorlink" href="#length">2.7 <code>length</code></a></h4><p>이 헬퍼는 속성 값의 길이를 검사한다. 다양한 옵션을 제공하므로 여러가지 방법으로 길이 제한을 지정할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :name, length: { minimum: 2 }
@@ -561,23 +538,18 @@ end
 
 </pre>
 </div>
-<p>The possible length constraint options are:</p>
+<p>사용 가능한 길이 제한 옵션은 아래와 같다. </p>
 <ul>
 <li>
-<code>:minimum</code> - The attribute cannot have less than the specified length.</li>
+<code>:minimum</code> - 해당 속성은 지정된 길이보다 작을 수 없다.</li>
 <li>
-<code>:maximum</code> - The attribute cannot have more than the specified length.</li>
+<code>:maximum</code> - 해당 속성은 지정된 길이보다 길 수 없다.</li>
 <li>
-<code>:in</code> (or <code>:within</code>) - The attribute length must be included in a given
-interval. The value for this option must be a range.</li>
+<code>:in</code> (or <code>:within</code>) - 해당 속성의 길이는 주어진 구간에 포함되어야 한다. 이 옵션의 값은 range 형이어야 한다.</li>
 <li>
-<code>:is</code> - The attribute length must be equal to the given value.</li>
+<code>:is</code> - 해당 속성 길이는 주어진 값과 같아야 한다.</li>
 </ul>
-<p>The default error messages depend on the type of length validation being
-performed. You can personalize these messages using the <code>:wrong_length</code>,
-<code>:too_long</code>, and <code>:too_short</code> options and <code>%{count}</code> as a placeholder for the
-number corresponding to the length constraint being used. You can still use the
-<code>:message</code> option to specify an error message.</p><div class="code_container">
+<p>기본 에러 메시지는 사용하는 길이 유효성 검증 형태에 따라 다르다. <code>:wrong_length</code>,  <code>:too_long</code>, <code>:too_short</code> 옵션과 사용 중인 길이 제한 조건에 해당하는 숫자의 placeholder로 사용하는 <code>%{count}</code>를 사용하여 이러한 메시지를 개인화할 수 있다. 여전히 <code>:message</code> 옵션을 사용하여 에러 메시지를 지정할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :bio, length: { maximum: 1000,
@@ -586,21 +558,13 @@ end
 
 </pre>
 </div>
-<p>Note that the default error messages are plural (e.g., "is too short (minimum
-is %{count} characters)"). For this reason, when <code>:minimum</code> is 1 you should
-provide a personalized message or use <code>presence: true</code> instead. When
-<code>:in</code> or <code>:within</code> have a lower limit of 1, you should either provide a
-personalized message or call <code>presence</code> prior to <code>length</code>.</p><h4 id="numericality"><a class="anchorlink" href="#numericality">2.8 <code>numericality</code></a></h4><p>This helper validates that your attributes have only numeric values. By
-default, it will match an optional sign followed by an integral or floating
-point number. To specify that only integral numbers are allowed set
-<code>:only_integer</code> to true.</p><p>If you set <code>:only_integer</code> to <code>true</code>, then it will use the</p><div class="code_container">
+<p>기본 에러 메시지는 복수형(예 : "is too short (minimum is %{count} characters)")이라는 것에 주의한다. 이러한 이유로 <code>:minimum</code>이 1 인 경우 사용자 지정 메시지를 제공하거나 <code>presence: true</code>를 대신 사용해야 한다. <code>:in</code> 또는 <code>:within</code>의 하한이 1 인 경우, 사용자 지정 메시지를 제공하거나 <code>length</code> 이전에 <code>presence</code>를 호출해야 한다.</p><h4 id="numericality"><a class="anchorlink" href="#numericality">2.8 <code>numericality</code></a></h4><p>이 헬퍼 메소드는 속성에 숫자 값만 있는지 확인한다. 기본적으로 추가로 지정할 수 있는 부호와 이후의 정수 또는 부동 소수점 숫자가 일치하는지 검사할 것이다. 정수만 허용하도록 지정하려면 <code>:only_integer</code>를 true로 설정한다.</p><p><code>:only_integer</code>를 true로 지정하면 아래와 같은 정규표현식을 사용하여</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 /\A[+-]?\d+\z/
 
 </pre>
 </div>
-<p>regular expression to validate the attribute's value. Otherwise, it will try to
-convert the value to a number using <code>Float</code>.</p><div class="code_container">
+<p>속성 값을 검사할 것이다. 그렇지 않을 경우 속성 값을 <code>Float</code>를 사용하여 실수로 변환할 것이다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Player &lt; ApplicationRecord
   validates :points, numericality: true
@@ -609,40 +573,26 @@ end
 
 </pre>
 </div>
-<p>Besides <code>:only_integer</code>, this helper also accepts the following options to add
-constraints to acceptable values:</p>
+<p><code>:only_integer</code> 외에도 아래의 옵션을 사용하여 속성 값에 제약 조건을 추가한다.</p>
 <ul>
 <li>
-<code>:greater_than</code> - Specifies the value must be greater than the supplied
-value. The default error message for this option is <em>"must be greater than
-%{count}"</em>.</li>
+<code>:greater_than</code> - 속성 값이 특정 값보다 커야 함을 지정한다. 이 옵션의 기본 에러 메시지는 <em>"must must be greater than %{count}"</em> 이다.</li>
 <li>
-<code>:greater_than_or_equal_to</code> - Specifies the value must be greater than or
-equal to the supplied value. The default error message for this option is
-<em>"must be greater than or equal to %{count}"</em>.</li>
+<code>:greater_than_or_equal_to</code> - 속성 값이 특정 값보다 크거나 같아야 함을 지정한다. 이 옵션의 기본 에러 메시지는 <em>"must be greater than or equal to %{count}"</em> 이다.</li>
 <li>
-<code>:equal_to</code> - Specifies the value must be equal to the supplied value. The
-default error message for this option is <em>"must be equal to %{count}"</em>.</li>
+<code>:equal_to</code> - 속성 값이 특정 값과 같아야 함을 지정한다. 이 옵션의 기본 에러 메시지는 <em>"must be equal to %{count}"</em> 이다.</li>
 <li>
-<code>:less_than</code> - Specifies the value must be less than the supplied value. The
-default error message for this option is <em>"must be less than %{count}"</em>.</li>
+<code>:less_than</code> - 속성 값이 특정 값보다 작아야 함을 지정한다. 이 옵션의 기본 에러 메시지는 <em>"must be less than %{count}"</em> 이다.</li>
 <li>
-<code>:less_than_or_equal_to</code> - Specifies the value must be less than or equal to
-the supplied value. The default error message for this option is <em>"must be
-less than or equal to %{count}"</em>.</li>
+<code>:less_than_or_equal_to</code> - 속성 값이 특정 값보다 작거나 같아야 함을 지정한다. 이 옵션의 기본 에러 메시지는 <em>"must be less than or equal to %{count}"</em> 이다.</li>
 <li>
-<code>:other_than</code> - Specifies the value must be other than the supplied value.
-The default error message for this option is <em>"must be other than %{count}"</em>.</li>
+<code>:other_than</code> - 속성 값이 특정 값 이외의 값이어야 한다. 이 옵션의 기본 애로 메시지는 <em>"must be other than %{count}"</em> 이다.</li>
 <li>
-<code>:odd</code> - Specifies the value must be an odd number if set to true. The
-default error message for this option is <em>"must be odd"</em>.</li>
+<code>:odd</code> - 속성 값이 true로 설정되면 값이 홀수이어야 한다. 이 옵션의 기본 에러 메시지는 _ <em>"must be odd"</em> 이다.</li>
 <li>
-<code>:even</code> - Specifies the value must be an even number if set to true. The
-default error message for this option is <em>"must be even"</em>.</li>
+<code>:even</code> - 속성 값이 true로 설정되면 값이 짝수이어야 한다. 이 옵션의 기본 에러 메시지는 <em>"must be even"</em> 이다.</li>
 </ul>
-<div class="note"><p>By default, <code>numericality</code> doesn't allow <code>nil</code> values. You can use <code>allow_nil: true</code> option to permit it.</p></div><p>The default error message is <em>"is not a number"</em>.</p><h4 id="presence"><a class="anchorlink" href="#presence">2.9 <code>presence</code></a></h4><p>This helper validates that the specified attributes are not empty. It uses the
-<code>blank?</code> method to check if the value is either <code>nil</code> or a blank string, that
-is, a string that is either empty or consists of whitespace.</p><div class="code_container">
+<div class="note"><p>기본적으로 <code>numericality</code>는 <code>nil</code> 값을 허용하지 않는다. 그러나, <code>allow_nil: true</code> 옵션을 사용하면 허용할 수 있다.</p></div><p>기본 에러 메시지는 <em>"is not a number"</em> 이다.</p><h4 id="presence"><a class="anchorlink" href="#presence">2.9 <code>presence</code></a></h4><p>이 헬퍼는 지정된 속성이 비어 있지 않은지 확인한다. <code>blank?</code> 메소드를 사용하여 값이 <code>nil</code> 인지 또는 빈 문자열인지, 즉 비어 있거나 공백으로 구성된 문자열인지 확인한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :name, :login, :email, presence: true
@@ -650,10 +600,7 @@ end
 
 </pre>
 </div>
-<p>If you want to be sure that an association is present, you'll need to test
-whether the associated object itself is present, and not the foreign key used
-to map the association. This way, it is not only checked that the foreign key
-is not empty but also that the referenced object exists.</p><div class="code_container">
+<p>모델간의 관계가 정의되어 있는지 확인하려면 관계 설정에 사용하는 외래 키가 아니라 관련 객체 자체가 있는지 테스트해야 한다. 이런 식으로 외래 키가 비어 있지 않을 뿐만 아니라 참조 된 객체가 존재하는지 확인한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class LineItem &lt; ApplicationRecord
   belongs_to :order
@@ -662,8 +609,7 @@ end
 
 </pre>
 </div>
-<p>In order to validate associated records whose presence is required, you must
-specify the <code>:inverse_of</code> option for the association:</p><div class="code_container">
+<p>반드시 존재해야 하는 연관 레코드의 유효성을 검증하려면 해당 관계 정의에 대해<code>:inverse_of</code> 옵션을 지정해야 한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Order &lt; ApplicationRecord
   has_many :line_items, inverse_of: :order
@@ -671,20 +617,14 @@ end
 
 </pre>
 </div>
-<p>If you validate the presence of an object associated via a <code>has_one</code> or
-<code>has_many</code> relationship, it will check that the object is neither <code>blank?</code> nor
-<code>marked_for_destruction?</code>.</p><p>Since <code>false.blank?</code> is true, if you want to validate the presence of a boolean
-field you should use one of the following validations:</p><div class="code_container">
+<p><code>has_one</code> 또는 <code>has_many</code> 관계를 통해 연관된 객체가 있는지 검증할 경우에는 해당 객체가 <code>blank?</code> 또는 <code>marked_for_destruction?</code>이 아닌지 확인한다.</p><p><code>false.blank?</code>가 true 값을 반환하기 때문에 논리값 데이터형을 가지는 필드의 존재를 검증하려면 아래의 검증 중 하나를 사용해야 한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 validates :boolean_field_name, inclusion: { in: [true, false] }
 validates :boolean_field_name, exclusion: { in: [nil] }
 
 </pre>
 </div>
-<p>By using one of these validations, you will ensure the value will NOT be <code>nil</code>
-which would result in a <code>NULL</code> value in most cases.</p><h4 id="absence"><a class="anchorlink" href="#absence">2.10 <code>absence</code></a></h4><p>This helper validates that the specified attributes are absent. It uses the
-<code>present?</code> method to check if the value is not either nil or a blank string, that
-is, a string that is either empty or consists of whitespace.</p><div class="code_container">
+<p>이러한 유효성 검사 중 하나를 사용하면, 속성 값이 대부분의 경우 <code>NULL</code> 값을 가지는 <code>nil</code>이 <strong>아님</strong>을 확인한다.</p><h4 id="absence"><a class="anchorlink" href="#absence">2.10 <code>absence</code></a></h4><p>이 헬퍼는 지정된 속성이 존재하지 않음을 검증한다. <code>present?</code> 메소드를 사용하여 값이 nil이 아니거나 빈 문자열, 즉 비어 있거나 공백으로 구성된 문자열이 아닌지 확인한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :name, :login, :email, absence: true
@@ -692,9 +632,7 @@ end
 
 </pre>
 </div>
-<p>If you want to be sure that an association is absent, you'll need to test
-whether the associated object itself is absent, and not the foreign key used
-to map the association.</p><div class="code_container">
+<p>모델간의 관계 정의가 존재하지 않음을 확인하려면, 관계 정의에 사용하는 외래 키가 아니라 관련 객체 자체가 존재하지 않음을 테스트해야 한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class LineItem &lt; ApplicationRecord
   belongs_to :order
@@ -703,8 +641,7 @@ end
 
 </pre>
 </div>
-<p>In order to validate associated records whose absence is required, you must
-specify the <code>:inverse_of</code> option for the association:</p><div class="code_container">
+<p>존재해서는 안되는 연관 레코드의 유효성을 검증하려면 관계 정의에 <code>:inverse_of</code> 옵션을 지정해야 한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Order &lt; ApplicationRecord
   has_many :line_items, inverse_of: :order
@@ -712,14 +649,7 @@ end
 
 </pre>
 </div>
-<p>If you validate the absence of an object associated via a <code>has_one</code> or
-<code>has_many</code> relationship, it will check that the object is neither <code>present?</code> nor
-<code>marked_for_destruction?</code>.</p><p>Since <code>false.present?</code> is false, if you want to validate the absence of a boolean
-field you should use <code>validates :field_name, exclusion: { in: [true, false] }</code>.</p><p>The default error message is <em>"must be blank"</em>.</p><h4 id="uniqueness"><a class="anchorlink" href="#uniqueness">2.11 <code>uniqueness</code></a></h4><p>This helper validates that the attribute's value is unique right before the
-object gets saved. It does not create a uniqueness constraint in the database,
-so it may happen that two different database connections create two records
-with the same value for a column that you intend to be unique. To avoid that,
-you must create a unique index on that column in your database.</p><div class="code_container">
+<p><code>has_one</code> 또는 <code>has_many</code> 모델 관계를 통해 연관된 객체가 존재하지 않는 것을 검증하면 해당 객체가 <code>present?</code> 가 아니거나  <code>marked_for_destruction?</code>이 아님을 확인하게 된다.</p><p><code>false.present?</code>가 false이므로 논리값을 가지는 필드가 존재하지 않음을 확인하려면<code>validates :field_name, exclusion: {in: [true, false]}</code>를 사용해야 한다.</p><p>기본 에러 메시지는 <em>"must be blank"</em> 이다.</p><h4 id="uniqueness"><a class="anchorlink" href="#uniqueness">2.11 <code>uniqueness</code></a></h4><p>이 헬퍼는 객체가 저장되기 직전에 유일한 속성값을 가지는지 확인한다. 데이터베이스에서 유일성 제한 조건을 작성하지 않으므로 서로 다른 두 개의 데이터베이스 연결이 유일한 값을 가져야 하는 특정 컬럼에 대해 동일한 값을 가지는 두 개의 레코드를 작성할 수 있게 된다. 따라서 이를 피하려면 데이터베이스의 해당 레코드에 유일한 인덱스를 작성해야 한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Account &lt; ApplicationRecord
   validates :email, uniqueness: true
@@ -727,9 +657,7 @@ end
 
 </pre>
 </div>
-<p>The validation happens by performing an SQL query into the model's table,
-searching for an existing record with the same value in that attribute.</p><p>There is a <code>:scope</code> option that you can use to specify one or more attributes that
-are used to limit the uniqueness check:</p><div class="code_container">
+<p>해당 속성에서 동일한 값을 가진 기존 레코드를 검색하기 위해 모델 테이블에 대한 SQL 쿼리를 시행하므로써 유효성 검증이 발생하게 된다.</p><p><code>:scope</code> 옵션을 이용하면 유일성 검사를 제한하는 데 사용되는 하나 이상의 속성을 지정할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Holiday &lt; ApplicationRecord
   validates :name, uniqueness: { scope: :year,
@@ -738,9 +666,7 @@ end
 
 </pre>
 </div>
-<p>Should you wish to create a database constraint to prevent possible violations of a uniqueness validation using the <code>:scope</code> option, you must create a unique index on both columns in your database. See <a href="https://dev.mysql.com/doc/refman/5.7/en/multiple-column-indexes.html">the MySQL manual</a> for more details about multiple column indexes or <a href="https://www.postgresql.org/docs/current/static/ddl-constraints.html">the PostgreSQL manual</a> for examples of unique constraints that refer to a group of columns.</p><p>There is also a <code>:case_sensitive</code> option that you can use to define whether the
-uniqueness constraint will be case sensitive or not. This option defaults to
-true.</p><div class="code_container">
+<p><code>:scope</code> 옵션을 사용하여 유일성 검증의 위반 방지를 위해 데이터베이스 제한 조건을 작성하려면 데이터베이스의 두 컬럼 모두에 유일한 색인을 작성해야 한다. 다중 컬럼 인덱스에 대한 자세한 내용은 <a href="https://dev.mysql.com/doc/refman/5.7/en/multiple-column-indexes.html">the MySQL manual</a>을 참조하거나 컬럼 그룹을 참조하는 유일성 제한 조건의 예는 <a href="https://www.postgresql.org/docs/current/static/ddl-constraints.html">the PostgreSQL manual</a>을 참조한다.</p><p><code>:case_sensitive</code> 옵션을 이용하면, 유일성 제약 조건이 대소 문자를 구분하는지 여부를 정의하는 데 사용할 수 있다. 이 옵션의 기본값은 true이다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
@@ -748,8 +674,7 @@ end
 
 </pre>
 </div>
-<div class="warning"><p>Note that some databases are configured to perform case-insensitive
-searches anyway.</p></div><p>The default error message is <em>"has already been taken"</em>.</p><h4 id="validates-with"><a class="anchorlink" href="#validates-with">2.12 <code>validates_with</code></a></h4><p>This helper passes the record to a separate class for validation.</p><div class="code_container">
+<div class="warning"><p>일부 데이터베이스는 대소 문자를 구분하지 않는 검색을 수행하도록 설정되어 있다는 것에 주의한다.</p></div><p>기본 에러 메시지는 <em>"has already been taken"</em> 이다.</p><h4 id="validates-with"><a class="anchorlink" href="#validates-with">2.12 <code>validates_with</code></a></h4><p>이 헬퍼는 유효성 검증을 위해 별도의 클래스로 레코드를 전달한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class GoodnessValidator &lt; ActiveModel::Validator
   def validate(record)
@@ -765,13 +690,7 @@ end
 
 </pre>
 </div>
-<div class="note"><p>Errors added to <code>record.errors[:base]</code> relate to the state of the record
-as a whole, and not to a specific attribute.</p></div><p>The <code>validates_with</code> helper takes a class, or a list of classes to use for
-validation. There is no default error message for <code>validates_with</code>. You must
-manually add errors to the record's errors collection in the validator class.</p><p>To implement the validate method, you must have a <code>record</code> parameter defined,
-which is the record to be validated.</p><p>Like all other validations, <code>validates_with</code> takes the <code>:if</code>, <code>:unless</code> and
-<code>:on</code> options. If you pass any other options, it will send those options to the
-validator class as <code>options</code>:</p><div class="code_container">
+<div class="note"><p><code>record.errors[:base]</code>에 추가 된 에러는 특정 속성이 아니라 레코드의 전체 상태와 관련이 있다.</p></div><p><code>validates_with</code> 헬퍼는 하나의 클래스 또는 클래스 목록을 취해서 유효성 검증에 사용한다. <code>validates_with</code>에 대한 기본 에러 메시지는 없다. 유효성 검증기 클래스의 레코드 에러 콜렉션에 수동으로 에러를 추가해야 한다.</p><p><code>validate</code> 메소드를 구현하려면 검증 할 레코드인 <code>record</code> 매개 변수가 정의되어 있어야 한다.</p><p>다른 모든 유효성 검증과 마찬가지로 <code>validates_with</code>는 <code>:if</code>, <code>:unless</code> 및<code>:on</code> 옵션을 사용한다. 다른 옵션을 전달하면 해당 옵션을 유효성 검증 클래스에 <code>options</code>로 보낸다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class GoodnessValidator &lt; ActiveModel::Validator
   def validate(record)
@@ -787,10 +706,7 @@ end
 
 </pre>
 </div>
-<p>Note that the validator will be initialized <em>only once</em> for the whole application
-life cycle, and not on each validation run, so be careful about using instance
-variables inside it.</p><p>If your validator is complex enough that you want instance variables, you can
-easily use a plain old Ruby object instead:</p><div class="code_container">
+<p>유효성 검증 클래스는 매 유효성 검증 실행마다가 아닌 전체 애플리케이션 수명주기 동안 <em>단 한 번만</em> 초기화되므로 내부에서 인스턴스 변수를 사용하는 데 주의해야 한다.</p><p>유효성 검증 클래스가 인스턴스 변수를 원할 정도로 복잡하다면 대신 <strong>PORO</strong>(Plain Old Ruby Object, 상속 받지 않는 단순 루비 객체, 譯註)를 손쉽게 사용할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validate do |person|
@@ -814,10 +730,7 @@ end
 
 </pre>
 </div>
-<h4 id="validates-each"><a class="anchorlink" href="#validates-each">2.13 <code>validates_each</code></a></h4><p>This helper validates attributes against a block. It doesn't have a predefined
-validation function. You should create one using a block, and every attribute
-passed to <code>validates_each</code> will be tested against it. In the following example,
-we don't want names and surnames to begin with lower case.</p><div class="code_container">
+<h4 id="validates-each"><a class="anchorlink" href="#validates-each">2.13 <code>validates_each</code></a></h4><p>이 헬퍼는 블록으로 넘겨 준 속성에 대해서 유효성을 검증한다. 사전 정의된 유효성 검증 기능은 없다. 블록을 사용하여 검증 기능을 작성해야 하며, <code>validates_each</code>에 전달된 모든 속성에 대해서 유효성을 검증하게 된다. 아래의 예에서는 이름과 성이 대문자로 시작하는지 검증한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates_each :name, :surname do |record, attr, value|
@@ -827,11 +740,7 @@ end
 
 </pre>
 </div>
-<p>The block receives the record, the attribute's name, and the attribute's value.
-You can do anything you like to check for valid data within the block. If your
-validation fails, you should add an error message to the model, therefore
-making it invalid.</p><h3 id="common-validation-options"><a class="anchorlink" href="#common-validation-options">3 Common Validation Options</a></h3><p>These are common validation options:</p><h4 id="allow-nil"><a class="anchorlink" href="#allow-nil">3.1 <code>:allow_nil</code></a></h4><p>The <code>:allow_nil</code> option skips the validation when the value being validated is
-<code>nil</code>.</p><div class="code_container">
+<p>블록은 레코드, 속성 이름 및 속성 값을 넘겨 받는다. 블록 내에서 유효한 데이터를 확인하려는 모든 작업을 수행 할 수 있다. 유효성 검증에 실패하면 모델에 에러 메시지를 추가하여 데이터가 유효하지 않게 된다.</p><h3 id="common-validation-options"><a class="anchorlink" href="#common-validation-options">3 일반적인 유효성 검증 옵션</a></h3><p>아래는 일반적인 유효성 검사 옵션들이다.</p><h4 id="allow-nil"><a class="anchorlink" href="#allow-nil">3.1 <code>:allow_nil</code></a></h4><p><code>:allow_nil</code> 옵션은 검증되는 값이 <code>nil</code>인 경우 검증을 건너 뛴다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Coffee &lt; ApplicationRecord
   validates :size, inclusion: { in: %w(small medium large),
@@ -840,10 +749,7 @@ end
 
 </pre>
 </div>
-<p>For full options to the message argument please see the
-<a href="#message">message documentation</a>.</p><h4 id="allow-blank"><a class="anchorlink" href="#allow-blank">3.2 <code>:allow_blank</code></a></h4><p>The <code>:allow_blank</code> option is similar to the <code>:allow_nil</code> option. This option
-will let validation pass if the attribute's value is <code>blank?</code>, like <code>nil</code> or an
-empty string for example.</p><div class="code_container">
+<p>메시지 인수에 대한 전체 옵션은 <a href="#message">message documentation</a>를 참조한다.</p><h4 id="allow-blank"><a class="anchorlink" href="#allow-blank">3.2 <code>:allow_blank</code></a></h4><p><code>:allow_blank</code> 옵션은<code>:allow_nil</code> 옵션과 유사하다. 이 옵션은 속성 값이<code>nil</code> 또는 빈 문자열과 같은 <code>blank?</code>인 경우 유효성 검증을 통과시킨다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Topic &lt; ApplicationRecord
   validates :title, length: { is: 5 }, allow_blank: true
@@ -854,22 +760,15 @@ Topic.create(title: nil).valid? # =&gt; true
 
 </pre>
 </div>
-<h4 id="message"><a class="anchorlink" href="#message">3.3 <code>:message</code></a></h4><p>As you've already seen, the <code>:message</code> option lets you specify the message that
-will be added to the <code>errors</code> collection when validation fails. When this
-option is not used, Active Record will use the respective default error message
-for each validation helper. The <code>:message</code> option accepts a <code>String</code> or <code>Proc</code>.</p><p>A <code>String</code> <code>:message</code> value can optionally contain any/all of <code>%{value}</code>,
-<code>%{attribute}</code>, and <code>%{model}</code> which will be dynamically replaced when
-validation fails. This replacement is done using the I18n gem, and the
-placeholders must match exactly, no spaces are allowed.</p><p>A <code>Proc</code> <code>:message</code> value is given two arguments: the object being validated, and
-a hash with <code>:model</code>, <code>:attribute</code>, and <code>:value</code> key-value pairs.</p><div class="code_container">
+<h4 id="message"><a class="anchorlink" href="#message">3.3 <code>:message</code></a></h4><p>앞에서 본 것처럼 <code>:message</code> 옵션을 사용하면 유효성 검증에 실패할 때 <code>errors</code> 컬렉션에 추가될 메시지를 지정할 수 있다. 이 옵션을 사용하지 않으면 액티브 레코드는 각 유효성 검증 헬퍼에 대해 각각의 기본 에러 메시지를 사용한다. <code>:message</code> 옵션에 <code>String</code> 또는 <code>Proc</code>를 사용할 수 있다.</p><p><code>String</code> <code>:message</code> 값은 <code>%{value}</code>, <code>%{attribute}</code>, <code>%{model}</code> 중 일부 또는 전부를 선택적으로 포함할 수 있으며, 유효성 검증에 실패하면 동적으로 대체된다. 이것은 I18n 젬을 사용하여 수행되며 placeholder는 정확히 일치해야 하고 공백은 허용되지 않는다.</p><p><code>Proc</code> <code>:message</code> 값에는 두 개의 인수, 즉 검증되는 객체와, <code>:model</code>, <code>:attribute</code>, <code>:value</code> 세 개의 키-값 쌍이 있는, 해시가 제공된다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
-  # Hard-coded message
+  # 하드 코딩된 메시지
   validates :name, presence: { message: "must be given please" }
 
-  # Message with dynamic attribute value. %{value} will be replaced with
-  # the actual value of the attribute. %{attribute} and %{model} also
-  # available.
+  # 동적 속성 값을 포함하는 메시지. 
+  # %{value}는 속성의 실제 값으로 대체된다. 
+  # %{attribute}, %{model}도 사용 가능하다.
   validates :age, numericality: { message: "%{value} seems wrong" }
 
   # Proc
@@ -885,29 +784,22 @@ end
 
 </pre>
 </div>
-<h4 id="on"><a class="anchorlink" href="#on">3.4 <code>:on</code></a></h4><p>The <code>:on</code> option lets you specify when the validation should happen. The
-default behavior for all the built-in validation helpers is to be run on save
-(both when you're creating a new record and when you're updating it). If you
-want to change it, you can use <code>on: :create</code> to run the validation only when a
-new record is created or <code>on: :update</code> to run the validation only when a record
-is updated.</p><div class="code_container">
+<h4 id="on"><a class="anchorlink" href="#on">3.4 <code>:on</code></a></h4><p><code>:on</code> 옵션을 사용하면 유효성 검증 시기를 지정할 수 있다. 내장된 모든 유효성 검증 헬퍼의 기본 동작은 저장시(새 레코드를 만들 때와 업데이트 할 때) 실행된다. 변경하려면 <code>on: :create</code>를 사용하여 새 레코드가 생성될 때만 유효성 검증을 실행하거나 <code>on: :update</code>를 사용하여 레코드가 업데이트될 때만 유효성 검증을 실행할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
-  # it will be possible to update email with a duplicated value
+  # 이메일을 중복된 값으로 업데이트(update) 할 수 있다.
   validates :email, uniqueness: true, on: :create
 
-  # it will be possible to create the record with a non-numerical age
+  # 레코드를 생성(create)할 때는 연령 값이 숫자가 아니어도 된다.
   validates :age, numericality: true, on: :update
 
-  # the default (validates on both create and update)
+  # 기본 상태 (create, update 모두에서 유효성을 검증한다.)
   validates :name, presence: true
 end
 
 </pre>
 </div>
-<p>You can also use <code>on:</code> to define custom contexts. Custom contexts need to be
-triggered explicitly by passing the name of the context to <code>valid?</code>,
-<code>invalid?</code>, or <code>save</code>.</p><div class="code_container">
+<p><code>on:</code>을 사용하여 사용자 정의 컨텍스트를 정의할 수 도 있다. 컨텍스트 이름을 <code>valid?</code>, <code>invalid?</code> 또는 <code>save</code>에 전달하여 사용자 정의 컨텍스트를 명시적으로 트리거해야 한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :email, uniqueness: true, on: :account_setup
@@ -922,10 +814,7 @@ person.errors.messages
 
 </pre>
 </div>
-<p><code>person.valid?(:account_setup)</code> executes both the validations without saving
-the model. <code>person.save(context: :account_setup)</code> validates <code>person</code> in the
-<code>account_setup</code> context before saving.</p><p>When triggered by an explicit context, validations are run for that context,
-as well as any validations <em>without</em> a context.</p><div class="code_container">
+<p><code>person.valid?(:account_setup)</code>은 모델을 저장하지 않고 두 가지 유효성 검증을 모두 실행한다. <code>person.save(context: :account_setup)</code>은 저장하기 전에 <code>account_setup</code> 컨텍스트에서 <code>person</code>을 검증한다.</p><p>명시적 컨텍스트에 의해 유효성 검증이 트리거되면 해당 컨텍스트에 대한 유효성 검증과 컨텍스트가 없는 상태의 유효성 검증이 실행된다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :email, uniqueness: true, on: :account_setup
@@ -940,8 +829,7 @@ person.errors.messages
 
 </pre>
 </div>
-<h3 id="strict-validations"><a class="anchorlink" href="#strict-validations">4 Strict Validations</a></h3><p>You can also specify validations to be strict and raise
-<code>ActiveModel::StrictValidationFailed</code> when the object is invalid.</p><div class="code_container">
+<h3 id="strict-validations"><a class="anchorlink" href="#strict-validations">4 엄격한 유효성 검증</a></h3><p>유효성 검증을 엄격하게 지정하면 해당 객체가 유효하지 않은 경우 <code>ActiveModel::StrictValidationFailed</code>를 발생시킬 수도 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :name, presence: { strict: true }
@@ -951,7 +839,7 @@ Person.new.valid?  # =&gt; ActiveModel::StrictValidationFailed: Name can't be bl
 
 </pre>
 </div>
-<p>There is also the ability to pass a custom exception to the <code>:strict</code> option.</p><div class="code_container">
+<p><code>:strict</code> 옵션에 사용자 정의 예외를 전달하는 기능도 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :token, presence: true, uniqueness: true, strict: TokenGenerationException
@@ -961,14 +849,7 @@ Person.new.valid?  # =&gt; TokenGenerationException: Token can't be blank
 
 </pre>
 </div>
-<h3 id="conditional-validation"><a class="anchorlink" href="#conditional-validation">5 Conditional Validation</a></h3><p>Sometimes it will make sense to validate an object only when a given predicate
-is satisfied. You can do that by using the <code>:if</code> and <code>:unless</code> options, which
-can take a symbol, a <code>Proc</code> or an <code>Array</code>. You may use the <code>:if</code>
-option when you want to specify when the validation <strong>should</strong> happen. If you
-want to specify when the validation <strong>should not</strong> happen, then you may use the
-<code>:unless</code> option.</p><h4 id="using-a-symbol-with-if-and-unless"><a class="anchorlink" href="#using-a-symbol-with-if-and-unless">5.1 Using a Symbol with <code>:if</code> and <code>:unless</code></a></h4><p>You can associate the <code>:if</code> and <code>:unless</code> options with a symbol corresponding
-to the name of a method that will get called right before validation happens.
-This is the most commonly used option.</p><div class="code_container">
+<h3 id="conditional-validation"><a class="anchorlink" href="#conditional-validation">5 조건부 유효성 검증</a></h3><p>때로는 해당 predicate 메소드(true/false를 반환하는 메소드)가 만족될 때만 특정 객체에 대한 유효성 검증을 하는 것이 타당할 경우도 있을 것이다. <code>:if</code> 와 <code>:unless</code> 옵션에 심볼, <code>Proc</code> 또는 <code>Array</code>를 지정하여 이를 수행할 수 있다. 유효성 검증이 발생<strong>해야</strong> 하는 시기를 지정할 경우 <code>:if</code> 옵션을 사용할 수 있다. 유효성 검증이 발생하지 <strong>않아야 하는</strong> 시기를 지정할 경우 <code>:unless</code> 옵션을 사용할 수 있다.</p><h4 id="using-a-symbol-with-if-and-unless"><a class="anchorlink" href="#using-a-symbol-with-if-and-unless">5.1 Using a Symbol with <code>:if</code> and <code>:unless</code></a></h4><p><code>:if</code> 및 <code>:unless</code> 옵션을 유효성 검증이 발생하기 직전에 호출될 메소드 이름에 해당하는 심볼과 연결할 수 있다. 가장 일반적으로 사용되는 옵션이다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Order &lt; ApplicationRecord
   validates :card_number, presence: true, if: :paid_with_card?
@@ -980,10 +861,7 @@ end
 
 </pre>
 </div>
-<h4 id="using-a-proc-with-if-and-unless"><a class="anchorlink" href="#using-a-proc-with-if-and-unless">5.2 Using a Proc with <code>:if</code> and <code>:unless</code></a></h4><p>It is possible to associate <code>:if</code> and <code>:unless</code> with a <code>Proc</code> object
-which will be called. Using a <code>Proc</code> object gives you the ability to write an
-inline condition instead of a separate method. This option is best suited for
-one-liners.</p><div class="code_container">
+<h4 id="using-a-proc-with-if-and-unless"><a class="anchorlink" href="#using-a-proc-with-if-and-unless">5.2 Using a Proc with <code>:if</code> and <code>:unless</code></a></h4><p><code>:if</code> 와 <code>:unless</code> 옵션을 호출될 <code>Proc</code> 객체와 연관시킬 수도 있다. <code>Proc</code> 객체를 사용하면 별도의 메소드 대신 인라인 조건을 작성할 수 있다. 이 옵션은 한줄 코딩에 가장 적합하다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Account &lt; ApplicationRecord
   validates :password, confirmation: true,
@@ -992,15 +870,13 @@ end
 
 </pre>
 </div>
-<p>As <code>Lambdas</code> are a type of <code>Proc</code>, they can also be used to write inline
-conditions in a shorter way.</p><div class="code_container">
+<p><code>람다(Lambda)</code>는 <code>Proc</code>의 한 유형이므로 인라인 조건을 더 짧은 방식으로 작성하는 데에도 사용할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 validates :password, confirmation: true, unless: -&gt; { password.blank? }
 
 </pre>
 </div>
-<h4 id="grouping-conditional-validations"><a class="anchorlink" href="#grouping-conditional-validations">5.3 Grouping Conditional validations</a></h4><p>Sometimes it is useful to have multiple validations use one condition. It can
-be easily achieved using <code>with_options</code>.</p><div class="code_container">
+<h4 id="grouping-conditional-validations"><a class="anchorlink" href="#grouping-conditional-validations">5.3 조건부 유효성 검증 그룹화하기</a></h4><p>여러 검증에서 하나의 조건을 사용하는 것이 유용한 경우도 있다. <code>with_options</code>를 사용하면 쉽게 구현할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class User &lt; ApplicationRecord
   with_options if: :is_admin? do |admin|
@@ -1011,10 +887,7 @@ end
 
 </pre>
 </div>
-<p>All validations inside of the <code>with_options</code> block will have automatically
-passed the condition <code>if: :is_admin?</code></p><h4 id="combining-validation-conditions"><a class="anchorlink" href="#combining-validation-conditions">5.4 Combining Validation Conditions</a></h4><p>On the other hand, when multiple conditions define whether or not a validation
-should happen, an <code>Array</code> can be used. Moreover, you can apply both <code>:if</code> and
-<code>:unless</code> to the same validation.</p><div class="code_container">
+<p><code>with_options</code> 블록 안의 모든 유효성 검사는 자동으로 <code>if: :is_admin?</code> 조건을 만족한 상태가 될 것이다.</p><h4 id="combining-validation-conditions"><a class="anchorlink" href="#combining-validation-conditions">5.4 유효성 검증 조건 결합하기</a></h4><p>반면, 여러 조건이 결합하여 유효성 검증 수행 여부를 결정할 때 <code>배열</code>을 사용할 수 있다. 또한 동일한 유효성 검증에 <code>:if</code> 와 <code>:unless</code>를 둘 다 적용 할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Computer &lt; ApplicationRecord
   validates :mouse, presence: true,
@@ -1024,12 +897,7 @@ end
 
 </pre>
 </div>
-<p>The validation only runs when all the <code>:if</code> conditions and none of the
-<code>:unless</code> conditions are evaluated to <code>true</code>.</p><h3 id="performing-custom-validations"><a class="anchorlink" href="#performing-custom-validations">6 Performing Custom Validations</a></h3><p>When the built-in validation helpers are not enough for your needs, you can
-write your own validators or validation methods as you prefer.</p><h4 id="custom-validators"><a class="anchorlink" href="#custom-validators">6.1 Custom Validators</a></h4><p>Custom validators are classes that inherit from <code>ActiveModel::Validator</code>. These
-classes must implement the <code>validate</code> method which takes a record as an argument
-and performs the validation on it. The custom validator is called using the
-<code>validates_with</code> method.</p><div class="code_container">
+<p>유효성 검증은 모든 <code>:if</code> 조건이 <code>true</code>로 평가되고  모든 <code>:unless</code> 조건이 <code>false</code>로 평가되는 경우에만 실행된다.</p><h3 id="performing-custom-validations"><a class="anchorlink" href="#performing-custom-validations">6 사용자 정의 유효성 검증하기</a></h3><p>내장된 유효성 검증 헬퍼가 충분하지 않은 경우 직접 유효성 검증 클래스 또는 유효성 검증 메소드를 작성할 수 있다.</p><h4 id="custom-validators"><a class="anchorlink" href="#custom-validators">6.1 사용자 정의 유효성 검증 클래스</a></h4><p>사용자 정의 유효성 검증 클래스는 <code>ActiveModel::Validator</code>에서 상속된다. 이 클래스는 레코드를 인수로 사용하며 유효성을 검증하는 <code>validate</code> 메소드를 구현해야 한다. 커스텀 유효성 검증 클래스는 <code>validates_with</code> 메소드를 사용하여 호출한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class MyValidator &lt; ActiveModel::Validator
   def validate(record)
@@ -1046,12 +914,7 @@ end
 
 </pre>
 </div>
-<p>The easiest way to add custom validators for validating individual attributes
-is with the convenient <code>ActiveModel::EachValidator</code>. In this case, the custom
-validator class must implement a <code>validate_each</code> method which takes three
-arguments: record, attribute, and value. These correspond to the instance, the
-attribute to be validated, and the value of the attribute in the passed
-instance.</p><div class="code_container">
+<p>개별 속성을 검증하기 위해 사용자 정의 유효성 검증 클래스를 추가하는 가장 쉬운 방법은 편리한 <code>ActiveModel::EachValidator</code>를 상속받아 사용하는 것이다. 이 경우 사용자 정의 유효성 검증 클래스는 레코드, 속성, 값의 세 가지 인수를 사용하는 <code>validate_each</code> 메서드를 구현해야 한다. 이들은 각각 인스턴스, 유효성을 검증할 속성, 전달된 인스턴스 내의 속성 값에 해당한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class EmailValidator &lt; ActiveModel::EachValidator
   def validate_each(record, attribute, value)
@@ -1067,15 +930,7 @@ end
 
 </pre>
 </div>
-<p>As shown in the example, you can also combine standard validations with your
-own custom validators.</p><h4 id="custom-methods"><a class="anchorlink" href="#custom-methods">6.2 Custom Methods</a></h4><p>You can also create methods that verify the state of your models and add
-messages to the <code>errors</code> collection when they are invalid. You must then
-register these methods by using the <code>validate</code>
-(<a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveModel/Validations/ClassMethods.html#method-i-validate">API</a>)
-class method, passing in the symbols for the validation methods' names.</p><p>You can pass more than one symbol for each class method and the respective
-validations will be run in the same order as they were registered.</p><p>The <code>valid?</code> method will verify that the errors collection is empty,
-so your custom validation methods should add errors to it when you
-wish validation to fail:</p><div class="code_container">
+<p>예제에 표시된 것처럼 표준 유효성 검증을 사용자 정의 유효성 검증 클래스와 결합 할 수도 있다.</p><h4 id="custom-method"><a class="anchorlink" href="#custom-method">6.2 사용자 정의 유효성 검증 메소드</a></h4><p>모델의 상태를 확인하는 메소드를 작성하여 유효하지 않은 경우 에러 컬렉션에 메시지를 추가할 수도 있다. 그런 다음 <code>validate</code> (<a href="https://api.rubyonrails.org/6-0-stable/classes/ActiveModel/Validations/ClassMethods.html#method-i-validate">API</a>) 클래스 메소드를 사용하여 유효성 검증 메소드명을 심볼로 등록해야 한다.</p><p>각 클래스 메소드에 대해 둘 이상의 심볼을 전달할 수 있으며 각 유효성 검증 메소드는 등록된 순서대로 실행된다.</p><p><code>valid?</code> 메소드는 에러 컬렉션이 비어 있는지 확인하므로 사용자 정의 유효성 검증 메소드는 유효성 검증에 실패할 때 에러를 추가해  주어야 한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Invoice &lt; ApplicationRecord
   validate :expiration_date_cannot_be_in_the_past,
@@ -1096,10 +951,7 @@ end
 
 </pre>
 </div>
-<p>By default, such validations will run every time you call <code>valid?</code>
-or save the object. But it is also possible to control when to run these
-custom validations by giving an <code>:on</code> option to the <code>validate</code> method,
-with either: <code>:create</code> or <code>:update</code>.</p><div class="code_container">
+<p>기본적으로 이러한 유효성 검사는 'valid?'를 호출하거나 객체를 저장할 때마다 실행된다. 그러나 <code>:create</code> 또는 <code>:update</code>와 함께 <code>validate</code> 메소드에 <code>:on</code> 옵션을 제공하여 이러한 사용자 지정 유효성 검증을 실행할 시기를 제어 할 수도 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Invoice &lt; ApplicationRecord
   validate :active_customer, on: :create
@@ -1111,7 +963,7 @@ end
 
 </pre>
 </div>
-<h3 id="working-with-validation-errors"><a class="anchorlink" href="#working-with-validation-errors">7 Working with Validation Errors</a></h3><p>In addition to the <code>valid?</code> and <code>invalid?</code> methods covered earlier, Rails provides a number of methods for working with the <code>errors</code> collection and inquiring about the validity of objects.</p><p>The following is a list of the most commonly used methods. Please refer to the <code>ActiveModel::Errors</code> documentation for a list of all the available methods.</p><h4 id="working-with-validation-errors-errors"><a class="anchorlink" href="#working-with-validation-errors-errors">7.1 <code>errors</code></a></h4><p>Returns an instance of the class <code>ActiveModel::Errors</code> containing all errors. Each key is the attribute name and the value is an array of strings with all errors.</p><div class="code_container">
+<h3 id="working-with-validation-errors"><a class="anchorlink" href="#working-with-validation-errors">7 유효성 검증 에러 발생시 처리</a></h3><p>레일스는 앞에서 설명한 <code>valid?</code> 와 <code>invalid?</code> 메소드 외에도  <code>errors</code> 컬렉션을 처리하는 메소드와 객체의 유효성을 검증하는 여러가지 메소드를 함께 제공한다.</p><p>아래는 가장 일반적으로 사용되는 메소드의 목록이다. 사용 가능한 모든 메소드 목록은 <code>ActiveModel::Errors</code> 문서를 참조한다.</p><h4 id="working-with-validation-errors-errors"><a class="anchorlink" href="#working-with-validation-errors-errors">7.1 <code>errors</code></a></h4><p>이것은 모든 에러를 포함하는 <code>ActiveModel::Errors</code> 클래스의 인스턴스를 반환한다. 각 키는 속성 이름이고 값은 모든 에러를 포함하는 문자열 배열이다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
@@ -1128,7 +980,7 @@ person.errors.messages # =&gt; {}
 
 </pre>
 </div>
-<h4 id="errors"><a class="anchorlink" href="#errors">7.2 <code>errors[]</code></a></h4><p><code>errors[]</code> is used when you want to check the error messages for a specific attribute. It returns an array of strings with all error messages for the given attribute, each string with one error message. If there are no errors related to the attribute, it returns an empty array.</p><div class="code_container">
+<h4 id="errors"><a class="anchorlink" href="#errors">7.2 <code>errors[]</code></a></h4><p><code>errors[]</code>는 특정 속성에 대한 에러 메시지를 확인하려고 할 때 사용한다. 주어진 속성에 대한 모든 에러 메시지가 포함된 문자열 배열을 반환하며 각 문자열은 하나의 에러 메시지에 해당한다. 속성과 관련된 에러가 없으면 빈 배열을 반환한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
@@ -1149,7 +1001,7 @@ person.errors[:name]
 
 </pre>
 </div>
-<h4 id="errors-add"><a class="anchorlink" href="#errors-add">7.3 <code>errors.add</code></a></h4><p>The <code>add</code> method lets you add an error message related to a particular attribute. It takes as arguments the attribute and the error message.</p><p>The <code>errors.full_messages</code> method (or its equivalent, <code>errors.to_a</code>) returns the error messages in a user-friendly format, with the capitalized attribute name prepended to each message, as shown in the examples below.</p><div class="code_container">
+<h4 id="errors-add"><a class="anchorlink" href="#errors-add">7.3 <code>errors.add</code></a></h4><p><code>add</code> 메소드를 사용하면 특정 속성과 관련된 에러 메시지를 추가할 수 있다. 속성 및 에러 메시지를 인수로 사용한다.</p><p><code>errors.full_messages</code> 메소드(또는 이에 상응하는 <code>errors.to_a</code>)는 아래 예제와 같이 대문자로 된 속성 이름이 각 메시지 앞에 추가되어 사용자에게 친숙한 형식으로 에러 메시지를 반환한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   def a_method_used_for_validation_purposes
@@ -1167,8 +1019,7 @@ person.errors.full_messages
 
 </pre>
 </div>
-<h4 id="working-with-validation-errors-errors-details"><a class="anchorlink" href="#working-with-validation-errors-errors-details">7.4 <code>errors.details</code></a></h4><p>You can specify a validator type to the returned error details hash using the
-<code>errors.add</code> method.</p><div class="code_container">
+<h4 id="working-with-validation-errors-errors-details"><a class="anchorlink" href="#working-with-validation-errors-errors-details">7.4 <code>errors.details</code></a></h4><p><code>errors.add</code> 메소드를 사용하여 반환된 에러 세부 사항 해시에 유효성 검증 유형을 지정할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   def a_method_used_for_validation_purposes
@@ -1183,8 +1034,7 @@ person.errors.details[:name]
 
 </pre>
 </div>
-<p>To improve the error details to contain the unallowed characters set for instance,
-you can pass additional keys to <code>errors.add</code>.</p><div class="code_container">
+<p>예를 들어 허용되지 않는 문자 세트를 포함하도록 에러 세부 사항을 개선하기 위해 <code>errors.add</code>에 추가 키를 전달할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   def a_method_used_for_validation_purposes
@@ -1199,8 +1049,7 @@ person.errors.details[:name]
 
 </pre>
 </div>
-<p>All built in Rails validators populate the details hash with the corresponding
-validator type.</p><h4 id="errors-base"><a class="anchorlink" href="#errors-base">7.5 <code>errors[:base]</code></a></h4><p>You can add error messages that are related to the object's state as a whole, instead of being related to a specific attribute. You can use this method when you want to say that the object is invalid, no matter the values of its attributes. Since <code>errors[:base]</code> is an array, you can simply add a string to it and it will be used as an error message.</p><div class="code_container">
+<p>내장된 모든 레일스 유효성 검증 클래스나 메소드는 세부 정보 해시를 해당 유효성 검증 유형으로 채운다.</p><h4 id="errors-base"><a class="anchorlink" href="#errors-base">7.5 <code>errors[:base]</code></a></h4><p>특정 속성과 관련되지 않고 객체의 상태와 관련된 에러 메시지를 추가 할 수 있다. 속성 값에 관계없이 객체가 유효하지 않다고 말하고 싶을 때 이 방법을 사용할 수 있다. <code>errors[:base]</code>는 배열이므로 단순히 문자열을 추가하면 에러 메시지로 사용할 수 있게 된다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   def a_method_used_for_validation_purposes
@@ -1210,7 +1059,7 @@ end
 
 </pre>
 </div>
-<h4 id="errors-clear"><a class="anchorlink" href="#errors-clear">7.6 <code>errors.clear</code></a></h4><p>The <code>clear</code> method is used when you intentionally want to clear all the messages in the <code>errors</code> collection. Of course, calling <code>errors.clear</code> upon an invalid object won't actually make it valid: the <code>errors</code> collection will now be empty, but the next time you call <code>valid?</code> or any method that tries to save this object to the database, the validations will run again. If any of the validations fail, the <code>errors</code> collection will be filled again.</p><div class="code_container">
+<h4 id="errors-clear"><a class="anchorlink" href="#errors-clear">7.6 <code>errors.clear</code></a></h4><p><code>clear</code> 메소드는 의도적으로 <code>errors</code> 컬렉션의 모든 메시지를 지우고자 할 때 사용한다. 물론 유효하지 않은 객체에 대해 <code>errors.clear</code>를 호출하면 실제로는 객체를 유효하게 만들 수 없다. <code>errors</code> 컬렉션이 비어 있지만 다음에 <code>valid?</code>를 호출하거나 이 객체를 데이터베이스로 저장하려고 시도하는 메소드를 호출할 경우 유효성 검증이 다시 실행된다. 유효성 검증 중 하나라도 실패하면 <code>errors</code> 컬렉션이 다시 채워진다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
@@ -1231,7 +1080,7 @@ person.errors[:name]
 
 </pre>
 </div>
-<h4 id="errors-size"><a class="anchorlink" href="#errors-size">7.7 <code>errors.size</code></a></h4><p>The <code>size</code> method returns the total number of error messages for the object.</p><div class="code_container">
+<h4 id="errors-size"><a class="anchorlink" href="#errors-size">7.7 <code>errors.size</code></a></h4><p><code>size</code> 메소드는 해당 객체에 대한 총 에러 메시지 수를 반환한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Person &lt; ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
@@ -1247,15 +1096,7 @@ person.errors.size # =&gt; 0
 
 </pre>
 </div>
-<h3 id="displaying-validation-errors-in-views"><a class="anchorlink" href="#displaying-validation-errors-in-views">8 Displaying Validation Errors in Views</a></h3><p>Once you've created a model and added validations, if that model is created via
-a web form, you probably want to display an error message when one of the
-validations fail.</p><p>Because every application handles this kind of thing differently, Rails does
-not include any view helpers to help you generate these messages directly.
-However, due to the rich number of methods Rails gives you to interact with
-validations in general, it's fairly easy to build your own. In addition, when
-generating a scaffold, Rails will put some ERB into the <code>_form.html.erb</code> that
-it generates that displays the full list of errors on that model.</p><p>Assuming we have a model that's been saved in an instance variable named
-<code>@article</code>, it looks like this:</p><div class="code_container">
+<h3 id="displaying-validation-errors-in-views"><a class="anchorlink" href="#displaying-validation-errors-in-views">8 유효성 검증 에러를 뷰에 표시하기</a></h3><p>모델을 생성한 후 유효성 검증을 추가하면, 해당 모델이 웹 폼을 통해 생성될 때 유효성 검증 중 하나가 실패할 때 에러 메시지를 뷰에 표시할 수 있다.</p><p>모든 애플리케이션은 이러한 종류의 작업을 다르게 처리하기 때문에 레일스는 이러한 메시지를 직접 생성하는 데 도움이 되는 뷰 헬퍼를 포함하고 있지 않다. 그러나 레일스가 일반적으로 유효성 검증과 상호 작용할 수 있는 다양한 메소드를 제공해 주어 자신 만의 헬퍼 메소드를 작성하기가 매우 쉽다. 또한 스카폴드를 생성할 때 레일스는 ERB를 <code>_form.html.erb</code>에 추가하여 해당 모델의 전체 에러 목록을 표시하도록 해 준다.</p><p><code>@article</code>라는 인스턴스 변수에 저장된 모델이 있다고 가정하면 아래와 같다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 &lt;% if @article.errors.any? %&gt;
   &lt;div id="error_explanation"&gt;
@@ -1271,9 +1112,7 @@ it generates that displays the full list of errors on that model.</p><p>Assuming
 
 </pre>
 </div>
-<p>Furthermore, if you use the Rails form helpers to generate your forms, when
-a validation error occurs on a field, it will generate an extra <code>&lt;div&gt;</code> around
-the entry.</p><div class="code_container">
+<p>또한 레일스 폼 헬퍼를 사용하여 폼을 생성할 때필드에서 유효성 검증 에러가 발생하면 항목 주위에 추가 <code>&lt;div&gt;</code>가 생성된다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 &lt;div class="field_with_errors"&gt;
  &lt;input id="article_title" name="article[title]" size="30" type="text" value=""&gt;
@@ -1281,8 +1120,7 @@ the entry.</p><div class="code_container">
 
 </pre>
 </div>
-<p>You can then style this div however you'd like. The default scaffold that
-Rails generates, for example, adds this CSS rule:</p><div class="code_container">
+<p>그런 다음 원하는 대로 이 div의 스타일을 지정할 수 있다. 예를 들어 레일스가 생성하는 기본 스카 폴드는 아래의 CSS 규칙을 추가한다.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: false">
 .field_with_errors {
   padding: 2px;
@@ -1292,7 +1130,7 @@ Rails generates, for example, adds this CSS rule:</p><div class="code_container"
 
 </pre>
 </div>
-<p>This means that any field with an error ends up with a 2 pixel red border.</p>
+<p>이것은 에러가 있는 필드가 2 픽셀의 빨간색 테두리로 끝나는 것을 의미한다.</p>
 
         <h3>피드백</h3>
         <p>
