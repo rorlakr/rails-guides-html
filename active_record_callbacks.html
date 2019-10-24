@@ -15,8 +15,8 @@
   <script src="javascripts/guides.js" data-turbolinks-track="reload"></script>
   <script src="javascripts/responsive-tables.js" data-turbolinks-track="reload"></script>
   <meta property="og:title" content="액티브 레코드 콜백 — Ruby on Rails Guides" />
-  <meta name="description" content="2019-10-24 초벌번역 시작액티브 레코드 콜백본 가이드는 액티브 레코드 객체의 생명주기에 연결하는 방법을 알려 준다.본 가이드를 읽은 후 아래와 같은 내용을 알게 될 것이다. 액티브 레코드 객체의 생명주기. 객체 생명주기의 이벤트에 응답하는 콜백 메소드를 만드는 방법. 콜백의 일반적인 동작을 캡슐화하는 별도의 클래스를 만드는 방법." />
-  <meta property="og:description" content="2019-10-24 초벌번역 시작액티브 레코드 콜백본 가이드는 액티브 레코드 객체의 생명주기에 연결하는 방법을 알려 준다.본 가이드를 읽은 후 아래와 같은 내용을 알게 될 것이다. 액티브 레코드 객체의 생명주기. 객체 생명주기의 이벤트에 응답하는 콜백 메소드를 만드는 방법. 콜백의 일반적인 동작을 캡슐화하는 별도의 클래스를 만드는 방법." />
+  <meta name="description" content="액티브 레코드 콜백본 가이드는 액티브 레코드 객체의 생명주기에 후크(hook, https://ko.wikipedia.org/wiki/후킹)을 거는 방법을 알려 준다.본 가이드를 읽은 후 아래와 같은 내용을 알게 될 것이다. 액티브 레코드 객체의 생명주기. 객체 생명주기의 이벤트에 응답하는 콜백 메소드를 만드는 방법. 콜백의 일반적인 동작을 캡슐화하는 별도의 클래스를 만드는 방법." />
+  <meta property="og:description" content="액티브 레코드 콜백본 가이드는 액티브 레코드 객체의 생명주기에 후크(hook, https://ko.wikipedia.org/wiki/후킹)을 거는 방법을 알려 준다.본 가이드를 읽은 후 아래와 같은 내용을 알게 될 것이다. 액티브 레코드 객체의 생명주기. 객체 생명주기의 이벤트에 응답하는 콜백 메소드를 만드는 방법. 콜백의 일반적인 동작을 캡슐화하는 별도의 클래스를 만드는 방법." />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Ruby on Rails Guides" />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/4223" />
@@ -208,7 +208,7 @@
 
   <div id="feature">
     <div class="wrapper">
-      <p>2019-10-24 초벌번역 시작</p><h2 id="active-record-callbacks">액티브 레코드 콜백</h2><p>본 가이드는 액티브 레코드 객체의 생명주기에 연결하는 방법을 알려 준다.</p><p>본 가이드를 읽은 후 아래와 같은 내용을 알게 될 것이다.</p>
+      <h2 id="active-record-callbacks">액티브 레코드 콜백</h2><p>본 가이드는 액티브 레코드 객체의 생명주기에 후크(hook, <a href="https://ko.wikipedia.org/wiki/%ED%9B%84%ED%82%B9)%EC%9D%84">https://ko.wikipedia.org/wiki/후킹)을</a> 거는 방법을 알려 준다.</p><p>본 가이드를 읽은 후 아래와 같은 내용을 알게 될 것이다.</p>
 <ul>
 <li>액티브 레코드 객체의 생명주기.</li>
 <li>객체 생명주기의 이벤트에 응답하는 콜백 메소드를 만드는 방법.</li>
@@ -221,39 +221,39 @@
           <ol class="chapters">
 <li><a href="#the-object-life-cycle">액티브 레코드 객체의 생명주기</a></li>
 <li>
-<a href="#callbacks-overview">Callbacks Overview</a>
+<a href="#callbacks-overview">콜백 개요</a>
 
 <ul>
-<li><a href="#callback-registration">Callback Registration</a></li>
+<li><a href="#callback-registration">콜백 등록</a></li>
 </ul>
 </li>
 <li>
-<a href="#available-callbacks">Available Callbacks</a>
+<a href="#available-callbacks">가용한 콜백</a>
 
 <ul>
-<li><a href="#creating-an-object">Creating an Object</a></li>
-<li><a href="#updating-an-object">Updating an Object</a></li>
-<li><a href="#destroying-an-object">Destroying an Object</a></li>
-<li><a href="#after-initialize-and-after-find"><code>after_initialize</code> and <code>after_find</code></a></li>
+<li><a href="#creating-an-object">액티브 레코드 객체 생성하기</a></li>
+<li><a href="#updating-an-object">액티브 레코드 객체 업데이트하기</a></li>
+<li><a href="#destroying-an-object">액티브 레코드 객체 삭제하기</a></li>
+<li><a href="#after_initialize-and-after_find"><code>after_initialize</code> 와 <code>after_find</code></a></li>
 <li><a href="#after-touch"><code>after_touch</code></a></li>
 </ul>
 </li>
-<li><a href="#running-callbacks">Running Callbacks</a></li>
-<li><a href="#skipping-callbacks">Skipping Callbacks</a></li>
-<li><a href="#halting-execution">Halting Execution</a></li>
-<li><a href="#relational-callbacks">Relational Callbacks</a></li>
+<li><a href="#running-callbacks">콜백 실행하기</a></li>
+<li><a href="#skipping-callbacks">콜백 건너뛰기</a></li>
+<li><a href="#halting-execution">실행 중단</a></li>
+<li><a href="#relational-callbacks">관계형 콜백</a></li>
 <li>
-<a href="#conditional-callbacks">Conditional Callbacks</a>
+<a href="#conditional-callbacks">조건부 콜백</a>
 
 <ul>
-<li><a href="#using-if-and-unless-with-a-symbol">Using <code>:if</code> and <code>:unless</code> with a <code>Symbol</code></a></li>
-<li><a href="#using-if-and-unless-with-a-proc">Using <code>:if</code> and <code>:unless</code> with a <code>Proc</code></a></li>
-<li><a href="#multiple-conditions-for-callbacks">Multiple Conditions for Callbacks</a></li>
-<li><a href="#combining-callback-conditions">Combining Callback Conditions</a></li>
+<li><a href="#using-if-and-unless-with-a-symbol">심볼을 사용하여 조건을 지정할 때</a></li>
+<li><a href="#using-if-and-unless-with-a-proc"><code>Proc</code>를 사용하여 조건을 지정할 때</a></li>
+<li><a href="#multiple-conditions-for-callbacks">다중 조건부 콜백</a></li>
+<li><a href="#combining-callback-conditions">콜백 조건 결합하기</a></li>
 </ul>
 </li>
-<li><a href="#callback-classes">Callback Classes</a></li>
-<li><a href="#transaction-callbacks">Transaction Callbacks</a></li>
+<li><a href="#callback-classes">콜백 클래스</a></li>
+<li><a href="#transaction-callbacks">트랜잭션 콜백</a></li>
 </ol>
 
         </div>
@@ -264,7 +264,7 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <h3 id="the-object-life-cycle"><a class="anchorlink" href="#the-object-life-cycle">1 액티브 레코드 객체의 생명주기</a></h3><p>레일스 애플리케이션이 정상적으로 작동하는 동안 객체가 생성, 업데이트, 파괴될 수 있다. 액티브 레코드는 이 객체 생명주기에 대한 연결 고리를 제공하므로 애플리케이션 및 해당 데이터를 제어할 수 있다.</p><p>During the normal operation of a Rails application, objects may be created, updated, and destroyed. Active Record provides hooks into this <em>object life cycle</em> so that you can control your application and its data.</p><p>Callbacks allow you to trigger logic before or after an alteration of an object's state.</p><h3 id="callbacks-overview"><a class="anchorlink" href="#callbacks-overview">2 Callbacks Overview</a></h3><p>Callbacks are methods that get called at certain moments of an object's life cycle. With callbacks it is possible to write code that will run whenever an Active Record object is created, saved, updated, deleted, validated, or loaded from the database.</p><h4 id="callback-registration"><a class="anchorlink" href="#callback-registration">2.1 Callback Registration</a></h4><p>In order to use the available callbacks, you need to register them. You can implement the callbacks as ordinary methods and use a macro-style class method to register them as callbacks:</p><div class="code_container">
+        <h3 id="the-object-life-cycle"><a class="anchorlink" href="#the-object-life-cycle">1 액티브 레코드 객체의 생명주기</a></h3><p>레일스 애플리케이션이 정상적으로 작동하는 동안 객체가 생성, 업데이트, 파괴될 수 있다. 액티브 레코드는 이 객체 생명주기에 대한 후크를 제공하므로써 애플리케이션과 데이터를 제어할 수 있다.</p><p>콜백을 사용하면 액티브 레코드 객체의 상태 변경 전후에 로직을 트리거할 수 있다.</p><h3 id="callbacks-overview"><a class="anchorlink" href="#callbacks-overview">2 콜백 개요</a></h3><p>콜백은 객체 생명주기의 특정 순간에 호출되는 메소드이다. 콜백을 사용하면 데이터베이스에서 액티브 레코드 객체를 생성, 저장, 업데이트, 삭제, 검증 또는 로드할 때마다 실행될 코드를 작성할 수 있다.</p><h4 id="callback-registration"><a class="anchorlink" href="#callback-registration">2.1 콜백 등록</a></h4><p>가용한 콜백을 사용하려면 콜백을 등록해야 한다. 콜백을 일반 메소드로 구현한 후 매크로 스타일 클래스 메소드를 사용하여 콜백으로 등록할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class User &lt; ApplicationRecord
   validates :login, :email, presence: true
@@ -281,7 +281,7 @@ end
 
 </pre>
 </div>
-<p>The macro-style class methods can also receive a block. Consider using this style if the code inside your block is so short that it fits in a single line:</p><div class="code_container">
+<p>매크로 스타일 클래스 메소드는 블록을 받을 수도 있다. 블록 내부의 코드가 너무 짧아 한 줄에 들어가는 경우 이 스타일을 사용한다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class User &lt; ApplicationRecord
   validates :login, :email, presence: true
@@ -293,7 +293,7 @@ end
 
 </pre>
 </div>
-<p>Callbacks can also be registered to only fire on certain life cycle events:</p><div class="code_container">
+<p>콜백은 특정 생명주기 이벤트에서만 발생하도록 등록할 수도 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class User &lt; ApplicationRecord
   before_validation :normalize_name, on: :create
@@ -313,7 +313,7 @@ end
 
 </pre>
 </div>
-<p>It is considered good practice to declare callback methods as private. If left public, they can be called from outside of the model and violate the principle of object encapsulation.</p><h3 id="available-callbacks"><a class="anchorlink" href="#available-callbacks">3 Available Callbacks</a></h3><p>Here is a list with all the available Active Record callbacks, listed in the same order in which they will get called during the respective operations:</p><h4 id="creating-an-object"><a class="anchorlink" href="#creating-an-object">3.1 Creating an Object</a></h4>
+<p>콜백 메소드를 private로 선언하는 것이 좋다. public 상태로 둘 경우 모델 외부에서 호출하여 객체 캡슐화 원칙을 위반할 수 있기 때문이다.</p><h3 id="available-callbacks"><a class="anchorlink" href="#available-callbacks">3 가용한 콜백</a></h3><p>다음은 사용 가능한 모든 액티브 레코드 콜백 목록이며 각 동작 중에 호출되는 순서와 동일한 순서로 나열되어 있다.</p><h4 id="creating-an-object"><a class="anchorlink" href="#creating-an-object">3.1 액티브 레코드 객체 생성하기</a></h4>
 <ul>
 <li><code>before_validation</code></li>
 <li><code>after_validation</code></li>
@@ -325,7 +325,7 @@ end
 <li><code>after_save</code></li>
 <li><code>after_commit/after_rollback</code></li>
 </ul>
-<h4 id="updating-an-object"><a class="anchorlink" href="#updating-an-object">3.2 Updating an Object</a></h4>
+<h4 id="updating-an-object"><a class="anchorlink" href="#updating-an-object">3.2 액티브 레코드 객체 업데이트하기</a></h4>
 <ul>
 <li><code>before_validation</code></li>
 <li><code>after_validation</code></li>
@@ -337,16 +337,14 @@ end
 <li><code>after_save</code></li>
 <li><code>after_commit/after_rollback</code></li>
 </ul>
-<h4 id="destroying-an-object"><a class="anchorlink" href="#destroying-an-object">3.3 Destroying an Object</a></h4>
+<h4 id="destroying-an-object"><a class="anchorlink" href="#destroying-an-object">3.3 액티브 레코드 객체 삭제하기</a></h4>
 <ul>
 <li><code>before_destroy</code></li>
 <li><code>around_destroy</code></li>
 <li><code>after_destroy</code></li>
 <li><code>after_commit/after_rollback</code></li>
 </ul>
-<div class="warning"><p><code>after_save</code> runs both on create and update, but always <em>after</em> the more specific callbacks <code>after_create</code> and <code>after_update</code>, no matter the order in which the macro calls were executed.</p></div><div class="note"><p><code>before_destroy</code> callbacks should be placed before <code>dependent: :destroy</code>
-associations (or use the <code>prepend: true</code> option), to ensure they execute before
-the records are deleted by <code>dependent: :destroy</code>.</p></div><h4 id="after-initialize-and-after-find"><a class="anchorlink" href="#after-initialize-and-after-find">3.4 <code>after_initialize</code> and <code>after_find</code></a></h4><p>The <code>after_initialize</code> callback will be called whenever an Active Record object is instantiated, either by directly using <code>new</code> or when a record is loaded from the database. It can be useful to avoid the need to directly override your Active Record <code>initialize</code> method.</p><p>The <code>after_find</code> callback will be called whenever Active Record loads a record from the database. <code>after_find</code> is called before <code>after_initialize</code> if both are defined.</p><p>The <code>after_initialize</code> and <code>after_find</code> callbacks have no <code>before_*</code> counterparts, but they can be registered just like the other Active Record callbacks.</p><div class="code_container">
+<div class="warning"><p><code>after_save</code>는 create와 update 모두에서 실행되지만 해당 매크로 호출이 실행된 순서에 관계없이 항상 구체적인 콜백 <code>after_create</code> 와 <code>after_update</code> <em>직후</em> 에 실행된다.</p></div><div class="note"><p><code>before_destroy</code> 콜백은 <code>dependent: :destroy</code> 관계 선언 전에 위치해야 하며(또는 <code>prepend: true</code> 옵션을 사용한다.), 레코드가 <code>dependent: :destroy</code>에 의해 삭제되기 전에 실행되도록 해야 한다.</p></div><h4 id="after_initialize-and-after_find"><a class="anchorlink" href="#after_initialize-and-after_find">3.4 <code>after_initialize</code> 와 <code>after_find</code></a></h4><p><code>after_initialize</code> 콜백은 <code>new</code>를 직접 사용하거나 데이터베이스에서 레코드를 로드할 때 액티브 레코드 객체가 인스턴스화될 때마다 호출된다. 액티브 레코드 <code>initialize</code> 메소드를 직접 오버라이드할 필요가 없기 때문에 유용 할 수 있다.</p><p><code>after_find</code> 콜백은 Active Record가 데이터베이스에서 레코드를 로드할 때마다 호출된다. 둘 다 정의 된 경우 <code>after_find</code>는 <code>after_initialize</code> 전에 호출된다.</p><p><code>after_initialize</code> 와 <code>after_find</code> 콜백에는 <code>before_*</code> 대응 콜백이 없지만 다른 액티브 레코드 콜백처럼 등록할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class User &lt; ApplicationRecord
   after_initialize do |user|
@@ -369,7 +367,7 @@ You have initialized an object!
 
 </pre>
 </div>
-<h4 id="after-touch"><a class="anchorlink" href="#after-touch">3.5 <code>after_touch</code></a></h4><p>The <code>after_touch</code> callback will be called whenever an Active Record object is touched.</p><div class="code_container">
+<h4 id="after-touch"><a class="anchorlink" href="#after-touch">3.5 <code>after_touch</code></a></h4><p><code>after_touch</code> 콜백은 액티브 레코드 객체가 touch될 때마다 호출된다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class User &lt; ApplicationRecord
   after_touch do |user|
@@ -386,7 +384,7 @@ You have touched an object
 
 </pre>
 </div>
-<p>It can be used along with <code>belongs_to</code>:</p><div class="code_container">
+<p><code>belongs_to</code>와 함께 사용할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Employee &lt; ApplicationRecord
   belongs_to :company, touch: true
@@ -416,7 +414,7 @@ Employee/Company was touched
 
 </pre>
 </div>
-<h3 id="running-callbacks"><a class="anchorlink" href="#running-callbacks">4 Running Callbacks</a></h3><p>The following methods trigger callbacks:</p>
+<h3 id="running-callbacks"><a class="anchorlink" href="#running-callbacks">4 콜백 실행하기</a></h3><p>아래의 메소드는 콜백을 트리거한다.</p>
 <ul>
 <li><code>create</code></li>
 <li><code>create!</code></li>
@@ -433,7 +431,7 @@ Employee/Company was touched
 <li><code>update!</code></li>
 <li><code>valid?</code></li>
 </ul>
-<p>Additionally, the <code>after_find</code> callback is triggered by the following finder methods:</p>
+<p>또한, 아래의 finder 메소드는 <code>after_find</code> 콜백을 트리거한다.</p>
 <ul>
 <li><code>all</code></li>
 <li><code>first</code></li>
@@ -444,7 +442,7 @@ Employee/Company was touched
 <li><code>find_by_sql</code></li>
 <li><code>last</code></li>
 </ul>
-<p>The <code>after_initialize</code> callback is triggered every time a new object of the class is initialized.</p><div class="note"><p>The <code>find_by_*</code> and <code>find_by_*!</code> methods are dynamic finders generated automatically for every attribute. Learn more about them at the <a href="active_record_querying.html#dynamic-finders">Dynamic finders section</a></p></div><h3 id="skipping-callbacks"><a class="anchorlink" href="#skipping-callbacks">5 Skipping Callbacks</a></h3><p>Just as with validations, it is also possible to skip callbacks by using the following methods:</p>
+<p>특정 클래스의 새로운 객체가 초기화될 때마다 <code>after_initialize</code> 콜백이 트리거된다. </p><div class="note"><p><code>find_by_*</code> 와 <code>find_by_*!</code> 메소드는 모든 속성에 대해서 자동으로 생성되는 동적 finder 들이다. <a href="active_record_querying.html#dynamic-finders">Dynamic finders section</a>에서 이에 관한 더 많은 것을 배울 수 있다.</p></div><h3 id="skipping-callbacks"><a class="anchorlink" href="#skipping-callbacks">5 콜백 건너뛰기</a></h3><p>유효성 검증과 같이, 아래의 메소드를 사용할 때도 콜백을 트리거하지 않을 수 있다. </p>
 <ul>
 <li><code>decrement!</code></li>
 <li><code>decrement_counter</code></li>
@@ -457,13 +455,13 @@ Employee/Company was touched
 <li><code>update_all</code></li>
 <li><code>update_counters</code></li>
 </ul>
-<p>These methods should be used with caution, however, because important business rules and application logic may be kept in callbacks. Bypassing them without understanding the potential implications may lead to invalid data.</p><h3 id="halting-execution"><a class="anchorlink" href="#halting-execution">6 Halting Execution</a></h3><p>As you start registering new callbacks for your models, they will be queued for execution. This queue will include all your model's validations, the registered callbacks, and the database operation to be executed.</p><p>The whole callback chain is wrapped in a transaction. If any callback raises an exception, the execution chain gets halted and a ROLLBACK is issued. To intentionally stop a chain use:</p><div class="code_container">
+<p>그러나 중요한 비즈니스 규칙과 애플리케이션 논리가 콜백에 보관될 수 있으므로 이러한 메소드들은 주의해서 사용해야 한다. 잠재적인 영향을 이해하지 않고 이를 무시하면 유효하지 않은 데이터가 발생할 수 있다.</p><h3 id="halting-execution"><a class="anchorlink" href="#halting-execution">6 실행 중단</a></h3><p>모델에 콜백을 새로 등록하기 시작하면 실행 대기 상태가 된다. 이 대기열에는 모든 모델의 유효성 검사, 등록된 콜백 및 실행할 데이터베이스 작업이 포함된다.</p><p>전체 콜백 체인은 트랜잭션으로 래핑된다. 콜백에서 예외가 발생하면 실행 체인이 중지되고 ROLLBACK이 발생된다. 의도적으로 체인 사용을 중지하려면,</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 throw :abort
 
 </pre>
 </div>
-<div class="warning"><p>Any exception that is not <code>ActiveRecord::Rollback</code> or <code>ActiveRecord::RecordInvalid</code> will be re-raised by Rails after the callback chain is halted. Raising an exception other than <code>ActiveRecord::Rollback</code> or <code>ActiveRecord::RecordInvalid</code> may break code that does not expect methods like <code>save</code> and <code>update</code> (which normally try to return <code>true</code> or <code>false</code>) to raise an exception.</p></div><h3 id="relational-callbacks"><a class="anchorlink" href="#relational-callbacks">7 Relational Callbacks</a></h3><p>Callbacks work through model relationships, and can even be defined by them. Suppose an example where a user has many articles. A user's articles should be destroyed if the user is destroyed. Let's add an <code>after_destroy</code> callback to the <code>User</code> model by way of its relationship to the <code>Article</code> model:</p><div class="code_container">
+<div class="warning"><p>콜백 체인이 정지된 후 <code>ActiveRecord::Rollback</code> 또는 <code>ActiveRecord::RecordInvalid</code> 가 아닌 예외는 레일스에 의해 다시 발생한다. <code>ActiveRecord::Rollback</code> 또는 <code>ActiveRecord::RecordInvalid</code> 이외의 예외가 발생하면 코드가 깨지게 되어(보통 <code>true</code> 또는 <code>false</code>를 반환하려고 시도하는) <code>save</code> 및 <code>update</code> 와 같은 메소드가 예외를 발생시키지 않게 된다.</p></div><h3 id="relational-callbacks"><a class="anchorlink" href="#relational-callbacks">7 관계형 콜백</a></h3><p>콜백은 모델 관계를 통해 작동하며 이를 정의할 수도 있다. 사용자에게 많은 기사(읽은거리)가 있는 예를 가정한다. 사용자가 삭제되면 사용자의 기사도 폐기해야 한다. <code>Article</code> 모델과의 관계를 통해 <code>after_destroy</code> 콜백을<code>User</code> 모델에 추가해 보면 아래와 같다. </p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class User &lt; ApplicationRecord
   has_many :articles, dependent: :destroy
@@ -487,7 +485,7 @@ Article destroyed
 
 </pre>
 </div>
-<h3 id="conditional-callbacks"><a class="anchorlink" href="#conditional-callbacks">8 Conditional Callbacks</a></h3><p>As with validations, we can also make the calling of a callback method conditional on the satisfaction of a given predicate. We can do this using the <code>:if</code> and <code>:unless</code> options, which can take a symbol, a <code>Proc</code> or an <code>Array</code>. You may use the <code>:if</code> option when you want to specify under which conditions the callback <strong>should</strong> be called. If you want to specify the conditions under which the callback <strong>should not</strong> be called, then you may use the <code>:unless</code> option.</p><h4 id="using-if-and-unless-with-a-symbol"><a class="anchorlink" href="#using-if-and-unless-with-a-symbol">8.1 Using <code>:if</code> and <code>:unless</code> with a <code>Symbol</code></a></h4><p>You can associate the <code>:if</code> and <code>:unless</code> options with a symbol corresponding to the name of a predicate method that will get called right before the callback. When using the <code>:if</code> option, the callback won't be executed if the predicate method returns false; when using the <code>:unless</code> option, the callback won't be executed if the predicate method returns true. This is the most common option. Using this form of registration it is also possible to register several different predicates that should be called to check if the callback should be executed.</p><div class="code_container">
+<h3 id="conditional-callbacks"><a class="anchorlink" href="#conditional-callbacks">8 조건부 콜백</a></h3><p>유효성 검증과 마찬가지로 주어진 predicate 메소드(true/false 를 반환하는 메소드)의 만족도에 따라 콜백 메소드 호출을 조건부로 작성할 수도 있다. <code>:if</code> 및 <code>:unless</code> 옵션을 사용하여 이 작업을 수행 할 수 있다. 이 옵션은 심볼,  <code>Proc</code>, <code>Array</code> 형태로 지정하여 사용할 수 있다. 콜백이 호출<strong>되어야 하는</strong> 조건을 지정할 때 <code>:if</code> 옵션을 사용할 수 있다. 콜백이 호출되지 <strong>않아야 하는</strong> 조건을 지정하려면 <code>:unless</code> 옵션을 사용할 수 있다.</p><h4 id="using-if-and-unless-with-a-symbol"><a class="anchorlink" href="#using-if-and-unless-with-a-symbol">8.1 심볼을 사용하여 조건을 지정할 때</a></h4><p><code>:if</code> 및 <code>:unless</code> 옵션을 콜백 직전에 호출될 predicate 메소드의 이름에 해당하는 심볼과 연관시킬 수 있다. <code>:if</code> 옵션을 사용하는 경우, predicate 메소드가 false를 리턴하면 콜백이 실행되지 않는다. <code>:unless</code> 옵션을 사용할 때, predicate 메소드가 true를 리턴하면 콜백이 실행되지 않는다. 이것이 가장 일반적인 옵션이다. 이러한 등록 폼을 사용하면 콜백 실행 여부를 확인하기 위해 호출해야 하는 여러 가지 predicate 메소드를 등록 할 수도 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Order &lt; ApplicationRecord
   before_save :normalize_card_number, if: :paid_with_card?
@@ -495,7 +493,7 @@ end
 
 </pre>
 </div>
-<h4 id="using-if-and-unless-with-a-proc"><a class="anchorlink" href="#using-if-and-unless-with-a-proc">8.2 Using <code>:if</code> and <code>:unless</code> with a <code>Proc</code></a></h4><p>It is possible to associate <code>:if</code> and <code>:unless</code> with a <code>Proc</code> object. This option is best suited when writing short validation methods, usually one-liners:</p><div class="code_container">
+<h4 id="using-if-and-unless-with-a-proc"><a class="anchorlink" href="#using-if-and-unless-with-a-proc">8.2 <code>Proc</code>를 사용하여 조건을 지정할 때</a></h4><p><code>:if</code> 와 <code>:unless</code>를 <code>Proc</code> 객체와 연관시킬 수 있다. 이 옵션은 짧은 유효성 검증 메소드(일반적으로 한줄 코딩에 적합한)을 작성할 때 가장 적합합니다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Order &lt; ApplicationRecord
   before_save :normalize_card_number,
@@ -504,7 +502,7 @@ end
 
 </pre>
 </div>
-<p>As the proc is evaluated in the context of the object, it is also possible to write this as:</p><div class="code_container">
+<p>proc는 해당 객체의 특정 컨텍스에서 평가되므로 아래와 같이 작성할 수도 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Order &lt; ApplicationRecord
   before_save :normalize_card_number, if: Proc.new { paid_with_card? }
@@ -512,7 +510,7 @@ end
 
 </pre>
 </div>
-<h4 id="multiple-conditions-for-callbacks"><a class="anchorlink" href="#multiple-conditions-for-callbacks">8.3 Multiple Conditions for Callbacks</a></h4><p>When writing conditional callbacks, it is possible to mix both <code>:if</code> and <code>:unless</code> in the same callback declaration:</p><div class="code_container">
+<h4 id="multiple-conditions-for-callbacks"><a class="anchorlink" href="#multiple-conditions-for-callbacks">8.3 다중 조건부 콜백</a></h4><p>조건부 콜백을 작성할 때 동일한 콜백 선언에서 <code>:if</code> 와 <code>:unless</code>를 함께 사용할 수 있다. </p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Comment &lt; ApplicationRecord
   after_create :send_email_to_author, if: :author_wants_emails?,
@@ -521,7 +519,7 @@ end
 
 </pre>
 </div>
-<h4 id="combining-callback-conditions"><a class="anchorlink" href="#combining-callback-conditions">8.4 Combining Callback Conditions</a></h4><p>When multiple conditions define whether or not a callback should happen, an <code>Array</code> can be used. Moreover, you can apply both <code>:if</code> and <code>:unless</code> to the same callback.</p><div class="code_container">
+<h4 id="combining-callback-conditions"><a class="anchorlink" href="#combining-callback-conditions">8.4 콜백 조건 결합하기</a></h4><p>여러 조건이 결합하여 콜백 발생 여부를 결정할 때 <code>Array</code>를 사용할 수 있다. 또한 동일한 콜백에 <code>:if</code> 와 <code>:unless</code>를 함께 적용할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class Comment &lt; ApplicationRecord
   after_create :send_email_to_author,
@@ -531,7 +529,7 @@ end
 
 </pre>
 </div>
-<p>The callback only runs when all the <code>:if</code> conditions and none of the <code>:unless</code> conditions are evaluated to <code>true</code>.</p><h3 id="callback-classes"><a class="anchorlink" href="#callback-classes">9 Callback Classes</a></h3><p>Sometimes the callback methods that you'll write will be useful enough to be reused by other models. Active Record makes it possible to create classes that encapsulate the callback methods, so it becomes very easy to reuse them.</p><p>Here's an example where we create a class with an <code>after_destroy</code> callback for a <code>PictureFile</code> model:</p><div class="code_container">
+<p>콜백은 모든 <code>:if</code> 조건이 <code>true</code>로 평가되고 <code>:unless</code> 조건 중 어느 것도 <code>true</code>로 평가되지 않는 경우에만 실행된다.</p><h3 id="callback-classes"><a class="anchorlink" href="#callback-classes">9 콜백 클래스</a></h3><p>때로는 작성하는 콜백 메소드가 다른 모델에서 재사용하기에도 충분할 정도로 유용할 때가 있다. 액티브 레코드를 사용하면 콜백 메소드를 캡슐화하는 클래스를 작성할 수 있으므로 재사용이 매우 쉬워진다.</p><p>아래의 예는 <code>PictureFile</code> 모델에 대한 <code>after_destroy</code> 콜백을 사용하여 클래스를 만드는 것이다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class PictureFileCallbacks
   def after_destroy(picture_file)
@@ -543,7 +541,7 @@ end
 
 </pre>
 </div>
-<p>When declared inside a class, as above, the callback methods will receive the model object as a parameter. We can now use the callback class in the model:</p><div class="code_container">
+<p>위와 같이 클래스 내에서 선언되면 콜백 메서드는 모델 객체를 매개 변수로 받는다. 이제 모델에서 콜백 클래스를 사용할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class PictureFile &lt; ApplicationRecord
   after_destroy PictureFileCallbacks.new
@@ -551,7 +549,7 @@ end
 
 </pre>
 </div>
-<p>Note that we needed to instantiate a new <code>PictureFileCallbacks</code> object, since we declared our callback as an instance method. This is particularly useful if the callbacks make use of the state of the instantiated object. Often, however, it will make more sense to declare the callbacks as class methods:</p><div class="code_container">
+<p>콜백을 인스턴스 메소드로 선언했기 때문에 <code>PictureFileCallbacks</code> 객체를 새로 인스턴스화해야 했었던 것에 주의한다. 이는 콜백이 인스턴스화된 객체의 상태를 사용하는 경우 특히 유용하다. 그러나 종종 콜백을 클래스 메소드로 선언하는 것이 더 합리적일 때가 있다. </p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class PictureFileCallbacks
   def self.after_destroy(picture_file)
@@ -563,7 +561,7 @@ end
 
 </pre>
 </div>
-<p>If the callback method is declared this way, it won't be necessary to instantiate a <code>PictureFileCallbacks</code> object.</p><div class="code_container">
+<p>콜백 메소드가 이런 식으로 선언되면 <code>PictureFileCallbacks</code> 객체를 인스턴스화 할 필요가 없다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class PictureFile &lt; ApplicationRecord
   after_destroy PictureFileCallbacks
@@ -571,7 +569,7 @@ end
 
 </pre>
 </div>
-<p>You can declare as many callbacks as you want inside your callback classes.</p><h3 id="transaction-callbacks"><a class="anchorlink" href="#transaction-callbacks">10 Transaction Callbacks</a></h3><p>There are two additional callbacks that are triggered by the completion of a database transaction: <code>after_commit</code> and <code>after_rollback</code>. These callbacks are very similar to the <code>after_save</code> callback except that they don't execute until after database changes have either been committed or rolled back. They are most useful when your active record models need to interact with external systems which are not part of the database transaction.</p><p>Consider, for example, the previous example where the <code>PictureFile</code> model needs to delete a file after the corresponding record is destroyed. If anything raises an exception after the <code>after_destroy</code> callback is called and the transaction rolls back, the file will have been deleted and the model will be left in an inconsistent state. For example, suppose that <code>picture_file_2</code> in the code below is not valid and the <code>save!</code> method raises an error.</p><div class="code_container">
+<p>콜백 클래스 내에서 원하는 만큼의 콜백을 선언 할 수 있다.</p><h3 id="transaction-callbacks"><a class="anchorlink" href="#transaction-callbacks">10 트랜잭션 콜백</a></h3><p>데이터베이스 트랜잭션이 완료되면 트리거되는 <code>after_commit</code> 과<code>after_rollback</code> 의 두 가지 추가 콜백이 있다. 이 콜백은 데이터베이스 변경이 커밋되거나 롤백 될 때까지 실행되지 않는다는 점을 제외하면 <code>after_save</code> 콜백과 매우 유사하다. 액티브 레코드 모델이 데이터베이스 트랜잭션의 일부가 아닌 외부 시스템과 상호 작용해야 할 때 가장 유용하다.</p><p>예를 들어, 해당 레코드가 삭제된 후 <code>PictureFile</code> 모델이 파일을 삭제해야 하는 이전 예를 돌이켜 보자. <code>after_destroy</code> 콜백이 호출되고 트랜잭션이 롤백된 후 예외가 발생하면 파일이 삭제되고 모델이 일관성이 없는 상태로 남게 된다. 예를 들어, 아래 코드의 <code>picture_file_2</code>가 유효하지 않아 <code>save!</code> 메소드에서 에러가 발생한다고 가정하자.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 PictureFile.transaction do
   picture_file_1.destroy
@@ -580,7 +578,7 @@ end
 
 </pre>
 </div>
-<p>By using the <code>after_commit</code> callback we can account for this case.</p><div class="code_container">
+<p><code>after_commit</code> 콜백을 사용하여 이 경우를 설명 할 수 있다.</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class PictureFile &lt; ApplicationRecord
   after_commit :delete_picture_file_from_disk, on: :destroy
@@ -594,9 +592,7 @@ end
 
 </pre>
 </div>
-<div class="note"><p>The <code>:on</code> option specifies when a callback will be fired. If you
-don't supply the <code>:on</code> option the callback will fire for every action.</p></div><p>Since using <code>after_commit</code> callback only on create, update, or delete is
-common, there are aliases for those operations:</p>
+<div class="note"><p><code>:on</code> 옵션은 콜백 발생 시점을 지정한다. <code>:on</code> 옵션을 지정하지 않으면 모든 동작에 대해 콜백이 발생한다.</p></div><p>create, update 또는 delete에서만 <code>after_commit</code> 콜백을 사용하는 것이 일반적이므로 해당 작업에 대한 별칭이 있다.</p>
 <ul>
 <li><code>after_create_commit</code></li>
 <li><code>after_update_commit</code></li>
@@ -616,7 +612,7 @@ end
 
 </pre>
 </div>
-<div class="warning"><p>When a transaction completes, the <code>after_commit</code> or <code>after_rollback</code> callbacks are called for all models created, updated, or destroyed within that transaction. However, if an exception is raised within one of these callbacks, the exception will bubble up and any remaining <code>after_commit</code> or <code>after_rollback</code> methods will <em>not</em> be executed. As such, if your callback code could raise an exception, you'll need to rescue it and handle it within the callback in order to allow other callbacks to run.</p></div><div class="warning"><p>The code executed within <code>after_commit</code> or <code>after_rollback</code> callbacks is itself not enclosed within a transaction.</p></div><div class="warning"><p>Using both <code>after_create_commit</code> and <code>after_update_commit</code> in the same model will only allow the last callback defined to take effect, and will override all others.</p></div><div class="code_container">
+<div class="warning"><p>트랜잭션이 완료되면 해당 트랜잭션 내에서 생성, 업데이트 또는 삭제된 모든 모델에 대해 <code>after_commit</code> 또는 <code>after_rollback</code> 콜백이 호출된다. 그러나 이러한 콜백 중 하나에서 예외가 발생하면 예외가 파급되어 나머지 <code>after_commit</code> 또는<code>after_rollback</code> 메소드는 실행되지 <em>않게</em> 된다. 따라서 콜백 코드에서 예외가 발생할 수 있는 경우 다른 콜백을 실행하려면 이를 구조화하고 콜백 내에서 처리해야 한다.</p></div><div class="warning"><p><code>after_commit</code> 또는 <code>after_rollback</code> 콜백 내에서 실행되는 코드 자체는 트랜잭션 내에 포함되지 않는다.</p></div><div class="warning"><p>동일한 모델에서 <code>after_create_commit</code> 과 <code>after_update_commit</code> 를 모두 사용하면 정의된 마지막 콜백만 적용되고 다른 콜백은 모두 무시된다.</p></div><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: false">
 class User &lt; ApplicationRecord
   after_create_commit :log_user_saved_to_db
@@ -637,7 +633,7 @@ end
 
 </pre>
 </div>
-<p>There is also an alias for using the <code>after_commit</code> callback for both create and update together:</p>
+<p>create 와 update를 함께 사용하기 위한 <code>after_commit</code> 콜백 별명도 있다.</p>
 <ul>
 <li><code>after_save_commit</code></li>
 </ul>
@@ -662,7 +658,7 @@ end
 
 </pre>
 </div>
-
+<p>초벌번역 : 2019-10-24 시작 2019-10-25 종료</p>
 
         <h3>피드백</h3>
         <p>
